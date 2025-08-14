@@ -1,190 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PandAI — O Futuro das Memecoins Inteligentes</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PandAI - O Futuro das Memecoins Inteligentes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#0a0f14;          /* fundo geral */
-      --panel:#0f1620;       /* cards */
-      --cyan:#00f0ff;        /* primária */
-      --orange:#ff9900;      /* secundária */
-      --text:#e6f4f1;        /* texto claro */
-      --muted:#9fb2b6;       /* texto suave */
-      --radius:14px;
-      --shadow:0 10px 30px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.03);
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0a0a0a;
+      color: #fff;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;font-family:'Orbitron',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);}
-
-    /* ===== header ===== */
-    header{position:fixed;inset:0 0 auto 0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:linear-gradient(180deg,rgba(0,0,0,.66),rgba(0,0,0,.25));backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.06);z-index:50}
-    .brand{display:flex;gap:12px;align-items:center}
-    .brand .logo{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#0e151d;box-shadow:var(--shadow)}
-    .brand b{letter-spacing:.5px}
-    nav a{color:var(--cyan);text-decoration:none;margin:0 12px;opacity:.9;transition:.2s}
-    nav a:hover{opacity:1;color:#aafcff}
-    .cta{display:flex;gap:10px}
-    .btn{appearance:none;border:1.5px solid var(--cyan);background:transparent;color:var(--cyan);padding:10px 16px;border-radius:999px;font-weight:700;letter-spacing:.4px;cursor:pointer;transition:.25s}
-    .btn:hover{background:var(--cyan);color:#001317;box-shadow:0 0 24px rgba(0,240,255,.35)}
-
-    /* ===== hero ===== */
-    .hero{min-height:100svh;padding-top:72px;display:grid;place-items:center;position:relative;overflow:hidden}
-    .hero::before{ /* imagem do panda no fundo (coloque panda-hero.jpg na raiz do repo) */
-      content:"";position:absolute;inset:0;background:
-        linear-gradient(180deg,rgba(10,15,20,.4),rgba(10,15,20,.85)),
-        url('panda-hero.jpg') center/cover no-repeat;
-      filter:saturate(1.05) contrast(1.02);
-      z-index:-2
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(0,0,0,0.7);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
     }
-    .hero::after{ /* grade neon sutil */
-      content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 50% 30%,rgba(0,240,255,.18),transparent 60%);
-      z-index:-1
+    nav a {
+      color: #00f0ff;
+      text-decoration: none;
+      margin: 0 15px;
+      transition: 0.3s;
     }
-    .hero-inner{max-width:1100px;padding:28px;display:grid;grid-template-columns:1.2fr .8fr;gap:28px}
-    @media (max-width:960px){.hero-inner{grid-template-columns:1fr}}
-    .glass{background:rgba(15,22,32,.55);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .hero-copy{padding:28px 28px 34px}
-    h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);line-height:1.05;color:var(--cyan);text-shadow:0 0 22px rgba(0,240,255,.35)}
-    .sub{color:var(--muted);margin:6px 0 18px}
-
-    .stat{display:flex;gap:18px;margin-top:14px;color:#bfeaec}
-    .stat div{background:rgba(0,240,255,.08);border:1px solid rgba(0,240,255,.22);padding:10px 14px;border-radius:10px}
-
-    .hero-card{padding:18px}
-    .mini{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .mini .tile{background:rgba(14,21,29,.65);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px;text-align:center}
-
-    section{max-width:1100px;margin:70px auto;padding:0 28px}
-    .panel{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px}
-    h2{margin:0 0 12px;font-size:28px}
-
-    /* Tokenomics chart (SVG) */
-    .token-wrap{display:grid;grid-template-columns:320px 1fr;gap:26px;align-items:center}
-    @media (max-width:960px){.token-wrap{grid-template-columns:1fr}}
-    .legend{display:grid;gap:10px}
-    .badge{display:inline-flex;align-items:center;gap:10px}
-    .dot{width:12px;height:12px;border-radius:50%}
-
-    /* Roadmap */
-    .road{display:grid;gap:16px;margin-top:10px}
-    .step{display:grid;grid-template-columns:26px 1fr;gap:12px;align-items:start}
-    .step i{width:26px;height:26px;border-radius:50%;background:var(--cyan);box-shadow:0 0 20px rgba(0,240,255,.35)}
-
-    /* Comunidade */
-    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-    @media (max-width:680px){.grid{grid-template-columns:1fr}}
-    .card{padding:18px;text-align:center;border-radius:12px;background:rgba(14,21,29,.65);border:1px solid rgba(255,255,255,.06)}
-
-    footer{margin:60px 0 30px;text-align:center;color:var(--muted)}
-    footer a{color:var(--cyan);text-decoration:none}
+    nav a:hover {
+      color: #ff9900;
+    }
+    .hero {
+      background: url('https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/98c793ff-d969-4890-9a1e-129545fcf66f.png') no-repeat center center;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+    .hero p {
+      font-size: 1.5em;
+      max-width: 600px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.9);
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      font-size: 0.9em;
+    }
   </style>
 </head>
 <body>
-  <!-- HEADER -->
   <header>
-    <div class="brand">
-      <div class="logo">🐼</div>
-      <b>PandAI</b>
-    </div>
+    <div class="logo">PandAI</div>
     <nav>
+      <a href="#home">Início</a>
       <a href="#sobre">Sobre</a>
-      <a href="#tokenomics">Tokenomics</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#comunidade">Comunidade</a>
-      <a href="#whitepaper">Whitepaper</a>
+      <a href="#contato">Contato</a>
     </nav>
-    <div class="cta">
-      <button class="btn">Comprar</button>
-      <button class="btn" style="border-color:var(--orange);color:var(--orange)">GeckoTerminal</button>
-    </div>
   </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-copy glass">
-        <h1>O futuro das memecoins inteligentes</h1>
-        <p class="sub">Tecnologia, comunidade e propósito em um só token. Segurança, transparência e visual que brilha neon.</p>
-        <div class="cta">
-          <button class="btn">🚀 Comprar PandAI</button>
-          <button class="btn">📄 Whitepaper</button>
-        </div>
-        <div class="stat">
-          <div>Taxa: 6% Buy / 6% Sell</div>
-          <div>Contrato renunciado</div>
-        </div>
-      </div>
-      <div class="hero-card glass">
-        <div class="mini">
-          <div class="tile">🔥 Primeira queima aos 250 holders</div>
-          <div class="tile">🛡️ Liquidez bloqueada</div>
-          <div class="tile">🤝 Comunidade ativa</div>
-          <div class="tile">🧠 Parcerias AI</div>
-        </div>
-      </div>
-    </div>
+  <section class="hero" id="home">
+    <h1>O Futuro das Memecoins Inteligentes</h1>
+    <p>Bem-vindo ao PandAI — unindo inteligência artificial e blockchain para criar a próxima geração de memecoins.</p>
   </section>
-
-  <!-- SOBRE -->
-  <section id="sobre">
-    <div class="panel">
-      <h2>Sobre o PandAI</h2>
-      <p class="sub">Unimos utilidade real, estética cyberpunk e uma comunidade forte para construir um ecossistema duradouro.</p>
-    </div>
-  </section>
-
-  <!-- TOKENOMICS -->
-  <section id="tokenomics">
-    <div class="panel token-wrap">
-      <svg viewBox="0 0 42 42" width="260" height="260" aria-label="gráfico">
-        <!-- círculo base -->
-        <circle cx="21" cy="21" r="15.915" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="4"/>
-        <!-- 35% Liquidity -->
-        <circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--cyan)" stroke-width="4" stroke-dasharray="35 65" stroke-dashoffset="25"/>
-        <!-- 35% Marketing -->
-        <circle cx="21" cy="21" r="15.915" fill="none" stroke="#66ffe8" stroke-width="4" stroke-dasharray="35 65" stroke-dashoffset="-10"/>
-        <!-- 30% Holders -->
-        <circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--orange)" stroke-width="4" stroke-dasharray="30 70" stroke-dashoffset="-45"/>
-      </svg>
-      <div class="legend">
-        <div class="badge"><span class="dot" style="background:var(--cyan)"></span>Liquidity — 35%</div>
-        <div class="badge"><span class="dot" style="background:#66ffe8"></span>Marketing — 35%</div>
-        <div class="badge"><span class="dot" style="background:var(--orange)"></span>Holders Rewards — 30%</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ROADMAP -->
-  <section id="roadmap">
-    <div class="panel">
-      <h2>Roadmap</h2>
-      <div class="road">
-        <div class="step"><i></i><div><b>Fase 1</b> — Lançamento e branding. Site, socials e primeiras listagens.</div></div>
-        <div class="step"><i></i><div><b>Fase 2</b> — Listagem em agregadores e ações da comunidade (quizzes, raids orgânicas).</div></div>
-        <div class="step"><i></i><div><b>Fase 3</b> — Parcerias, utilidades AI e expansão de holders.</div></div>
-        <div class="step"><i></i><div><b>Fase 4</b> — Ecossistema com novas features e governança.</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COMUNIDADE -->
-  <section id="comunidade">
-    <div class="panel">
-      <h2>Comunidade</h2>
-      <div class="grid">
-        <div class="card">Telegram</div>
-        <div class="card">Twitter / X</div>
-        <div class="card">Discord</div>
-      </div>
-    </div>
-  </section>
-
   <footer>
-    © 2024 PandAI — Contrato: <a href="#">0x0F3E294B699E88848EA1CCdDEBCF977E95CB49B8</a>
+    &copy; 2025 PandAI. Todos os direitos reservados.
   </footer>
 </body>
 </html>
