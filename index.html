@@ -38,6 +38,16 @@
     .cta{display:flex;gap:12px;flex-wrap:wrap}
     .cta .s{border-color:#6cf; color:#6cf}
 
+    /* FIGURA ADICIONAL (2ª IMAGEM) */
+    .hero-figure{
+      position:absolute;right:clamp(8px,4vw,42px);bottom:clamp(10px,8vh,80px);
+      width:min(42vw,520px);max-width:48%;
+      filter:drop-shadow(0 12px 28px rgba(0,240,255,.35)) saturate(1.05);
+      animation:floaty 6s ease-in-out infinite alternate;
+      pointer-events:none;user-select:none;
+    }
+    @keyframes floaty{from{transform:translateY(0)}to{transform:translateY(-6px)}}
+
     /* GRID SECTIONS */
     section{max-width:1180px;margin:70px auto;padding:0 28px}
     .panel{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:var(--r);box-shadow:var(--shadow);padding:26px}
@@ -108,6 +118,9 @@
         </div>
       </div>
     </div>
+
+    <!-- 2ª imagem posicionada com glow -->
+    <img class="hero-figure" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ChatGPT%20Image%2014%20de%20ago.%20de%202025%2C%2020_42_02.png" alt="PandAI" />
   </section>
 
   <!-- SOBRE -->
@@ -123,11 +136,8 @@
     <div class="panel token-wrap">
       <svg viewBox="0 0 42 42" width="300" height="300" aria-label="gráfico">
         <circle cx="21" cy="21" r="15.915" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="4"/>
-        <!-- 35% Liquidity -->
         <circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--cyan-strong)" stroke-width="4" stroke-dasharray="35 65" stroke-dashoffset="25"/>
-        <!-- 35% Marketing -->
         <circle cx="21" cy="21" r="15.915" fill="none" stroke="#6cf" stroke-width="4" stroke-dasharray="35 65" stroke-dashoffset="-10"/>
-        <!-- 30% Holders -->
         <circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--orange)" stroke-width="4" stroke-dasharray="30 70" stroke-dashoffset="-45"/>
       </svg>
       <div class="legend">
