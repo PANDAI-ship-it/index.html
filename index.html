@@ -12,16 +12,13 @@
       --cyan:#7cf8ff; --cyan-strong:#00f0ff; --cyan-soft:#6cf;
       --orange:#ff9900; --line:rgba(255,255,255,.08);
       --r:18px; --shadow:0 10px 30px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.04);
-
-      /* ajuste fino do enquadramento do vídeo */
-      --hero-x:50%;
-      --hero-y:28%;
+      --hero-x:50%; --hero-y:28%;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{margin:0;background:var(--bg);color:var(--text);font-family:'Orbitron',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
 
-    /* ===== HEADER ===== */
+    /* HEADER */
     .header{
       position:fixed; inset:0 0 auto 0; height:78px; z-index:50;
       display:flex; align-items:center; justify-content:space-between;
@@ -39,7 +36,7 @@
     }
     .btn:hover{background:var(--cyan-strong);color:#001317;box-shadow:0 0 24px rgba(0,240,255,.32)}
 
-    /* ===== HERO com VÍDEO de fundo ===== */
+    /* HERO */
     .hero{ position:relative; min-height:94vh; padding-top:78px; overflow:hidden; border-bottom:1px solid var(--line); }
     .hero-video{
       position:absolute; inset:0; width:100%; height:100%;
@@ -59,7 +56,7 @@
     .cta{ display:flex; gap:12px; flex-wrap:wrap }
     .cta .s{ border-color:var(--cyan-soft); color:var(--cyan-soft) }
 
-    /* ===== SEÇÕES ===== */
+    /* SEÇÕES */
     section.sec{ max-width:1220px; margin:52px auto 68px; padding:0 32px }
     .panel{ background:var(--panel); border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--shadow); padding:26px }
     h2{ margin:0 0 14px; font-size:28px; color:var(--cyan) }
@@ -68,12 +65,11 @@
     @media (max-width:900px){ .cards{ grid-template-columns:1fr } }
     .card{ background:rgba(14,22,31,.72); border:1px solid var(--line); border-radius:14px; padding:18px }
 
-    /* cartão de vídeo (direita em “Sobre”) */
     .card.media{padding:0; overflow:hidden; border-radius:14px}
     .card-video{width:100%; height:100%; display:block; object-fit:cover; background:#000; aspect-ratio:16/9}
     @media (min-width:900px){.card-video{height:420px; aspect-ratio:auto}}
 
-    /* ===== ROADMAP (estilo base + neon) ===== */
+    /* ROADMAP (neon) */
     #roadmap .roadmap-head{
       font-size: 2rem; color: var(--cyan); margin:0 0 6px;
       text-shadow:0 0 10px rgba(0,240,255,.25);
@@ -102,7 +98,6 @@
     .rm-list li b{ color:var(--cyan) }
     .rm-highlight{ display:block; margin-top:6px; font-weight:800; color:var(--orange); text-shadow:0 0 14px rgba(255,153,0,.28); }
 
-    /* === ÍCONES ANIMADOS DO ROADMAP === */
     .rm-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px; }
     .rm-left { display:flex; align-items:center; gap:12px; }
     .rm-icon {
@@ -114,12 +109,13 @@
     .rm-icon .stroke { stroke:#00f9ff; stroke-width:2.2; fill:none; }
     .rm-icon .glow  { stroke:rgba(0,249,255,.45); stroke-width:6; filter:blur(4px); }
     @keyframes floatY { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-4px) } }
+
     .rm-phase[data-ico="rocket"]  .rm-icon { animation-duration: 3.2s; }
     .rm-phase[data-ico="chip"]    .rm-icon { animation-duration: 3.8s; }
     .rm-phase[data-ico="diamond"] .rm-icon { animation-duration: 3.0s; }
     .rm-phase[data-ico="planet"]  .rm-icon { animation-duration: 4.0s; }
 
-    /* ===== TOKENOMICS (neon/cyberpunk) ===== */
+    /* TOKENOMICS bloco (se já tiver outro, pode remover esta parte) */
     #tokenomics {
       padding: 60px 20px;
       background: linear-gradient(180deg, rgba(10, 20, 30, 0.9) 0%, rgba(5, 10, 20, 0.9) 100%);
@@ -127,30 +123,19 @@
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
-    .token-head {
-      font-size: 2.2rem; text-align: center; color: var(--cyan);
-      text-shadow: 0 0 10px rgba(0,240,255,.25); margin: 0 0 6px;
-    }
-    .token-sub { text-align: center; margin-bottom: 28px; font-size: 1.05rem; color: var(--muted); }
-    .token-grid {
-      display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px;
-      max-width: 1220px; margin: 0 auto;
-    }
+    .token-head { font-size: 2.2rem; text-align:center; color: var(--cyan); text-shadow: 0 0 10px rgba(0,240,255,.25); margin: 0 0 6px; }
+    .token-sub  { text-align:center; margin-bottom: 28px; font-size: 1.05rem; color: var(--muted); }
+    .token-grid { display:grid; grid-template-columns: 1.1fr 1fr; gap: 20px; max-width: 1220px; margin: 0 auto; }
     @media (max-width: 980px){ .token-grid { grid-template-columns: 1fr; } }
-    .token-card {
+    .token-card{
       background: rgba(0, 10, 20, 0.85);
       border: 1px solid rgba(0, 249, 255, 0.35);
       border-radius: 14px; padding: 20px;
       box-shadow: 0 0 15px rgba(0, 249, 255, 0.25), var(--shadow);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .token-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 25px rgba(0, 249, 255, 0.5), inset 0 0 0 1px rgba(0,249,255,.2);
-    }
-    .token-card h3 {
-      color: var(--cyan); margin: 0 0 10px; font-size: 1.1rem; letter-spacing: .2px;
-    }
+    .token-card:hover { transform: translateY(-4px); box-shadow: 0 0 25px rgba(0, 249, 255, 0.5), inset 0 0 0 1px rgba(0,249,255,.2); }
+    .token-card h3 { color: var(--cyan); margin: 0 0 10px; font-size: 1.1rem; letter-spacing: .2px; }
     .token-card ul { padding-left: 18px; margin: 0; color: #cfe9ec; }
     .token-card ul li { margin: 6px 0; }
     .token-meta { display: grid; gap: 8px; color: #cfe9ec; }
@@ -166,50 +151,51 @@
       padding: 6px 10px; border-radius: 10px; font-weight: 800; cursor: pointer;
     }
     .copy-btn:hover { background: var(--cyan-strong); color: #001317; box-shadow: 0 0 16px rgba(0,240,255,.3); }
-
     .token-burn { background: rgba(255,153,0,.06); border: 1px dashed rgba(255,153,0,.45); }
     .token-burn h3 { color: var(--orange); }
     .token-burn ul li b { color: var(--orange); }
 
-    /* ===== PLANO DE DESENVOLVIMENTO ===== */
-    .phase-grid{ display:grid; gap:18px; grid-template-columns:1fr 1fr }
-    @media (max-width:980px){ .phase-grid{ grid-template-columns:1fr } }
-    .phase{ background:rgba(14,22,31,.72); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); padding:18px }
-    .phase h3{ margin:0 0 6px; font-size:22px; color:var(--cyan); display:flex; align-items:center; gap:10px }
-    .burns{ display:grid; gap:10px; margin-top:10px }
-    .burn{ display:flex; align-items:center; justify-content:space-between; border:1px dashed rgba(255,153,0,.35); background:rgba(255,153,0,.06); padding:10px 12px; border-radius:10px }
-    .burn b{ color:var(--orange) }
-  .highlight{ color:var(--cyan-strong); text-shadow:0 0 16px rgba(0,240,255,.25); font-weight:800 }
+    /* ===== NFTs EXCLUSIVOS ===== */
+    #nfts { padding:60px 20px; border-top:1px solid var(--line); }
+    #nfts .nfts-head{
+      margin:0 0 6px; font-size:28px; color:var(--cyan);
+      text-shadow:0 0 14px rgba(0,240,255,.28);
+    }
+    #nfts .nfts-sub{ color:var(--muted); margin:0 0 24px; }
+    .nft-grid{
+      max-width:1220px; margin:0 auto;
+      display:grid; gap:18px;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+    }
+    @media (max-width:1100px){ .nft-grid{ grid-template-columns:repeat(3,1fr); } }
+    @media (max-width:800px){ .nft-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:520px){ .nft-grid{ grid-template-columns:1fr; } }
+    .nft-card{
+      background:rgba(14,22,31,.72);
+      border:1px solid var(--line);
+      border-radius:14px; overflow:hidden;
+      box-shadow:var(--shadow);
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .nft-card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(0,240,255,.35);
+      box-shadow:0 0 26px rgba(0,240,255,.4), inset 0 0 0 1px rgba(255,255,255,.05);
+    }
+    .nft-img-wrap{ position:relative; aspect-ratio:1/1; background:#061019; }
+    .nft-img-wrap img{ width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.03) contrast(1.02); }
+    .nft-meta{ padding:12px 14px; display:flex; align-items:center; justify-content:space-between; gap:10px; }
+    .nft-title{ font-weight:800; color:#cfe9ec; letter-spacing:.2px; }
+    .nft-badge{
+      border:1px solid #6cf; color:#6cf; font-size:12px; font-weight:800;
+      padding:4px 8px; border-radius:999px; box-shadow:0 0 14px rgba(108,204,255,.25);
+    }
 
-  /* === SOCIAL ICON BUTTONS (neon/cyberpunk) === */
-.socials-row{
-  display:flex; flex-wrap:wrap; gap:14px; justify-content:center; align-items:center;
-}
-
-.icon-btn{
-  display:inline-flex; align-items:center; gap:10px;
-  padding:10px 14px; border-radius:14px;
-  background: rgba(0, 20, 30, .55);
-  border:1.5px solid rgba(0,249,255,.35);
-  box-shadow: 0 0 14px rgba(0,249,255,.25), inset 0 0 0 1px rgba(255,255,255,.04);
-  text-decoration:none; color:#cfe9ec; font-weight:800; letter-spacing:.2px;
-  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
-}
-.icon-btn:hover{
-  transform: translateY(-2px);
-  background: rgba(0, 249, 255, .10);
-  box-shadow: 0 0 26px rgba(0,249,255,.45), inset 0 0 0 1px rgba(0,249,255,.25);
-}
-
-.icon-btn svg{ width:26px; height:26px; display:block; }
-.icon-btn .fill { fill:#00f9ff; filter: drop-shadow(0 0 6px rgba(0,249,255,.6)); }
-.icon-btn .stroke{ stroke:#00f9ff; stroke-width:2.2; fill:none; filter: drop-shadow(0 0 6px rgba(0,249,255,.6)); }
-
-/* variações sutis por marca (apenas no hover) */
-.icon-btn.tg:hover { box-shadow: 0 0 28px rgba(0,249,255,.6); }
-.icon-btn.x:hover  { box-shadow: 0 0 28px rgba(180,220,255,.6); }
-.icon-btn.tt:hover { box-shadow: 0 0 28px rgba(255,120,220,.55), 0 0 20px rgba(0,250,255,.35); }
-
+    /* SOCIAL BUTTONS (seção Comunidade antiga) */
+    .grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px }
+    @media (max-width:680px){ .grid{ grid-template-columns:1fr } }
+    .soc{ padding:18px; text-align:center; border-radius:12px; background:rgba(14,22,31,.7); border:1px solid var(--line) }
+    .soc img{ max-width:84px; display:block; margin:8px auto 6px; filter:drop-shadow(0 0 18px rgba(0,240,255,.35)) }
 
     /* FOOTER */
     .footer{ margin:60px 0 30px; text-align:center; color:var(--muted) }
@@ -218,7 +204,7 @@
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
+  <!-- HEADER -->
   <header class="header">
     <div class="brand">
       <div class="logo">🐼</div>
@@ -228,13 +214,13 @@
       <a href="#home">Home</a>
       <a href="#tokenomics">Tokenomics</a>
       <a href="#roadmap">Roadmap</a>
-      <a href="#plano">Plano</a>
+      <a href="#nfts">NFTs</a>
       <a href="#comunidade">Comunidade</a>
     </nav>
     <button class="btn">Comprar</button>
   </header>
 
-  <!-- ===== HERO COM VÍDEO ===== -->
+  <!-- HERO -->
   <section id="home" class="hero">
     <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/98c793ff-d969-4890-9a1e-129545fcf66f.png">
       <source src="grok_video_2025-08-14-21-50-37.mp4" type="video/mp4" />
@@ -259,7 +245,7 @@
     </div>
   </section>
 
-  <!-- ===== SOBRE ===== -->
+  <!-- SOBRE -->
   <section id="sobre" class="sec">
     <div class="panel">
       <h2>SOBRE O PAND-AI</h2>
@@ -280,13 +266,12 @@
     </div>
   </section>
 
-  <!-- ===== TOKENOMICS ===== -->
+  <!-- TOKENOMICS -->
   <section id="tokenomics" class="sec">
     <h2 class="token-head">Tokenomics</h2>
     <p class="token-sub">Economia do token $PANDAI projetada para sustentabilidade e crescimento</p>
 
     <div class="token-grid">
-      <!-- Coluna esquerda: Utilidades + Queimas -->
       <div class="token-card">
         <h3>Utilidades do Token</h3>
         <ul>
@@ -310,7 +295,6 @@
         </div>
       </div>
 
-      <!-- Coluna direita: Infos gerais + Contrato -->
       <div class="token-card">
         <h3>Informações Gerais</h3>
         <div class="token-meta">
@@ -337,7 +321,7 @@
     </div>
   </section>
 
-  <!-- ===== ROADMAP (com ícones animados) ===== -->
+  <!-- ROADMAP -->
   <section id="roadmap" class="sec">
     <div class="panel">
       <h2 class="roadmap-head">Roadmap</h2>
@@ -345,7 +329,6 @@
 
       <div class="roadmap-grid">
 
-        <!-- Fase 1 — Lançamento e Base -->
         <div class="rm-phase" data-ico="rocket">
           <div class="rm-top">
             <div class="rm-left">
@@ -363,13 +346,12 @@
             <li>Desenvolvimento do site e documentação</li>
             <li>Criação do sistema de geração de memes</li>
             <li>Lançamento da plataforma básica</li>
-            <li>Construção de comunidade em <b>Telegram</b>, <b>Twitter</b> e <b>Discord</b></li>
+            <li>Comunidade em <b>Telegram</b>, <b>Twitter</b> e <b>Discord</b></li>
             <li>Campanhas virais e crescimento em mídias sociais</li>
-            <li class="rm-highlight">Meta: alcançar 10.000 holders e realizar uma grande queima</li>
+            <li class="rm-highlight">Meta: 10.000 holders + queima especial</li>
           </ul>
         </div>
 
-        <!-- Fase 2 — Expansão e IA -->
         <div class="rm-phase" data-ico="chip">
           <div class="rm-top">
             <div class="rm-left">
@@ -391,7 +373,6 @@
           </ul>
         </div>
 
-        <!-- Fase 3 — NFT e Monetização -->
         <div class="rm-phase" data-ico="diamond">
           <div class="rm-top">
             <div class="rm-left">
@@ -406,14 +387,13 @@
             <span class="q-badge">Q1 2026</span>
           </div>
           <ul class="rm-list">
-            <li>Geração de vídeos através de templates</li>
+            <li>Geração de vídeos via templates</li>
             <li>Marketplace de NFTs de memes</li>
             <li>Sistema de staking</li>
-            <li>Integração com mais blockchains</li>
+            <li>Integração multi-chain</li>
           </ul>
         </div>
 
-        <!-- Fase 4 — Ecossistema Completo -->
         <div class="rm-phase" data-ico="planet">
           <div class="rm-top">
             <div class="rm-left">
@@ -439,105 +419,83 @@
     </div>
   </section>
 
-  <!-- ===== PLANO DE DESENVOLVIMENTO ===== -->
-  <section id="plano" class="sec">
+  <!-- NFTs EXCLUSIVOS -->
+  <section id="nfts" class="sec">
     <div class="panel">
-      <h2>Plano de Desenvolvimento PandAI</h2>
-      <p class="sub">Rumo ao sucesso: fases claras, metas objetivas e execução consistente.</p>
+      <h2 class="nfts-head">NFTs Exclusivos</h2>
+      <p class="nfts-sub">Coleção oficial do PandAI no estilo cyberpunk — peças únicas para a comunidade.</p>
 
-      <div class="phase-grid">
-        <div class="phase">
-          <h3>🚀 Fase 1 — Lançamento & Consolidação</h3>
-          <span class="badge">Dia 4 — Primeiras 24h</span>
-          <p>Momento crítico para um lançamento sólido e bem-sucedido. Foco em <span class="highlight">liquidez, confiança e comunicação</span>.</p>
-          <ul>
-            <li>Site e canais oficiais ativos</li>
-            <li>Liquidez inicial e monitoramento</li>
-            <li>Onboarding da comunidade inicial</li>
-          </ul>
-        </div>
-
-        <div class="phase">
-          <h3>📈 Fase 2 — Expansão & Comunidade</h3>
-          <span class="badge">Pós 24 horas</span>
-          <p>Campanhas e marcos para crescer de forma saudável.</p>
-          <ul>
-            <li><b>Marketing de Influência</b> com criadores no cenário cripto</li>
-            <li>Engajamento em X/Telegram/Discord</li>
-          </ul>
-          <div class="burns">
-            <div class="burn"><div>🎯 <b>Meta 1</b> — <b>250 Holders</b></div><div><b>Queima: 25.000.000</b> de tokens</div></div>
-            <div class="burn"><div>🎯 <b>Meta 2</b> — <b>500 Holders</b></div><div><b>Queima: 25.000.000</b> de tokens</div></div>
+      <div class="nft-grid">
+        <article class="nft-card">
+          <div class="nft-img-wrap">
+            <img src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/411e3114-10ad-453a-a37e-651b8046817e.png" alt="PandAI — NFT 01" loading="lazy">
           </div>
-        </div>
+          <div class="nft-meta">
+            <span class="nft-title">PandAI #001</span>
+            <span class="nft-badge">1/1</span>
+          </div>
+        </article>
 
-        <div class="phase">
-          <h3>🌍 Fase 3 — Credibilidade & Alcance Global</h3>
-          <span class="badge">Listagens</span>
-          <p>Consolidação da presença pública em dados e rankings.</p>
-          <ul>
-            <li><b>CoinMarketCap (CMC)</b>: preparar requisitos e volume</li>
-            <li><b>CoinGecko</b>: ampliar visibilidade e marketing orgânico</li>
-            <li>Meta de <b>1.000 holders</b> para suporte de listagem</li>
-          </ul>
-        </div>
+        <article class="nft-card">
+          <div class="nft-img-wrap">
+            <img src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/8e677e2d-e533-4c76-b9cc-34e2e366ff06.png" alt="PandAI — NFT 02" loading="lazy">
+          </div>
+          <div class="nft-meta">
+            <span class="nft-title">PandAI #002</span>
+            <span class="nft-badge">1/1</span>
+          </div>
+        </article>
 
-        <div class="phase">
-          <h3>🧭 Fase 4 — Futuro Contínuo</h3>
-          <span class="badge">Crescimento Sustentável</span>
-          <p>Lançamento e listagens são só o começo. Manteremos <span class="highlight">marketing global ativo</span>, evolução do produto e recompensas à comunidade fundadora.</p>
-          <ul>
-            <li>Parcerias, utilidades e melhorias contínuas</li>
-            <li>Governança e ferramentas de comunidade</li>
-            <li>Métricas e analytics para decisões com dados</li>
-          </ul>
+        <article class="nft-card">
+          <div class="nft-img-wrap">
+            <img src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ac2b3c1f-c686-4cc7-9dc3-9da743b115e9.png" alt="PandAI — NFT 03" loading="lazy">
+          </div>
+          <div class="nft-meta">
+            <span class="nft-title">PandAI #003</span>
+            <span class="nft-badge">1/1</span>
+          </div>
+        </article>
+
+        <article class="nft-card">
+          <div class="nft-img-wrap">
+            <img src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/e2b195d7-5dd2-4238-86e4-c2c5a616263d.png" alt="PandAI — NFT 04" loading="lazy">
+          </div>
+          <div class="nft-meta">
+            <span class="nft-title">PandAI #004</span>
+            <span class="nft-badge">1/1</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMUNIDADE (ícones simples) -->
+  <section id="comunidade" class="sec">
+    <div class="panel">
+      <h2>COMUNIDADE</h2>
+      <div class="grid">
+        <div class="soc">
+          <img src="img/telegram-neon.png" alt="Telegram">
+          Telegram
+        </div>
+        <div class="soc">
+          <img src="img/twitter-neon.png" alt="Twitter / X">
+          Twitter / X
+        </div>
+        <div class="soc">
+          <img src="img/discord-neon.png" alt="Discord">
+          Discord
         </div>
       </div>
     </div>
   </section>
 
- <!-- ===== COMUNIDADE ===== -->
-<section id="comunidade" class="sec">
-  <div class="panel">
-    <h2>COMUNIDADE</h2>
-    <p class="sub">Entre nos canais oficiais e faça parte da tropa do Pand-AI.</p>
-
-    <div class="socials-row">
-      <!-- TELEGRAM -->
-      <a class="icon-btn tg" href="https://t.me/pandai_token" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path class="fill" d="M22 2L2.9 9.2c-.9.34-.87 1.64.03 1.94l5.1 1.77 2 6.33c.27.86 1.38 1.1 1.95.41l2.8-3.39 4.9 3.65c.69.52 1.68.14 1.86-.7L23.98 3.2C24.2 2.24 23.07 1.63 22 2zM8.7 12.1l9.7-6.04-7.55 7.6-.3 3.46-1.85-5.02z"/>
-        </svg>
-        <span>Telegram</span>
-      </a>
-
-      <!-- X / TWITTER -->
-      <a class="icon-btn x" href="https://x.com/Coin_PandAI" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path class="stroke" d="M3 3l18 18M21 3 3 21"/>
-        </svg>
-        <span>Twitter / X</span>
-      </a>
-
-      <!-- TIKTOK (link correto que você enviou) -->
-      <a class="icon-btn tt" href="https://www.tiktok.com/@coin_pandai?_t=ZM-8yu02KTwwL7&_r=1" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path class="fill" d="M14.5 3v6.2c-1-.6-2.1-.9-3.2-.9-3.1 0-5.6 2.4-5.6 5.4S8.2 19 11.3 19c2.5 0 4.6-1.6 5.2-3.9.1-.4.2-.8.2-1.3V9.6c.9.8 2.1 1.3 3.3 1.4V8.2c-1.7-.2-3.1-1.2-3.8-2.7-.3-.6-.6-1.5-.7-2.5h-1.9zM9 13.7c0-1.3 1.1-2.3 2.4-2.3.6 0 1.2.2 1.7.6v1.7c0 1.6-1.3 2.9-3 2.9-1.2 0-2.1-1-2.1-2.3z"/>
-        </svg>
-        <span>TikTok</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-
-  <!-- ===== FOOTER ===== -->
+  <!-- FOOTER -->
   <footer class="footer">
-    <div>Home • Comprar • Tokenomics • Roadmap — Smart contract: <a href="#">0x0478A9</a></div>
+    <div>Home • Comprar • Tokenomics • Roadmap • NFTs — Smart contract: <a href="#">0x0478A9</a></div>
     <div style="margin-top:6px">© 2025 Pand-AI. Todos os direitos reservados.</div>
   </footer>
 
-  <!-- JS: Copiar contrato -->
   <script>
     function copyContract(){
       const el = document.getElementById('contract');
@@ -551,5 +509,3 @@
   </script>
 </body>
 </html>
-
-
