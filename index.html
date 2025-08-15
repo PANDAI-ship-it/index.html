@@ -73,32 +73,17 @@
     .card-video{width:100%; height:100%; display:block; object-fit:cover; background:#000; aspect-ratio:16/9}
     @media (min-width:900px){.card-video{height:420px; aspect-ratio:auto}}
 
-    /* TOKENOMICS */
-    .token-wrap{ display:grid; grid-template-columns:360px 1fr; gap:28px; align-items:center }
-    @media (max-width:980px){ .token-wrap{ grid-template-columns:1fr } }
-    .legend{ display:grid; gap:10px }
-    .badge{ display:inline-flex; align-items:center; gap:10px }
-    .dot{ width:12px; height:12px; border-radius:50% }
-
     /* ===== ROADMAP (estilo base + neon) ===== */
     #roadmap .roadmap-head{
-      font-size: 2rem;
-      color: var(--cyan);
-      margin:0 0 6px;
+      font-size: 2rem; color: var(--cyan); margin:0 0 6px;
       text-shadow:0 0 10px rgba(0,240,255,.25);
     }
     #roadmap .roadmap-sub{ color: var(--muted); margin:0 0 18px }
-    .roadmap-grid{
-      display:grid; gap:18px;
-      grid-template-columns:1fr 1fr;
-    }
+    .roadmap-grid{ display:grid; gap:18px; grid-template-columns:1fr 1fr; }
     @media (max-width:980px){ .roadmap-grid{ grid-template-columns:1fr } }
     .rm-phase{
-      background:rgba(14,22,31,.72);
-      border:1px solid var(--line);
-      border-radius:14px;
-      box-shadow:var(--shadow);
-      padding:18px 18px 14px;
+      background:rgba(14,22,31,.72); border:1px solid var(--line); border-radius:14px;
+      box-shadow:var(--shadow); padding:18px 18px 14px;
       transition: transform .3s ease, box-shadow .3s ease;
     }
     .rm-phase:hover{
@@ -134,7 +119,59 @@
     .rm-phase[data-ico="diamond"] .rm-icon { animation-duration: 3.0s; }
     .rm-phase[data-ico="planet"]  .rm-icon { animation-duration: 4.0s; }
 
-    /* ===== PLANO DE DESENVOLVIMENTO (CSS) ===== */
+    /* ===== TOKENOMICS (neon/cyberpunk) ===== */
+    #tokenomics {
+      padding: 60px 20px;
+      background: linear-gradient(180deg, rgba(10, 20, 30, 0.9) 0%, rgba(5, 10, 20, 0.9) 100%);
+      color: #00f9ff;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .token-head {
+      font-size: 2.2rem; text-align: center; color: var(--cyan);
+      text-shadow: 0 0 10px rgba(0,240,255,.25); margin: 0 0 6px;
+    }
+    .token-sub { text-align: center; margin-bottom: 28px; font-size: 1.05rem; color: var(--muted); }
+    .token-grid {
+      display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px;
+      max-width: 1220px; margin: 0 auto;
+    }
+    @media (max-width: 980px){ .token-grid { grid-template-columns: 1fr; } }
+    .token-card {
+      background: rgba(0, 10, 20, 0.85);
+      border: 1px solid rgba(0, 249, 255, 0.35);
+      border-radius: 14px; padding: 20px;
+      box-shadow: 0 0 15px rgba(0, 249, 255, 0.25), var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .token-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 25px rgba(0, 249, 255, 0.5), inset 0 0 0 1px rgba(0,249,255,.2);
+    }
+    .token-card h3 {
+      color: var(--cyan); margin: 0 0 10px; font-size: 1.1rem; letter-spacing: .2px;
+    }
+    .token-card ul { padding-left: 18px; margin: 0; color: #cfe9ec; }
+    .token-card ul li { margin: 6px 0; }
+    .token-meta { display: grid; gap: 8px; color: #cfe9ec; }
+    .token-meta code {
+      background: rgba(0,0,0,.35); border: 1px solid rgba(0, 249, 255, .25);
+      padding: 6px 8px; border-radius: 8px; color: #bffcff;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+    }
+    .copy-wrap { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .copy-btn {
+      appearance: none; border: 1.5px solid var(--cyan-strong);
+      background: transparent; color: var(--cyan-strong);
+      padding: 6px 10px; border-radius: 10px; font-weight: 800; cursor: pointer;
+    }
+    .copy-btn:hover { background: var(--cyan-strong); color: #001317; box-shadow: 0 0 16px rgba(0,240,255,.3); }
+
+    .token-burn { background: rgba(255,153,0,.06); border: 1px dashed rgba(255,153,0,.45); }
+    .token-burn h3 { color: var(--orange); }
+    .token-burn ul li b { color: var(--orange); }
+
+    /* ===== PLANO DE DESENVOLVIMENTO ===== */
     .phase-grid{ display:grid; gap:18px; grid-template-columns:1fr 1fr }
     @media (max-width:980px){ .phase-grid{ grid-template-columns:1fr } }
     .phase{ background:rgba(14,22,31,.72); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); padding:18px }
@@ -221,17 +258,57 @@
 
   <!-- ===== TOKENOMICS ===== -->
   <section id="tokenomics" class="sec">
-    <div class="panel token-wrap">
-      <svg viewBox="0 0 42 42" width="300" height="300" aria-label="gráfico">
-        <circle cx="21" cy="21" r="15.915" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="4"/>
-        <circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--cyan-strong)" stroke-width="4" stroke-dasharray="35 65" stroke-dashoffset="25"/>
-        <circle cx="21" cy="21" r="15.915" fill="none" stroke="#6cf" stroke-width="4" stroke-dasharray="35 65" stroke-dashoffset="-10"/>
-        <circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--orange)" stroke-width="4" stroke-dasharray="30 70" stroke-dashoffset="-45"/>
-      </svg>
-      <div class="legend">
-        <div class="badge"><span class="dot" style="background:var(--cyan-strong)"></span>Liquidity — 35%</div>
-        <div class="badge"><span class="dot" style="background:#6cf"></span>Marketing — 35%</div>
-        <div class="badge"><span class="dot" style="background:var(--orange)"></span>Holders Rewards — 30%</div>
+    <h2 class="token-head">Tokenomics</h2>
+    <p class="token-sub">Economia do token $PANDAI projetada para sustentabilidade e crescimento</p>
+
+    <div class="token-grid">
+      <!-- Coluna esquerda: Utilidades + Queimas -->
+      <div class="token-card">
+        <h3>Utilidades do Token</h3>
+        <ul>
+          <li>Acesso premium aos recursos de IA</li>
+          <li>Votação em decisões da plataforma</li>
+          <li>Descontos em serviços premium</li>
+          <li>Compra de NFTs de memes exclusivos</li>
+          <li>Staking para ganhar recompensas</li>
+        </ul>
+
+        <div class="token-card token-burn" style="margin-top:16px">
+          <h3>Mecanismo de Queima</h3>
+          <p>A cada meta alcançada, uma quantidade substancial de tokens será queimada, reduzindo o supply e criando escassez progressiva.</p>
+          <ul>
+            <li><b>Meta 1:</b> 250 Holders = Queima de <b>25 milhões</b> de Tokens <i>(*new)</i></li>
+            <li><b>Meta 2:</b> 500 Holders = Queima de <b>50 milhões</b> de Tokens <i>(*new)</i></li>
+            <li><b>Meta 3:</b> 1000 Holders = Queima de <b>200 milhões</b> de Tokens</li>
+            <li><b>Meta 4:</b> 5000 Holders = Queima de <b>100 milhões</b> de Tokens</li>
+            <li><b>Meta 5:</b> 10000 Holders = Queima de <b>100 milhões</b> de Tokens</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Coluna direita: Infos gerais + Contrato -->
+      <div class="token-card">
+        <h3>Informações Gerais</h3>
+        <div class="token-meta">
+          <div><b>Tokens queimados:</b> 0 $PANDAI</div>
+          <div><b>Nome do Token:</b> PandAI ($PandAI)</div>
+          <div><b>Supply Total:</b> 1,000,000,000</div>
+          <div><b>Blockchain:</b> Binance Smart Chain</div>
+          <div class="copy-wrap">
+            <div><b>Contrato:</b></div>
+            <code id="contract">0x0f3e294...B49b8</code>
+            <button class="copy-btn" onclick="copyContract()">Copiar</button>
+          </div>
+        </div>
+
+        <div style="margin-top:18px; display:flex; justify-content:center;">
+          <svg viewBox="0 0 42 42" width="260" height="260" aria-label="distribuição">
+            <circle cx="21" cy="21" r="15.915" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="4"/>
+            <circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--cyan-strong)" stroke-width="4" stroke-dasharray="35 65" stroke-dashoffset="25"/>
+            <circle cx="21" cy="21" r="15.915" fill="none" stroke="#6cf" stroke-width="4" stroke-dasharray="35 65" stroke-dashoffset="-10"/>
+            <circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--orange)" stroke-width="4" stroke-dasharray="30 70" stroke-dashoffset="-45"/>
+          </svg>
+        </div>
       </div>
     </div>
   </section>
@@ -422,6 +499,19 @@
     <div style="margin-top:6px">© 2025 Pand-AI. Todos os direitos reservados.</div>
   </footer>
 
+  <!-- JS: Copiar contrato -->
+  <script>
+    function copyContract(){
+      const el = document.getElementById('contract');
+      if (!el) return;
+      const text = el.textContent.trim();
+      navigator.clipboard.writeText(text).then(()=>{
+        const btn = document.querySelector('.copy-btn');
+        if (btn){ btn.textContent = 'Copiado!'; setTimeout(()=>btn.textContent='Copiar',1500); }
+      });
+    }
+  </script>
 </body>
 </html>
+
 
