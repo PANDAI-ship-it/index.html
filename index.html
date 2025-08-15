@@ -23,54 +23,48 @@
     .btn{appearance:none;border:1.6px solid var(--cyan-strong);background:transparent;color:var(--cyan-strong);padding:10px 16px;border-radius:999px;font-weight:700;letter-spacing:.3px;cursor:pointer;transition:.25s}
     .btn:hover{background:var(--cyan-strong);color:#001317;box-shadow:0 0 24px rgba(0,240,255,.35)}
 
-    /* HERO */
-    .hero{min-height:100svh;padding-top:74px;display:grid;place-items:center;position:relative;overflow:hidden}
+    /* ===== HERO (corrigido) ===== */
+    .hero{min-height:100svh;padding-top:74px;position:relative;overflow:hidden}
+    /* use 1 imagem só como base para evitar "corte" no meio */
     .hero::before{content:"";position:absolute;inset:0;background:
-      linear-gradient(180deg,rgba(11,16,22,.3),rgba(11,16,22,.85)),
-      url('https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/98c793ff-d969-4890-9a1e-129545fcf66f.png') center/cover no-repeat;filter:saturate(1.05) contrast(1.02);z-index:-2}
-    .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 55% at 60% 35%,rgba(0,240,255,.18),transparent 60%);z-index:-1}
-    .hero-inner{max-width:1180px;width:100%;padding:28px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px}
-    @media (max-width:980px){.hero-inner{grid-template-columns:1fr}}
-    .glass{background:rgba(15,23,34,.55);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);box-shadow:var(--shadow)}
-    .hero-copy{padding:28px 28px 34px}
-    h1{margin:0 0 8px;font-size:clamp(28px,4.6vw,48px);line-height:1.05;color:var(--cyan-strong);text-shadow:0 0 26px rgba(0,240,255,.35)}
-    .sub{color:var(--muted);margin:6px 0 18px}
+      linear-gradient(180deg,rgba(11,16,22,.25),rgba(11,16,22,.85)),
+      url('https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/98c793ff-d969-4890-9a1e-129545fcf66f.png') center/cover no-repeat;filter:saturate(1.04) contrast(1.03);z-index:-2}
+    /* glow suave por cima */
+    .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 55% at 25% 40%,rgba(0,240,255,.14),transparent 60%);z-index:-1}
+
+    .hero-wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:36px;padding:28px}
+    @media (max-width:1040px){.hero-wrap{flex-direction:column;align-items:flex-start;gap:22px}}
+
+    /* caixa de texto com blur para legibilidade */
+    .hero-copy{max-width:620px;background:rgba(12,19,28,.55);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);box-shadow:var(--shadow);padding:28px}
+    h1{margin:0 0 10px;font-size:clamp(28px,4.6vw,52px);line-height:1.05;color:var(--cyan-strong);text-shadow:0 0 26px rgba(0,240,255,.35)}
+    .sub{color:var(--muted);margin:8px 0 18px}
     .cta{display:flex;gap:12px;flex-wrap:wrap}
-    .cta .s{border-color:#6cf; color:#6cf}
+    .cta .s{border-color:#6cf;color:#6cf}
 
-    /* FIGURA ADICIONAL (2ª IMAGEM) */
-    .hero-figure{
-      position:absolute;right:clamp(8px,4vw,42px);bottom:clamp(10px,8vh,80px);
-      width:min(42vw,520px);max-width:48%;
-      filter:drop-shadow(0 12px 28px rgba(0,240,255,.35)) saturate(1.05);
-      animation:floaty 6s ease-in-out infinite alternate;
-      pointer-events:none;user-select:none;
-    }
-    @keyframes floaty{from{transform:translateY(0)}to{transform:translateY(-6px)}}
+    /* figura do panda (2ª imagem) posicionada sem dividir a tela */
+    .hero-figure{margin-left:auto;position:relative;max-width:min(46vw,520px);filter:drop-shadow(0 16px 34px rgba(0,240,255,.28))}
+    .hero-figure img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid rgba(255,255,255,.06)}
 
-    /* GRID SECTIONS */
+    /* demais seções */
     section{max-width:1180px;margin:70px auto;padding:0 28px}
     .panel{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:var(--r);box-shadow:var(--shadow);padding:26px}
     h2{margin:0 0 12px;font-size:28px;color:var(--cyan)}
 
-    /* SOBRE */
     .cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     @media (max-width:860px){.cards{grid-template-columns:1fr}}
     .card{background:rgba(14,22,31,.7);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:18px}
 
-    /* TOKENOMICS */
     .token-wrap{display:grid;grid-template-columns:340px 1fr;gap:28px;align-items:center}
     @media (max-width:980px){.token-wrap{grid-template-columns:1fr}}
     .legend{display:grid;gap:10px}
     .badge{display:inline-flex;align-items:center;gap:10px}
     .dot{width:12px;height:12px;border-radius:50%}
 
-    /* ROADMAP */
     .road{display:grid;gap:16px;margin-top:12px}
     .step{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start}
     .step i{width:28px;height:28px;border-radius:50%;background:var(--orange);box-shadow:0 0 20px rgba(255,153,0,.35)}
 
-    /* COMUNIDADE */
     .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
     @media (max-width:680px){.grid{grid-template-columns:1fr}}
     .soc{padding:18px;text-align:center;border-radius:12px;background:rgba(14,22,31,.7);border:1px solid rgba(255,255,255,.06)}
@@ -80,7 +74,6 @@
   </style>
 </head>
 <body>
-  <!-- HEADER -->
   <header>
     <div class="brand">
       <div class="mark">🐼</div>
@@ -98,10 +91,10 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO corrigido: 1 coluna de texto + figura separada -->
   <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-copy glass">
+    <div class="hero-wrap">
+      <div class="hero-copy">
         <h1>O FUTURO DAS MEMECOINS INTELIGENTES</h1>
         <p class="sub">Tecnologia, comunidade e propósito em um só token.</p>
         <div class="cta">
@@ -109,21 +102,14 @@
           <button class="btn s">📄 Whitepaper</button>
         </div>
       </div>
-      <div class="glass" style="padding:18px">
-        <div class="cards">
-          <div class="card">🔥 Primeira queima aos 250 holders</div>
-          <div class="card">🛡️ Liquidez bloqueada</div>
-          <div class="card">🤝 Comunidade ativa</div>
-          <div class="card">🧠 Parcerias com IA</div>
-        </div>
+
+      <!-- 2ª imagem: não divide a tela, apenas compõe a direita -->
+      <div class="hero-figure">
+        <img src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ChatGPT%20Image%2014%20de%20ago.%20de%202025%2C%2020_42_02.png" alt="PandAI com globo" />
       </div>
     </div>
-
-    <!-- 2ª imagem posicionada com glow -->
-    <img class="hero-figure" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ChatGPT%20Image%2014%20de%20ago.%20de%202025%2C%2020_42_02.png" alt="PandAI" />
   </section>
 
-  <!-- SOBRE -->
   <section id="sobre">
     <div class="panel">
       <h2>Sobre o Pand‑AI</h2>
@@ -131,7 +117,6 @@
     </div>
   </section>
 
-  <!-- TOKENOMICS -->
   <section id="tokenomics">
     <div class="panel token-wrap">
       <svg viewBox="0 0 42 42" width="300" height="300" aria-label="gráfico">
@@ -148,7 +133,6 @@
     </div>
   </section>
 
-  <!-- ROADMAP -->
   <section id="roadmap">
     <div class="panel">
       <h2>Roadmap</h2>
@@ -161,7 +145,6 @@
     </div>
   </section>
 
-  <!-- COMUNIDADE -->
   <section id="comunidade">
     <div class="panel">
       <h2>Comunidade</h2>
