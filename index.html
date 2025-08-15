@@ -80,108 +80,59 @@
     .badge{ display:inline-flex; align-items:center; gap:10px }
     .dot{ width:12px; height:12px; border-radius:50% }
 
-   <!-- ===== ROADMAP ===== -->
-<section id="roadmap" class="sec">
-  <div class="panel">
-    <h2 class="roadmap-head">Roadmap</h2>
-    <p class="roadmap-sub">Nosso plano estratégico para dominar o universo dos memes</p>
+    /* ===== ROADMAP (estilo base + neon) ===== */
+    #roadmap .roadmap-head{
+      font-size: 2rem;
+      color: var(--cyan);
+      margin:0 0 6px;
+      text-shadow:0 0 10px rgba(0,240,255,.25);
+    }
+    #roadmap .roadmap-sub{ color: var(--muted); margin:0 0 18px }
+    .roadmap-grid{
+      display:grid; gap:18px;
+      grid-template-columns:1fr 1fr;
+    }
+    @media (max-width:980px){ .roadmap-grid{ grid-template-columns:1fr } }
+    .rm-phase{
+      background:rgba(14,22,31,.72);
+      border:1px solid var(--line);
+      border-radius:14px;
+      box-shadow:var(--shadow);
+      padding:18px 18px 14px;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .rm-phase:hover{
+      transform: translateY(-4px);
+      box-shadow:0 0 25px rgba(0,249,255,.6), inset 0 0 0 1px rgba(0,249,255,.25);
+    }
+    .rm-title{ margin:0; font-size:20px; color:var(--cyan) }
+    .q-badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px; border-radius:999px;
+      border:1px solid #6cf; color:#6cf; font-weight:800; font-size:12px;
+      box-shadow:0 0 18px rgba(108, 204, 255, .25);
+    }
+    .rm-list{ margin:8px 0 0 18px; padding:0 }
+    .rm-list li{ margin:6px 0; color:var(--text) }
+    .rm-list li b{ color:var(--cyan) }
+    .rm-highlight{ display:block; margin-top:6px; font-weight:800; color:var(--orange); text-shadow:0 0 14px rgba(255,153,0,.28); }
 
-    <div class="roadmap-grid">
-
-      <!-- Fase 1 — Lançamento e Base -->
-      <div class="rm-phase" data-ico="rocket">
-        <div class="rm-top">
-          <div class="rm-left">
-            <span class="rm-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path class="glow"  d="M5 19c2-5 6-7 10-9 1-3 3-5 6-7-2 3-4 5-7 6-2 4-4 8-9 10z"/>
-                <path class="stroke" d="M5 19c2-5 6-7 10-9 1-3 3-5 6-7-2 3-4 5-7 6-2 4-4 8-9 10zM7 17l-1 4 4-1"/>
-              </svg>
-            </span>
-            <h3 class="rm-title">Fase 1 — Lançamento e Base</h3>
-          </div>
-          <span class="q-badge">Q3 2025</span>
-        </div>
-        <ul class="rm-list">
-          <li>Desenvolvimento do site e documentação</li>
-          <li>Criação do sistema de geração de memes</li>
-          <li>Lançamento da plataforma básica</li>
-          <li>Construção de comunidade em <b>Telegram</b>, <b>Twitter</b> e <b>Discord</b></li>
-          <li>Campanhas virais e crescimento em mídias sociais</li>
-          <li class="rm-highlight">Meta: alcançar 10.000 holders e realizar uma grande queima</li>
-        </ul>
-      </div>
-
-      <!-- Fase 2 — Expansão e IA -->
-      <div class="rm-phase" data-ico="chip">
-        <div class="rm-top">
-          <div class="rm-left">
-            <span class="rm-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <rect x="7" y="7" width="10" height="10" rx="2" class="stroke"/>
-                <rect x="7" y="7" width="10" height="10" rx="2" class="glow"/>
-                <path class="stroke" d="M12 1v4M12 19v4M1 12h4M19 12h4M4 4l2 2M18 18l2 2M18 4l-2 2M4 18l2-2"/>
-              </svg>
-            </span>
-            <h3 class="rm-title">Fase 2 — Expansão e IA</h3>
-          </div>
-          <span class="q-badge">Q4 2025</span>
-        </div>
-        <ul class="rm-list">
-          <li>Lançamento do editor avançado com IA</li>
-          <li>Listagem em exchanges</li>
-          <li>Programa de parcerias com criadores</li>
-        </ul>
-      </div>
-
-      <!-- Fase 3 — NFT e Monetização -->
-      <div class="rm-phase" data-ico="diamond">
-        <div class="rm-top">
-          <div class="rm-left">
-            <span class="rm-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path class="glow"  d="M3 8l4-5h10l4 5-9 12L3 8z"/>
-                <path class="stroke" d="M3 8l4-5h10l4 5-9 12L3 8zM7 3l5 6 5-6M3 8h18"/>
-              </svg>
-            </span>
-            <h3 class="rm-title">Fase 3 — NFT e Monetização</h3>
-          </div>
-          <span class="q-badge">Q1 2026</span>
-        </div>
-        <ul class="rm-list">
-          <li>Geração de vídeos através de templates</li>
-          <li>Marketplace de NFTs de memes</li>
-          <li>Sistema de staking</li>
-          <li>Integração com mais blockchains</li>
-        </ul>
-      </div>
-
-      <!-- Fase 4 — Ecossistema Completo -->
-      <div class="rm-phase" data-ico="planet">
-        <div class="rm-top">
-          <div class="rm-left">
-            <span class="rm-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="5" class="stroke"/>
-                <path class="glow"  d="M2 12c3-5 17-5 20 0-3 5-17 5-20 0z"/>
-                <path class="stroke" d="M2 12c3-5 17-5 20 0-3 5-17 5-20 0z"/>
-              </svg>
-            </span>
-            <h3 class="rm-title">Fase 4 — Ecossistema Completo</h3>
-          </div>
-          <span class="q-badge">2026</span>
-        </div>
-        <ul class="rm-list">
-          <li>Aplicativo móvel nativo</li>
-          <li>Parcerias com grandes marcas</li>
-          <li>Expansão para realidade aumentada</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
+    /* === ÍCONES ANIMADOS DO ROADMAP === */
+    .rm-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px; }
+    .rm-left { display:flex; align-items:center; gap:12px; }
+    .rm-icon {
+      width:34px; height:34px; flex:0 0 34px;
+      filter: drop-shadow(0 0 10px rgba(0,249,255,.45));
+      animation: floatY 3.5s ease-in-out infinite;
+    }
+    .rm-icon svg { display:block; width:100%; height:100%; }
+    .rm-icon .stroke { stroke:#00f9ff; stroke-width:2.2; fill:none; }
+    .rm-icon .glow  { stroke:rgba(0,249,255,.45); stroke-width:6; filter:blur(4px); }
+    @keyframes floatY { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-4px) } }
+    .rm-phase[data-ico="rocket"]  .rm-icon { animation-duration: 3.2s; }
+    .rm-phase[data-ico="chip"]    .rm-icon { animation-duration: 3.8s; }
+    .rm-phase[data-ico="diamond"] .rm-icon { animation-duration: 3.0s; }
+    .rm-phase[data-ico="planet"]  .rm-icon { animation-duration: 4.0s; }
 
     /* ===== PLANO DE DESENVOLVIMENTO (CSS) ===== */
     .phase-grid{ display:grid; gap:18px; grid-template-columns:1fr 1fr }
@@ -262,7 +213,6 @@
           </video>
         </div>
       </div>
-      <!-- texto complementar, ainda dentro do panel -->
       <div class="card" style="margin-top:18px">
         <p>Transparência, liquidez bloqueada e uma comunidade ativa orientam cada passo do ecossistema.</p>
       </div>
@@ -286,76 +236,109 @@
     </div>
   </section>
 
-<!-- ===== ROADMAP ===== -->
-<section id="roadmap" class="sec">
-  <div class="panel">
-    <h2 class="roadmap-head">Roadmap</h2>
-    <p class="roadmap-sub">Nosso plano estratégico para dominar o universo dos memes.</p>
+  <!-- ===== ROADMAP (com ícones animados) ===== -->
+  <section id="roadmap" class="sec">
+    <div class="panel">
+      <h2 class="roadmap-head">Roadmap</h2>
+      <p class="roadmap-sub">Nosso plano estratégico para dominar o universo dos memes</p>
 
-    <div class="roadmap-grid">
+      <div class="roadmap-grid">
 
-      <!-- Fase 1 -->
-      <div class="rm-phase">
-        <div class="rm-top">
-          <h3 class="rm-title">Fase 1 — Lançamento e Base</h3>
-          <span class="q-badge">Q3 2025</span>
+        <!-- Fase 1 — Lançamento e Base -->
+        <div class="rm-phase" data-ico="rocket">
+          <div class="rm-top">
+            <div class="rm-left">
+              <span class="rm-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path class="glow"  d="M5 19c2-5 6-7 10-9 1-3 3-5 6-7-2 3-4 5-7 6-2 4-4 8-9 10z"/>
+                  <path class="stroke" d="M5 19c2-5 6-7 10-9 1-3 3-5 6-7-2 3-4 5-7 6-2 4-4 8-9 10zM7 17l-1 4 4-1"/>
+                </svg>
+              </span>
+              <h3 class="rm-title">Fase 1 — Lançamento e Base</h3>
+            </div>
+            <span class="q-badge">Q3 2025</span>
+          </div>
+          <ul class="rm-list">
+            <li>Desenvolvimento do site e documentação</li>
+            <li>Criação do sistema de geração de memes</li>
+            <li>Lançamento da plataforma básica</li>
+            <li>Construção de comunidade em <b>Telegram</b>, <b>Twitter</b> e <b>Discord</b></li>
+            <li>Campanhas virais e crescimento em mídias sociais</li>
+            <li class="rm-highlight">Meta: alcançar 10.000 holders e realizar uma grande queima</li>
+          </ul>
         </div>
-        <ul class="rm-list">
-          <li>Desenvolvimento do site e documentação</li>
-          <li>Criação do sistema de geração de memes</li>
-          <li>Lançamento da plataforma básica</li>
-          <li>Construção de comunidade em <b>Telegram</b>, <b>Twitter</b> e <b>Discord</b></li>
-          <li>Campanhas virais, criação de memes, crescimento em mídias sociais</li>
-          <li class="rm-highlight">Meta: alcançar 10.000 holders e realizar uma grande queima</li>
-        </ul>
-      </div>
 
-      <!-- Fase 2 -->
-      <div class="rm-phase">
-        <div class="rm-top">
-          <h3 class="rm-title">Fase 2 — Expansão e IA</h3>
-          <span class="q-badge">Q4 2025</span>
+        <!-- Fase 2 — Expansão e IA -->
+        <div class="rm-phase" data-ico="chip">
+          <div class="rm-top">
+            <div class="rm-left">
+              <span class="rm-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <rect x="7" y="7" width="10" height="10" rx="2" class="stroke"/>
+                  <rect x="7" y="7" width="10" height="10" rx="2" class="glow"/>
+                  <path class="stroke" d="M12 1v4M12 19v4M1 12h4M19 12h4M4 4l2 2M18 18l2 2M18 4l-2 2M4 18l2-2"/>
+                </svg>
+              </span>
+              <h3 class="rm-title">Fase 2 — Expansão e IA</h3>
+            </div>
+            <span class="q-badge">Q4 2025</span>
+          </div>
+          <ul class="rm-list">
+            <li>Lançamento do editor avançado com IA</li>
+            <li>Listagem em exchanges</li>
+            <li>Programa de parcerias com criadores</li>
+          </ul>
         </div>
-        <ul class="rm-list">
-          <li>Lançamento do editor avançado com IA</li>
-          <li>Listagem em exchanges</li>
-          <li>Programa de parcerias com criadores</li>
-        </ul>
-      </div>
 
-      <!-- Fase 3 -->
-      <div class="rm-phase">
-        <div class="rm-top">
-          <h3 class="rm-title">Fase 3 — NFT e Monetização</h3>
-          <span class="q-badge">Q1 2026</span>
+        <!-- Fase 3 — NFT e Monetização -->
+        <div class="rm-phase" data-ico="diamond">
+          <div class="rm-top">
+            <div class="rm-left">
+              <span class="rm-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path class="glow"  d="M3 8l4-5h10l4 5-9 12L3 8z"/>
+                  <path class="stroke" d="M3 8l4-5h10l4 5-9 12L3 8zM7 3l5 6 5-6M3 8h18"/>
+                </svg>
+              </span>
+              <h3 class="rm-title">Fase 3 — NFT e Monetização</h3>
+            </div>
+            <span class="q-badge">Q1 2026</span>
+          </div>
+          <ul class="rm-list">
+            <li>Geração de vídeos através de templates</li>
+            <li>Marketplace de NFTs de memes</li>
+            <li>Sistema de staking</li>
+            <li>Integração com mais blockchains</li>
+          </ul>
         </div>
-        <ul class="rm-list">
-          <li>Geração de vídeos através de templates</li>
-          <li>Marketplace de NFTs de memes</li>
-          <li>Sistema de staking</li>
-          <li>Integração com mais blockchains</li>
-        </ul>
-      </div>
 
-      <!-- Fase 4 -->
-      <div class="rm-phase">
-        <div class="rm-top">
-          <h3 class="rm-title">Fase 4 — Ecossistema Completo</h3>
-          <span class="q-badge">2026</span>
+        <!-- Fase 4 — Ecossistema Completo -->
+        <div class="rm-phase" data-ico="planet">
+          <div class="rm-top">
+            <div class="rm-left">
+              <span class="rm-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="5" class="stroke"/>
+                  <path class="glow"  d="M2 12c3-5 17-5 20 0-3 5-17 5-20 0z"/>
+                  <path class="stroke" d="M2 12c3-5 17-5 20 0-3 5-17 5-20 0z"/>
+                </svg>
+              </span>
+              <h3 class="rm-title">Fase 4 — Ecossistema Completo</h3>
+            </div>
+            <span class="q-badge">2026</span>
+          </div>
+          <ul class="rm-list">
+            <li>Aplicativo móvel nativo</li>
+            <li>Parcerias com grandes marcas</li>
+            <li>Expansão para realidade aumentada</li>
+          </ul>
         </div>
-        <ul class="rm-list">
-          <li>Aplicativo móvel nativo</li>
-          <li>Parcerias com grandes marcas</li>
-          <li>Expansão para realidade aumentada</li>
-        </ul>
-      </div>
 
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-  <!-- ===== PLANO DE DESENVOLVIMENTO (HTML) ===== -->
+  <!-- ===== PLANO DE DESENVOLVIMENTO ===== -->
   <section id="plano" class="sec">
     <div class="panel">
       <h2>Plano de Desenvolvimento PandAI</h2>
@@ -441,3 +424,4 @@
 
 </body>
 </html>
+
