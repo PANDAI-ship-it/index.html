@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PAND‑AI — O Futuro das Memecoins Inteligentes</title>
+  <title>PAND-AI — O Futuro das Memecoins Inteligentes</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
   <style>
     :root{
@@ -12,6 +12,10 @@
       --cyan:#7cf8ff; --cyan-strong:#00f0ff; --cyan-soft:#6cf;
       --orange:#ff9900; --line:rgba(255,255,255,.08);
       --r:18px; --shadow:0 10px 30px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.04);
+
+      /* ajuste fino do enquadramento do vídeo */
+      --hero-x:50%;
+      --hero-y:28%;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -37,23 +41,18 @@
 
     /* ===== HERO com VÍDEO de fundo ===== */
     .hero{ position:relative; min-height:94vh; padding-top:78px; overflow:hidden; border-bottom:1px solid var(--line); }
-
-    /* vídeo ocupa todo o fundo */
-    .hero-video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-3; filter:saturate(1.05) contrast(1.03); }
-
-    /* gradientes por cima do vídeo p/ legibilidade */
+    .hero-video{
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit:cover; object-position:var(--hero-x) var(--hero-y);
+      z-index:-3; filter:saturate(1.05) contrast(1.03);
+    }
     .hero::before{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(11,16,22,.12), rgba(11,16,22,.86) 62%, rgba(11,16,22,.96)); z-index:-2; }
     .hero::after{ content:""; position:absolute; inset:0; background:radial-gradient(70% 55% at 62% 30%,rgba(0,240,255,.16),transparent 60%); z-index:-1; }
-
     .hero-inner{ max-width:1220px; margin:0 auto; padding:32px; display:grid; gap:22px; grid-template-columns:1.1fr 1.2fr; }
     @media (max-width:980px){ .hero-inner{ grid-template-columns:1fr } }
-
-    /* esquerda: tagline em blocos */
     .tagline{ align-self:end; padding:18px 10px; color:var(--cyan); text-shadow:0 0 20px rgba(0,240,255,.25); }
     .tagline .line{ font-weight:900; letter-spacing:.8px; font-size:clamp(18px,2.4vw,28px); display:block; }
     .tagline .big{ display:block; margin:.22em 0; font-weight:900; font-size:clamp(28px,3.8vw,44px); color:#9ffcff; }
-
-    /* direita: título grande + botões */
     .hero-box{ align-self:center; justify-self:end; max-width:640px; background:var(--glass); border:1px solid var(--line); box-shadow:var(--shadow); border-radius:var(--r); padding:28px 26px; backdrop-filter:blur(6px); }
     .hero-title{ margin:0 0 8px; line-height:1.04; font-size:clamp(28px,4.6vw,54px); color:var(--cyan-strong); text-shadow:0 0 26px rgba(0,240,255,.32); font-weight:900; }
     .hero-sub{ margin:6px 0 18px; color:var(--muted) }
@@ -70,11 +69,11 @@
     .card{ background:rgba(14,22,31,.72); border:1px solid var(--line); border-radius:14px; padding:18px }
 
     /* cartão de vídeo (direita em “Sobre”) */
-.card.media{padding:0; overflow:hidden; border-radius:14px}
-.card-video{width:100%; height:100%; display:block; object-fit:cover; background:#000; aspect-ratio:16/9}
-@media (min-width:900px){.card-video{height:420px; aspect-ratio:auto}}
+    .card.media{padding:0; overflow:hidden; border-radius:14px}
+    .card-video{width:100%; height:100%; display:block; object-fit:cover; background:#000; aspect-ratio:16/9}
+    @media (min-width:900px){.card-video{height:420px; aspect-ratio:auto}}
 
-/* TOKENOMICS */
+    /* TOKENOMICS */
     .token-wrap{ display:grid; grid-template-columns:360px 1fr; gap:28px; align-items:center }
     @media (max-width:980px){ .token-wrap{ grid-template-columns:1fr } }
     .legend{ display:grid; gap:10px }
@@ -86,82 +85,15 @@
     .step{ display:grid; grid-template-columns:28px 1fr; gap:12px; align-items:start }
     .step i{ width:28px; height:28px; border-radius:50%; background:var(--orange); box-shadow:0 0 20px rgba(255,153,0,.35) }
 
-    <!-- ===== PLANO DE DESENVOLVIMENTO ===== -->
-<section id="plano" class="sec">
-  <div class="panel">
-    <h2>Plano de Desenvolvimento PandAI</h2>
-    <p class="sub">Rumo ao sucesso: fases claras, metas objetivas e execução consistente.</p>
-
-    <div class="phase-grid">
-
-      <!-- Fase 1 -->
-      <div class="phase">
-        <h3>🚀 Fase 1 — Lançamento & Consolidação</h3>
-        <span class="badge">Dia 4 — Primeiras 24h</span>
-        <p>
-          Momento crítico para um lançamento sólido e bem-sucedido. Foco em
-          <span class="highlight">liquidez, confiança e comunicação</span>.
-        </p>
-        <ul>
-          <li>Site e canais oficiais ativos</li>
-          <li>Liquidez inicial e monitoramento</li>
-          <li>Onboarding da comunidade inicial</li>
-        </ul>
-      </div>
-
-      <!-- Fase 2 -->
-      <div class="phase">
-        <h3>📈 Fase 2 — Expansão & Comunidade</h3>
-        <span class="badge">Pós 24 horas</span>
-        <p>Campanhas e marcos para crescer de forma saudável.</p>
-        <ul>
-          <li><b>Marketing de Influência</b> com criadores no cenário cripto</li>
-          <li>Engajamento em X/Telegram/Discord</li>
-        </ul>
-
-        <div class="burns">
-          <div class="burn">
-            <div>🎯 <b>Meta 1</b> — <b>250 Holders</b></div>
-            <div><b>Queima: 25.000.000</b> de tokens</div>
-          </div>
-          <div class="burn">
-            <div>🎯 <b>Meta 2</b> — <b>500 Holders</b></div>
-            <div><b>Queima: 25.000.000</b> de tokens</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Fase 3 -->
-      <div class="phase">
-        <h3>🌍 Fase 3 — Credibilidade & Alcance Global</h3>
-        <span class="badge">Listagens</span>
-        <p>Consolidação da presença pública em dados e rankings.</p>
-        <ul>
-          <li><b>CoinMarketCap (CMC)</b>: preparar requisitos e volume</li>
-          <li><b>CoinGecko</b>: ampliar visibilidade e marketing orgânico</li>
-          <li>Meta de <b>1.000 holders</b> para suporte de listagem</li>
-        </ul>
-      </div>
-
-      <!-- Fase 4 -->
-      <div class="phase">
-        <h3>🧭 Fase 4 — Futuro Contínuo</h3>
-        <span class="badge">Crescimento Sustentável</span>
-        <p>
-          Lançamento e listagens são só o começo. Manteremos
-          <span class="highlight">marketing global ativo</span>, evolução do produto
-          e recompensas à comunidade fundadora.
-        </p>
-        <ul>
-          <li>Parcerias, utilidades e melhorias contínuas</li>
-          <li>Governança e ferramentas de comunidade</li>
-          <li>Métricas e analytics para decisões com dados</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
+    /* ===== PLANO DE DESENVOLVIMENTO (CSS) ===== */
+    .phase-grid{ display:grid; gap:18px; grid-template-columns:1fr 1fr }
+    @media (max-width:980px){ .phase-grid{ grid-template-columns:1fr } }
+    .phase{ background:rgba(14,22,31,.72); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); padding:18px }
+    .phase h3{ margin:0 0 6px; font-size:22px; color:var(--cyan); display:flex; align-items:center; gap:10px }
+    .burns{ display:grid; gap:10px; margin-top:10px }
+    .burn{ display:flex; align-items:center; justify-content:space-between; border:1px dashed rgba(255,153,0,.35); background:rgba(255,153,0,.06); padding:10px 12px; border-radius:10px }
+    .burn b{ color:var(--orange) }
+    .highlight{ color:var(--cyan-strong); text-shadow:0 0 16px rgba(0,240,255,.25); font-weight:800 }
 
     /* COMUNIDADE */
     .grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px }
@@ -180,14 +112,14 @@
   <header class="header">
     <div class="brand">
       <div class="logo">🐼</div>
-      <b>PAND‑AI</b>
+      <b>PAND-AI</b>
     </div>
     <nav class="nav">
       <a href="#home">Home</a>
       <a href="#tokenomics">Tokenomics</a>
       <a href="#roadmap">Roadmap</a>
+      <a href="#plano">Plano</a>
       <a href="#comunidade">Comunidade</a>
-      <a href="#whitepaper">Whitepaper</a>
     </nav>
     <button class="btn">Comprar</button>
   </header>
@@ -196,11 +128,9 @@
   <section id="home" class="hero">
     <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/98c793ff-d969-4890-9a1e-129545fcf66f.png">
       <source src="grok_video_2025-08-14-21-50-37.mp4" type="video/mp4" />
-      <!-- Opcional: <source src="video.webm" type="video/webm" /> -->
     </video>
 
     <div class="hero-inner">
-      <!-- Esquerda: tagline empilhada -->
       <div class="tagline">
         <span class="line">F PURO</span>
         <span class="line">DAS</span>
@@ -208,7 +138,6 @@
         <span class="big">INTELIGENTES</span>
       </div>
 
-      <!-- Direita: título e CTA -->
       <div class="hero-box">
         <h1 class="hero-title">O FUTURO DAS<br>MEMECOINS<br>INTELIGENTES</h1>
         <p class="hero-sub">Tecnologia, comunidade e propósito em um só token.</p>
@@ -223,10 +152,10 @@
   <!-- ===== SOBRE ===== -->
   <section id="sobre" class="sec">
     <div class="panel">
-      <h2>SOBRE O PAND‑AI</h2>
+      <h2>SOBRE O PAND-AI</h2>
       <div class="cards">
         <div class="card">
-          <p>Unidade, segurança e comunidade se encontram no Pand‑AI, uma memecoin reimaginada para o futuro.</p>
+          <p>Unidade, segurança e comunidade se encontram no Pand-AI, uma memecoin reimaginada para o futuro.</p>
         </div>
         <div class="card media" aria-label="Vídeo destaque">
           <video class="card-video" autoplay muted loop playsinline preload="metadata" poster="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/98c793ff-d969-4890-9a1e-129545fcf66f.png">
@@ -235,9 +164,9 @@
           </video>
         </div>
       </div>
-        <div class="card">
-          <p>Transparência, liquidez bloqueada e uma comunidade ativa orientam cada passo do ecossistema.</p>
-        </div>
+      <!-- texto complementar, ainda dentro do panel -->
+      <div class="card" style="margin-top:18px">
+        <p>Transparência, liquidez bloqueada e uma comunidade ativa orientam cada passo do ecossistema.</p>
       </div>
     </div>
   </section>
@@ -247,11 +176,8 @@
     <div class="panel token-wrap">
       <svg viewBox="0 0 42 42" width="300" height="300" aria-label="gráfico">
         <circle cx="21" cy="21" r="15.915" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="4"/>
-        <!-- 35% Liquidity -->
         <circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--cyan-strong)" stroke-width="4" stroke-dasharray="35 65" stroke-dashoffset="25"/>
-        <!-- 35% Marketing -->
         <circle cx="21" cy="21" r="15.915" fill="none" stroke="#6cf" stroke-width="4" stroke-dasharray="35 65" stroke-dashoffset="-10"/>
-        <!-- 30% Holders -->
         <circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--orange)" stroke-width="4" stroke-dasharray="30 70" stroke-dashoffset="-45"/>
       </svg>
       <div class="legend">
@@ -271,6 +197,63 @@
         <div class="step"><i></i><div><b>Listagem</b> — Agregadores e auditorias.</div></div>
         <div class="step"><i></i><div><b>Expansão</b> — Parcerias e conteúdo da comunidade.</div></div>
         <div class="step"><i></i><div><b>Ecossistema</b> — Novas utilidades e governança.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PLANO DE DESENVOLVIMENTO (HTML) ===== -->
+  <section id="plano" class="sec">
+    <div class="panel">
+      <h2>Plano de Desenvolvimento PandAI</h2>
+      <p class="sub">Rumo ao sucesso: fases claras, metas objetivas e execução consistente.</p>
+
+      <div class="phase-grid">
+        <div class="phase">
+          <h3>🚀 Fase 1 — Lançamento & Consolidação</h3>
+          <span class="badge">Dia 4 — Primeiras 24h</span>
+          <p>Momento crítico para um lançamento sólido e bem-sucedido. Foco em <span class="highlight">liquidez, confiança e comunicação</span>.</p>
+          <ul>
+            <li>Site e canais oficiais ativos</li>
+            <li>Liquidez inicial e monitoramento</li>
+            <li>Onboarding da comunidade inicial</li>
+          </ul>
+        </div>
+
+        <div class="phase">
+          <h3>📈 Fase 2 — Expansão & Comunidade</h3>
+          <span class="badge">Pós 24 horas</span>
+          <p>Campanhas e marcos para crescer de forma saudável.</p>
+          <ul>
+            <li><b>Marketing de Influência</b> com criadores no cenário cripto</li>
+            <li>Engajamento em X/Telegram/Discord</li>
+          </ul>
+          <div class="burns">
+            <div class="burn"><div>🎯 <b>Meta 1</b> — <b>250 Holders</b></div><div><b>Queima: 25.000.000</b> de tokens</div></div>
+            <div class="burn"><div>🎯 <b>Meta 2</b> — <b>500 Holders</b></div><div><b>Queima: 25.000.000</b> de tokens</div></div>
+          </div>
+        </div>
+
+        <div class="phase">
+          <h3>🌍 Fase 3 — Credibilidade & Alcance Global</h3>
+          <span class="badge">Listagens</span>
+          <p>Consolidação da presença pública em dados e rankings.</p>
+          <ul>
+            <li><b>CoinMarketCap (CMC)</b>: preparar requisitos e volume</li>
+            <li><b>CoinGecko</b>: ampliar visibilidade e marketing orgânico</li>
+            <li>Meta de <b>1.000 holders</b> para suporte de listagem</li>
+          </ul>
+        </div>
+
+        <div class="phase">
+          <h3>🧭 Fase 4 — Futuro Contínuo</h3>
+          <span class="badge">Crescimento Sustentável</span>
+          <p>Lançamento e listagens são só o começo. Manteremos <span class="highlight">marketing global ativo</span>, evolução do produto e recompensas à comunidade fundadora.</p>
+          <ul>
+            <li>Parcerias, utilidades e melhorias contínuas</li>
+            <li>Governança e ferramentas de comunidade</li>
+            <li>Métricas e analytics para decisões com dados</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -298,12 +281,9 @@
 
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
-    <div>
-      Home • Comprar • Tokenomics • Roadmap — Smart contract: <a href="#">0x0478A9</a>
-    </div>
-    <div style="margin-top:6px">© 2025 Pand‑AI. Todos os direitos reservados.</div>
+    <div>Home • Comprar • Tokenomics • Roadmap — Smart contract: <a href="#">0x0478A9</a></div>
+    <div style="margin-top:6px">© 2025 Pand-AI. Todos os direitos reservados.</div>
   </footer>
 
 </body>
 </html>
-
