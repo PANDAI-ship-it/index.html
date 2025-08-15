@@ -12,7 +12,6 @@
       --cyan:#7cf8ff; --cyan-strong:#00f0ff; --cyan-soft:#6cf;
       --orange:#ff9900; --line:rgba(255,255,255,.08);
       --r:18px; --shadow:0 10px 30px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.04);
-      /* ajuste fino do enquadramento do vídeo */
       --hero-x:50%; --hero-y:28%;
     }
     *{box-sizing:border-box}
@@ -34,6 +33,7 @@
     .btn{
       border:1.6px solid var(--cyan-strong); background:transparent; color:var(--cyan-strong);
       padding:10px 18px; border-radius:999px; font-weight:800; letter-spacing:.3px; cursor:pointer; transition:.25s;
+      display:inline-flex; align-items:center; gap:8px; text-decoration:none;
     }
     .btn:hover{background:var(--cyan-strong);color:#001317;box-shadow:0 0 24px rgba(0,240,255,.32)}
 
@@ -182,6 +182,21 @@
       border-radius:10px; border:2px solid #00ffcc;
     }
 
+    /* ===== WHITEPAPER ===== */
+    #whitepaper .wp-head{
+      font-size: 2rem; color: var(--cyan); margin:0 0 10px;
+      text-shadow:0 0 10px rgba(0,240,255,.25);
+    }
+    #whitepaper .wp-lead{ color: #cfe9ec; margin:0 0 18px; line-height:1.55 }
+    .wp-phase{
+      background:rgba(14,22,31,.72); border:1px solid var(--line); border-radius:14px;
+      box-shadow:var(--shadow); padding:18px; margin:14px 0;
+    }
+    .wp-phase h3{ margin:0 0 8px; color:var(--cyan) }
+    .wp-phase p{ margin:0 0 8px; color:#d9edf0; line-height:1.6 }
+    .wp-phase ul{ margin:8px 0 0 18px; color:#cfe9ec }
+    .wp-divider{ height:1px; background:var(--line); margin:18px 0 }
+
     /* ===== SOCIAL BUTTONS ===== */
     .socials-row{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; align-items:center; }
     .icon-btn{
@@ -216,9 +231,10 @@
       <a href="#tokenomics">Tokenomics</a>
       <a href="#roadmap">Roadmap</a>
       <a href="#nfts">NFTs</a>
+      <a href="#whitepaper">Whitepaper</a>
       <a href="#comunidade">Comunidade</a>
     </nav>
-    <button class="btn">Comprar</button>
+    <a class="btn" href="#whitepaper">📄 Whitepaper</a>
   </header>
 
   <!-- ===== HERO ===== -->
@@ -239,8 +255,8 @@
         <h1 class="hero-title">O FUTURO DAS<br>MEMECOINS<br>INTELIGENTES</h1>
         <p class="hero-sub">Tecnologia, comunidade e propósito em um só token.</p>
         <div class="cta">
-          <button class="btn">🚀 COMPRAR AGORA</button>
-          <button class="btn s">📄 WHITEPAPER</button>
+          <a class="btn" href="#tokenomics">🚀 COMPRAR AGORA</a>
+          <a class="btn s" href="#whitepaper">📄 WHITEPAPER</a>
         </div>
       </div>
     </div>
@@ -467,6 +483,57 @@
     <img id="lightbox-img" src="" alt="NFT ampliado">
   </div>
 
+  <!-- ===== WHITEPAPER ===== -->
+  <section id="whitepaper" class="sec">
+    <div class="panel">
+      <h2 class="wp-head">Plano de Desenvolvimento Pandai: Rumo ao Sucesso</h2>
+      <p class="wp-lead">
+        O plano de desenvolvimento do token Pandai foi cuidadosamente estruturado para maximizar o crescimento
+        e a sustentabilidade a longo prazo. Nossa estratégia se divide em fases claras, com metas e ações bem definidas.
+      </p>
+
+      <div class="wp-phase">
+        <h3>Fase 1: Lançamento e Consolidação (Dia 4, primeiras 24 horas)</h3>
+        <p>
+          Este é o momento crítico para o nosso projeto. Nosso objetivo principal é garantir que o lançamento do Pandai
+          seja sólido e bem-sucedido. Nas primeiras 24 horas, esperamos que o token se posicione de forma robusta no mercado,
+          construindo uma base de confiança e liquidez.
+        </p>
+      </div>
+
+      <div class="wp-phase">
+        <h3>Fase 2: Expansão e Engajamento da Comunidade (Pós 24 horas)</h3>
+        <ul>
+          <li><b>Marketing de Influência Estratégico:</b> campanhas com influenciadores e youtubers do cenário cripto para impulsionar reconhecimento e adoção.</li>
+          <li><b>Queima Estratégica em Duas Etapas:</b>
+            <ul>
+              <li><b>Meta 1 (250 Holders):</b> queima de <b>25.000.000</b> de tokens.</li>
+              <li><b>Meta 2 (500 Holders):</b> queima de <b>25.000.000</b> de tokens.</li>
+            </ul>
+          </li>
+          <li><b>Listagem em Plataformas de Dados:</b> avançar para CoinMarketCap e CoinGecko à medida que volume e base de holders evoluírem (meta de 1.000 holders como próximo marco).</li>
+        </ul>
+      </div>
+
+      <div class="wp-phase">
+        <h3>Fase 3: Credibilidade e Alcance Global (Metas de Listagem)</h3>
+        <ul>
+          <li><b>Listagem no CoinMarketCap (CMC):</b> prioridade absoluta; atender requisitos e manter volume saudável rumo à aprovação conforme nos aproximarmos de 1.000 holders.</li>
+          <li><b>Listagem no CoinGecko:</b> presença paralela para ampliar visibilidade e marketing mundial.</li>
+        </ul>
+      </div>
+
+      <div class="wp-phase">
+        <h3>Fase 4: O Futuro Contínuo</h3>
+        <p>
+          O lançamento e as listagens são apenas o começo. Continuaremos com uma estratégia de marketing global e ativa,
+          focando no crescimento sustentável e na criação de valor. Nosso objetivo é recompensar a confiança dos membros fundadores,
+          garantindo que o sucesso do token se traduza em ótimos lucros para todos que fazem parte da nossa jornada.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== COMUNIDADE ===== -->
   <section id="comunidade" class="sec">
     <div class="panel">
@@ -503,7 +570,7 @@
 
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
-    <div>Home • Comprar • Tokenomics • Roadmap • NFTs — Smart contract: <a href="#">0x0478A9</a></div>
+    <div>Home • Comprar • Tokenomics • Roadmap • NFTs • Whitepaper — Smart contract: <a href="#">0x0478A9</a></div>
     <div style="margin-top:6px">© 2025 Pand-AI. Todos os direitos reservados.</div>
   </footer>
 
@@ -531,4 +598,3 @@
   </script>
 </body>
 </html>
-
