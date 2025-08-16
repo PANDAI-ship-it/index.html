@@ -71,198 +71,87 @@
     @media (min-width:900px){.card-video{height:420px; aspect-ratio:auto}}
 
     /* ===== TOKENOMICS (neon) ===== */
-    #tokenomics {
-      padding: 60px 20px;
-      background: linear-gradient(180deg, rgba(10, 20, 30, 0.9) 0%, rgba(5, 10, 20, 0.9) 100%);
-      color: #00f9ff;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-    .token-head { font-size: 2.2rem; text-align:center; color: var(--cyan); text-shadow: 0 0 10px rgba(0,240,255,.25); margin: 0 0 6px; }
-    .token-sub  { text-align:center; margin-bottom: 28px; font-size: 1.05rem; color: var(--muted); }
-    .token-grid { display:grid; grid-template-columns: 1.1fr 1fr; gap: 20px; max-width: 1220px; margin: 0 auto; }
-    @media (max-width: 980px){ .token-grid { grid-template-columns: 1fr; } }
-    .token-card{
-      background: rgba(0, 10, 20, 0.85);
-      border: 1px solid rgba(0, 249, 255, 0.35);
-      border-radius: 14px; padding: 20px;
-      box-shadow: 0 0 15px rgba(0, 249, 255, 0.25), var(--shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .token-card:hover { transform: translateY(-4px); box-shadow: 0 0 25px rgba(0, 249, 255, 0.5), inset 0 0 0 1px rgba(0,249,255,.2); }
-    .token-card h3 { color: var(--cyan); margin: 0 0 10px; font-size: 1.1rem; letter-spacing: .2px; }
-    .token-card ul { padding-left: 18px; margin: 0; color: #cfe9ec; }
-    .token-card ul li { margin: 6px 0; }
-    .token-meta { display: grid; gap: 8px; color: #cfe9ec; }
-    .token-meta code {
-      background: rgba(0,0,0,.35); border: 1px solid rgba(0, 249, 255, .25);
-      padding: 6px 8px; border-radius: 8px; color: #bffcff;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
-    }
-    .copy-wrap { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-    .copy-btn {
-      appearance: none; border: 1.5px solid var(--cyan-strong);
-      background: transparent; color: var(--cyan-strong);
-      padding: 6px 10px; border-radius: 10px; font-weight: 800; cursor: pointer;
-    }
-    .copy-btn:hover { background: var(--cyan-strong); color: #001317; box-shadow: 0 0 16px rgba(0,240,255,.3); }
-    .token-burn { background: rgba(255,153,0,.06); border: 1px dashed rgba(255,153,0,.45); }
-    .token-burn h3 { color: var(--orange); }
-    .token-burn ul li b { color: var(--orange); }
+    #tokenomics { padding:60px 20px; background: linear-gradient(180deg, rgba(10,20,30,.9) 0%, rgba(5,10,20,.9) 100%); color:#00f9ff; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .token-head { font-size:2.2rem; text-align:center; color:var(--cyan); text-shadow:0 0 10px rgba(0,240,255,.25); margin:0 0 6px; }
+    .token-sub  { text-align:center; margin-bottom:28px; font-size:1.05rem; color:var(--muted); }
+    .token-grid { display:grid; grid-template-columns:1.1fr 1fr; gap:20px; max-width:1220px; margin:0 auto; }
+    @media (max-width:980px){ .token-grid { grid-template-columns:1fr; } }
+    .token-card{ background:rgba(0,10,20,.85); border:1px solid rgba(0,249,255,.35); border-radius:14px; padding:20px; box-shadow:0 0 15px rgba(0,249,255,.25), var(--shadow); transition:transform .3s ease, box-shadow .3s ease; }
+    .token-card:hover { transform:translateY(-4px); box-shadow:0 0 25px rgba(0,249,255,.5), inset 0 0 0 1px rgba(0,249,255,.2); }
+    .token-card h3 { color:var(--cyan); margin:0 0 10px; font-size:1.1rem; letter-spacing:.2px; }
+    .token-card ul { padding-left:18px; margin:0; color:#cfe9ec; }
+    .token-card ul li { margin:6px 0; }
+    .token-meta { display:grid; gap:8px; color:#cfe9ec; }
+    .token-meta code { background:rgba(0,0,0,.35); border:1px solid rgba(0,249,255,.25); padding:6px 8px; border-radius:8px; color:#bffcff; font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace; }
+    .copy-wrap { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+    .copy-btn { appearance:none; border:1.5px solid var(--cyan-strong); background:transparent; color:var(--cyan-strong); padding:6px 10px; border-radius:10px; font-weight:800; cursor:pointer; }
+    .copy-btn:hover { background:var(--cyan-strong); color:#001317; box-shadow:0 0 16px rgba(0,240,255,.3); }
+    .token-burn { background:rgba(255,153,0,.06); border:1px dashed rgba(255,153,0,.45); }
+    .token-burn h3 { color:var(--orange); }
+    .token-burn ul li b { color:var(--orange); }
 
-    /* ===== ROADMAP (neon + ícones animados) ===== */
-    #roadmap .roadmap-head{ font-size: 2rem; color: var(--cyan); margin:0 0 6px; text-shadow:0 0 10px rgba(0,240,255,.25); }
-    #roadmap .roadmap-sub{ color: var(--muted); margin:0 0 18px }
+    /* ===== ROADMAP (neon + ícones) ===== */
+    #roadmap .roadmap-head{ font-size:2rem; color:var(--cyan); margin:0 0 6px; text-shadow:0 0 10px rgba(0,240,255,.25); }
+    #roadmap .roadmap-sub{ color:var(--muted); margin:0 0 18px }
     .roadmap-grid{ display:grid; gap:18px; grid-template-columns:1fr 1fr; }
     @media (max-width:980px){ .roadmap-grid{ grid-template-columns:1fr } }
-    .rm-phase{
-      background:rgba(14,22,31,.72); border:1px solid var(--line); border-radius:14px;
-      box-shadow:var(--shadow); padding:18px 18px 14px;
-      transition: transform .3s ease, box-shadow .3s ease;
-    }
+    .rm-phase{ background:rgba(14,22,31,.72); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); padding:18px 18px 14px; transition: transform .3s ease, box-shadow .3s ease; }
     .rm-phase:hover{ transform: translateY(-4px); box-shadow:0 0 25px rgba(0,249,255,.6), inset 0 0 0 1px rgba(0,249,255,.25); }
     .rm-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px; }
     .rm-left { display:flex; align-items:center; gap:12px; }
     .rm-title{ margin:0; font-size:20px; color:var(--cyan) }
-    .q-badge{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:6px 10px; border-radius:999px;
-      border:1px solid #6cf; color:#6cf; font-weight:800; font-size:12px;
-      box-shadow:0 0 18px rgba(108, 204, 255, .25);
-    }
+    .q-badge{ display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; border:1px solid #6cf; color:#6cf; font-weight:800; font-size:12px; box-shadow:0 0 18px rgba(108,204,255,.25); }
     .rm-list{ margin:8px 0 0 18px; padding:0 }
     .rm-list li{ margin:6px 0; color:var(--text) }
     .rm-list li b{ color:var(--cyan) }
     .rm-highlight{ display:block; margin-top:6px; font-weight:800; color:var(--orange); text-shadow:0 0 14px rgba(255,153,0,.28); }
-
     .rm-icon { width:34px; height:34px; flex:0 0 34px; filter: drop-shadow(0 0 10px rgba(0,249,255,.45)); animation: floatY 3.5s ease-in-out infinite; }
     .rm-icon svg { display:block; width:100%; height:100%; }
     .rm-icon .stroke { stroke:#00f9ff; stroke-width:2.2; fill:none; }
     .rm-icon .glow  { stroke:rgba(0,249,255,.45); stroke-width:6; filter:blur(4px); }
     @keyframes floatY { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-4px) } }
-    .rm-phase[data-ico="rocket"]  .rm-icon { animation-duration: 3.2s; }
-    .rm-phase[data-ico="chip"]    .rm-icon { animation-duration: 3.8s; }
-    .rm-phase[data-ico="diamond"] .rm-icon { animation-duration: 3.0s; }
-    .rm-phase[data-ico="planet"]  .rm-icon { animation-duration: 4.0s; }
+    .rm-phase[data-ico="rocket"]  .rm-icon { animation-duration:3.2s; }
+    .rm-phase[data-ico="chip"]    .rm-icon { animation-duration:3.8s; }
+    .rm-phase[data-ico="diamond"] .rm-icon { animation-duration:3.0s; }
+    .rm-phase[data-ico="planet"]  .rm-icon { animation-duration:4.0s; }
 
-   <!-- ===== NFTs EXCLUSIVOS (ATUALIZADO) ===== -->
-<section id="nfts" class="sec">
-  <div class="panel">
-    <h2 class="nfts-head">NFTs Exclusivos</h2>
-    <p class="nfts-sub">Coleção oficial do PandAI no estilo cyberpunk — peças únicas para a comunidade.</p>
+    /* ===== NFTs EXCLUSIVOS ===== */
+    #nfts { padding:60px 20px; border-top:1px solid var(--line); }
+    #nfts .nfts-head{ margin:0 0 6px; font-size:28px; color:var(--cyan); text-shadow:0 0 14px rgba(0,240,255,.28); }
+    #nfts .nfts-sub{ color:var(--muted); margin:0 0 24px; }
+    .nft-grid{ max-width:1220px; margin:0 auto; display:grid; gap:18px; grid-template-columns:repeat(4,minmax(0,1fr)); }
+    @media (max-width:1100px){ .nft-grid{ grid-template-columns:repeat(3,1fr); } }
+    @media (max-width:800px){ .nft-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:520px){ .nft-grid{ grid-template-columns:1fr; } }
+    .nft-card{ background:rgba(14,22,31,.72); border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:var(--shadow); transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+    .nft-card:hover{ transform:translateY(-4px); border-color:rgba(0,240,255,.35); box-shadow:0 0 26px rgba(0,240,255,.4), inset 0 0 0 1px rgba(255,255,255,.05); }
+    .nft-img-wrap{ position:relative; aspect-ratio:1/1; background:#061019; cursor:pointer; }
+    .nft-img-wrap img{ width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.03) contrast(1.02); }
+    .nft-meta{ padding:12px 14px; display:flex; align-items:center; justify-content:space-between; gap:10px; }
+    .nft-title{ font-weight:800; color:#cfe9ec; letter-spacing:.2px; }
+    .nft-badge{ border:1px solid #6cf; color:#6cf; font-size:12px; font-weight:800; padding:4px 8px; border-radius:999px; box-shadow:0 0 14px rgba(108,204,255,.25); }
 
-    <div class="nft-grid">
-      <!-- EXISTENTES -->
-      <article class="nft-card">
-        <div class="nft-img-wrap">
-          <img onclick="openLightbox(this.src)" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/411e3114-10ad-453a-a37e-651b8046817e.png" alt="PandAI #001" loading="lazy">
-        </div>
-        <div class="nft-meta"><span class="nft-title">PandAI #001</span><span class="nft-badge">1/1</span></div>
-      </article>
-
-      <article class="nft-card">
-        <div class="nft-img-wrap">
-          <img onclick="openLightbox(this.src)" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/8e677e2d-e533-4c76-b9cc-34e2e366ff06.png" alt="PandAI #002" loading="lazy">
-        </div>
-        <div class="nft-meta"><span class="nft-title">PandAI #002</span><span class="nft-badge">1/1</span></div>
-      </article>
-
-      <article class="nft-card">
-        <div class="nft-img-wrap">
-          <img onclick="openLightbox(this.src)" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ac2b3c1f-c686-4cc7-9dc3-9da743b115e9.png" alt="PandAI #003" loading="lazy">
-        </div>
-        <div class="nft-meta"><span class="nft-title">PandAI #003</span><span class="nft-badge">1/1</span></div>
-      </article>
-
-      <article class="nft-card">
-        <div class="nft-img-wrap">
-          <img onclick="openLightbox(this.src)" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/e2b195d7-5dd2-4238-86e4-c2c5a616263d.png" alt="PandAI #004" loading="lazy">
-        </div>
-        <div class="nft-meta"><span class="nft-title">PandAI #004</span><span class="nft-badge">1/1</span></div>
-      </article>
-
-      <!-- NOVOS -->
-      <article class="nft-card">
-        <div class="nft-img-wrap">
-          <img onclick="openLightbox(this.src)" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ChatGPT%20Image%2015%20de%20ago.%20de%202025%2C%2021_05_49.png" alt="PandAI #005" loading="lazy">
-        </div>
-        <div class="nft-meta"><span class="nft-title">PandAI #005</span><span class="nft-badge">1/1</span></div>
-      </article>
-
-      <article class="nft-card">
-        <div class="nft-img-wrap">
-          <img onclick="openLightbox(this.src)" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ChatGPT%20Image%2015%20de%20ago.%20de%202025%2C%2020_42_20.png" alt="PandAI #006" loading="lazy">
-        </div>
-        <div class="nft-meta"><span class="nft-title">PandAI #006</span><span class="nft-badge">1/1</span></div>
-      </article>
-
-      <article class="nft-card">
-        <div class="nft-img-wrap">
-          <img onclick="openLightbox(this.src)" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ChatGPT%20Image%2015%20de%20ago.%20de%202025%2C%2020_59_52.png" alt="PandAI #007" loading="lazy">
-        </div>
-        <div class="nft-meta"><span class="nft-title">PandAI #007</span><span class="nft-badge">1/1</span></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- Lightbox (zoom ao clicar) -->
-<style>
-  .lightbox{position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.85); z-index:9999}
-  .lightbox.show{display:flex}
-  .lightbox img{max-width:92vw; max-height:92vh; border-radius:14px; box-shadow:0 10px 40px rgba(0,0,0,.6)}
-  .lightbox .close{position:absolute; top:18px; right:22px; font:700 18px/1 system-ui; color:#fff; opacity:.9; cursor:pointer}
-</style>
-<div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
-  <span class="close">✕</span>
-  <img id="lightbox-img" src="" alt="NFT ampliado">
-</div>
-<script>
-  function openLightbox(src){
-    const lb = document.getElementById('lightbox');
-    const img = document.getElementById('lightbox-img');
-    img.src = src;
-    lb.classList.add('show');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLightbox(e){
-    // fecha se clicar fora da imagem ou no X
-    if(e.target.id === 'lightbox' || e.target.classList.contains('close')){
-      document.getElementById('lightbox').classList.remove('show');
-      document.getElementById('lightbox-img').src = '';
-      document.body.style.overflow = '';
-    }
-  }
-    /* ===== WHITEPAPER ===== */
-    #whitepaper .wp-head{
-      font-size: 2rem; color: var(--cyan); margin:0 0 10px;
-      text-shadow:0 0 10px rgba(0,240,255,.25);
-    }
-    #whitepaper .wp-lead{ color: #cfe9ec; margin:0 0 18px; line-height:1.55 }
-    .wp-phase{
-      background:rgba(14,22,31,.72); border:1px solid var(--line); border-radius:14px;
-      box-shadow:var(--shadow); padding:18px; margin:14px 0;
-    }
-    .wp-phase h3{ margin:0 0 8px; color:var(--cyan) }
-    .wp-phase p{ margin:0 0 8px; color:#d9edf0; line-height:1.6 }
-    .wp-phase ul{ margin:8px 0 0 18px; color:#cfe9ec }
-    .wp-divider{ height:1px; background:var(--line); margin:18px 0 }
+    /* ===== LIGHTBOX ===== */
+    .lightbox { position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.85); z-index:9999; }
+    .lightbox.show { display:flex; }
+    .lightbox img { max-width:92vw; max-height:92vh; border-radius:14px; box-shadow:0 10px 40px rgba(0,0,0,.6); }
+    .lightbox .close { position:absolute; top:18px; right:22px; font:700 18px/1 system-ui; color:#fff; opacity:.9; cursor:pointer; }
 
     /* ===== SOCIAL BUTTONS ===== */
     .socials-row{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; align-items:center; }
-    .icon-btn{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:10px 14px; border-radius:14px;
-      background: rgba(0, 20, 30, .55);
-      border:1.5px solid rgba(0,249,255,.35);
-      box-shadow: 0 0 14px rgba(0,249,255,.25), inset 0 0 0 1px rgba(255,255,255,.04);
-      text-decoration:none; color:#cfe9ec; font-weight:800; letter-spacing:.2px;
-      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
-    }
-    .icon-btn:hover{ transform: translateY(-2px); background: rgba(0, 249, 255, .10); box-shadow: 0 0 26px rgba(0,249,255,.45), inset 0 0 0 1px rgba(0,249,255,.25); }
+    .icon-btn{ display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:14px; background:rgba(0,20,30,.55); border:1.5px solid rgba(0,249,255,.35); box-shadow:0 0 14px rgba(0,249,255,.25), inset 0 0 0 1px rgba(255,255,255,.04); text-decoration:none; color:#cfe9ec; font-weight:800; letter-spacing:.2px; transition: transform .25s ease, box-shadow .25s ease, background .25s ease; }
+    .icon-btn:hover{ transform:translateY(-2px); background:rgba(0,249,255,.10); box-shadow:0 0 26px rgba(0,249,255,.45), inset 0 0 0 1px rgba(0,249,255,.25); }
     .icon-btn svg{ width:26px; height:26px; display:block; }
     .icon-btn .fill { fill:#00f9ff; filter: drop-shadow(0 0 6px rgba(0,249,255,.6)); }
     .icon-btn .stroke{ stroke:#00f9ff; stroke-width:2.2; fill:none; filter: drop-shadow(0 0 6px rgba(0,249,255,.6)); }
+
+    /* ===== WHITEPAPER ===== */
+    #whitepaper .wp-head{ font-size:2rem; color:var(--cyan); margin:0 0 10px; text-shadow:0 0 10px rgba(0,240,255,.25); }
+    #whitepaper .wp-lead{ color:#cfe9ec; margin:0 0 18px; line-height:1.55 }
+    .wp-phase{ background:rgba(14,22,31,.72); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); padding:18px; margin:14px 0; }
+    .wp-phase h3{ margin:0 0 8px; color:var(--cyan) }
+    .wp-phase p{ margin:0 0 8px; color:#d9edf0; line-height:1.6 }
+    .wp-phase ul{ margin:8px 0 0 18px; color:#cfe9ec }
 
     /* ===== FOOTER ===== */
     .footer{ margin:60px 0 30px; text-align:center; color:var(--muted) }
@@ -294,7 +183,15 @@
       <source src="document_4969746528383010345.mp4" type="video/mp4" />
     </video>
 
-     <div class="hero-box">
+    <div class="hero-inner">
+      <div class="tagline">
+        <span class="line">F PURO</span>
+        <span class="line">DAS</span>
+        <span class="big">MEMECOINS</span>
+        <span class="big">INTELIGENTES</span>
+      </div>
+
+      <div class="hero-box">
         <h1 class="hero-title">O FUTURO DAS<br>MEMECOINS<br>INTELIGENTES</h1>
         <p class="hero-sub">Tecnologia, comunidade e propósito em um só token.</p>
         <div class="cta">
@@ -490,39 +387,44 @@
       <p class="nfts-sub">Coleção oficial do PandAI no estilo cyberpunk — peças únicas para a comunidade.</p>
 
       <div class="nft-grid">
+        <!-- EXISTENTES -->
         <article class="nft-card">
-          <div class="nft-img-wrap">
-            <img src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/411e3114-10ad-453a-a37e-651b8046817e.png" alt="PandAI — NFT 01" loading="lazy">
-          </div>
+          <div class="nft-img-wrap"><img src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/411e3114-10ad-453a-a37e-651b8046817e.png" alt="PandAI #001" loading="lazy"></div>
           <div class="nft-meta"><span class="nft-title">PandAI #001</span><span class="nft-badge">1/1</span></div>
         </article>
-
         <article class="nft-card">
-          <div class="nft-img-wrap">
-            <img src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/8e677e2d-e533-4c76-b9cc-34e2e366ff06.png" alt="PandAI — NFT 02" loading="lazy">
-          </div>
+          <div class="nft-img-wrap"><img src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/8e677e2d-e533-4c76-b9cc-34e2e366ff06.png" alt="PandAI #002" loading="lazy"></div>
           <div class="nft-meta"><span class="nft-title">PandAI #002</span><span class="nft-badge">1/1</span></div>
         </article>
-
         <article class="nft-card">
-          <div class="nft-img-wrap">
-            <img src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ac2b3c1f-c686-4cc7-9dc3-9da743b115e9.png" alt="PandAI — NFT 03" loading="lazy">
-          </div>
+          <div class="nft-img-wrap"><img src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ac2b3c1f-c686-4cc7-9dc3-9da743b115e9.png" alt="PandAI #003" loading="lazy"></div>
           <div class="nft-meta"><span class="nft-title">PandAI #003</span><span class="nft-badge">1/1</span></div>
         </article>
-
         <article class="nft-card">
-          <div class="nft-img-wrap">
-            <img src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/e2b195d7-5dd2-4238-86e4-c2c5a616263d.png" alt="PandAI — NFT 04" loading="lazy">
-          </div>
+          <div class="nft-img-wrap"><img src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/e2b195d7-5dd2-4238-86e4-c2c5a616263d.png" alt="PandAI #004" loading="lazy"></div>
           <div class="nft-meta"><span class="nft-title">PandAI #004</span><span class="nft-badge">1/1</span></div>
+        </article>
+
+        <!-- NOVOS -->
+        <article class="nft-card">
+          <div class="nft-img-wrap"><img src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ChatGPT%20Image%2015%20de%20ago.%20de%202025%2C%2021_05_49.png" alt="PandAI #005" loading="lazy"></div>
+          <div class="nft-meta"><span class="nft-title">PandAI #005</span><span class="nft-badge">1/1</span></div>
+        </article>
+        <article class="nft-card">
+          <div class="nft-img-wrap"><img src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ChatGPT%20Image%2015%20de%20ago.%20de%202025%2C%2020_42_20.png" alt="PandAI #006" loading="lazy"></div>
+          <div class="nft-meta"><span class="nft-title">PandAI #006</span><span class="nft-badge">1/1</span></div>
+        </article>
+        <article class="nft-card">
+          <div class="nft-img-wrap"><img src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ChatGPT%20Image%2015%20de%20ago.%20de%202025%2C%2020_59_52.png" alt="PandAI #007" loading="lazy"></div>
+          <div class="nft-meta"><span class="nft-title">PandAI #007</span><span class="nft-badge">1/1</span></div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- Lightbox (para ampliar NFTs) -->
-  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <!-- ===== LIGHTBOX (zoom) ===== -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+    <span class="close">✕</span>
     <img id="lightbox-img" src="" alt="NFT ampliado">
   </div>
 
@@ -530,49 +432,33 @@
   <section id="whitepaper" class="sec">
     <div class="panel">
       <h2 class="wp-head">Plano de Desenvolvimento Pandai: Rumo ao Sucesso</h2>
-      <p class="wp-lead">
-        O plano de desenvolvimento do token Pandai foi cuidadosamente estruturado para maximizar o crescimento
-        e a sustentabilidade a longo prazo. Nossa estratégia se divide em fases claras, com metas e ações bem definidas.
-      </p>
+      <p class="wp-lead">O plano de desenvolvimento do token Pandai foi cuidadosamente estruturado para maximizar o crescimento e a sustentabilidade a longo prazo. Nossa estratégia se divide em fases claras, com metas e ações bem definidas.</p>
 
       <div class="wp-phase">
         <h3>Fase 1: Lançamento e Consolidação (Dia 4, primeiras 24 horas)</h3>
-        <p>
-          Este é o momento crítico para o nosso projeto. Nosso objetivo principal é garantir que o lançamento do Pandai
-          seja sólido e bem-sucedido. Nas primeiras 24 horas, esperamos que o token se posicione de forma robusta no mercado,
-          construindo uma base de confiança e liquidez.
-        </p>
+        <p>Momento crítico para garantir um lançamento sólido e bem-sucedido, com posicionamento robusto, base de confiança e liquidez.</p>
       </div>
 
       <div class="wp-phase">
         <h3>Fase 2: Expansão e Engajamento da Comunidade (Pós 24 horas)</h3>
         <ul>
-          <li><b>Marketing de Influência Estratégico:</b> campanhas com influenciadores e youtubers do cenário cripto para impulsionar reconhecimento e adoção.</li>
-          <li><b>Queima Estratégica em Duas Etapas:</b>
-            <ul>
-              <li><b>Meta 1 (250 Holders):</b> queima de <b>25.000.000</b> de tokens.</li>
-              <li><b>Meta 2 (500 Holders):</b> queima de <b>25.000.000</b> de tokens.</li>
-            </ul>
-          </li>
-          <li><b>Listagem em Plataformas de Dados:</b> avançar para CoinMarketCap e CoinGecko à medida que volume e base de holders evoluírem (meta de 1.000 holders como próximo marco).</li>
+          <li><b>Marketing de Influência Estratégico:</b> campanhas com influenciadores e youtubers do cenário cripto.</li>
+          <li><b>Queima em duas etapas:</b> 25M de tokens aos 250 holders + 25M aos 500 holders.</li>
+          <li><b>Listagens (dados):</b> avançar para CoinMarketCap e CoinGecko com meta de 1.000 holders como próximo marco.</li>
         </ul>
       </div>
 
       <div class="wp-phase">
-        <h3>Fase 3: Credibilidade e Alcance Global (Metas de Listagem)</h3>
+        <h3>Fase 3: Credibilidade e Alcance Global</h3>
         <ul>
-          <li><b>Listagem no CoinMarketCap (CMC):</b> prioridade absoluta; atender requisitos e manter volume saudável rumo à aprovação conforme nos aproximarmos de 1.000 holders.</li>
-          <li><b>Listagem no CoinGecko:</b> presença paralela para ampliar visibilidade e marketing mundial.</li>
+          <li><b>CoinMarketCap (CMC):</b> prioridade para aprovação conforme requisitos e volume forem atendidos.</li>
+          <li><b>CoinGecko:</b> presença paralela para ampliar visibilidade e marketing mundial.</li>
         </ul>
       </div>
 
       <div class="wp-phase">
         <h3>Fase 4: O Futuro Contínuo</h3>
-        <p>
-          O lançamento e as listagens são apenas o começo. Continuaremos com uma estratégia de marketing global e ativa,
-          focando no crescimento sustentável e na criação de valor. Nosso objetivo é recompensar a confiança dos membros fundadores,
-          garantindo que o sucesso do token se traduza em ótimos lucros para todos que fazem parte da nossa jornada.
-        </p>
+        <p>Estratégia de marketing global contínua, evolução do produto e recompensas à comunidade fundadora, focando em crescimento sustentável e criação de valor.</p>
       </div>
     </div>
   </section>
@@ -630,14 +516,29 @@
       });
     }
 
-    // Lightbox NFTs
+    // Lightbox: abrir ao clicar na imagem
     document.querySelectorAll('.nft-img-wrap img').forEach(img => {
       img.addEventListener('click', () => {
-        document.getElementById("lightbox-img").src = img.src;
-        document.getElementById("lightbox").style.display = "flex";
+        openLightbox(img.src);
       });
     });
-    function closeLightbox(){ document.getElementById("lightbox").style.display = "none"; }
+
+    function openLightbox(src){
+      const lb  = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      lb.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(e){
+      if (!e || e.target.id === 'lightbox' || (e.target && e.target.classList.contains('close'))){
+        document.getElementById('lightbox').classList.remove('show');
+        document.getElementById('lightbox-img').src = '';
+        document.body.style.overflow = '';
+      }
+    }
   </script>
 </body>
 </html>
+
