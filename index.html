@@ -145,43 +145,94 @@
     .rm-phase[data-ico="diamond"] .rm-icon { animation-duration: 3.0s; }
     .rm-phase[data-ico="planet"]  .rm-icon { animation-duration: 4.0s; }
 
-    /* ===== NFTs EXCLUSIVOS ===== */
-    #nfts { padding:60px 20px; border-top:1px solid var(--line); }
-    #nfts .nfts-head{ margin:0 0 6px; font-size:28px; color:var(--cyan); text-shadow:0 0 14px rgba(0,240,255,.28); }
-    #nfts .nfts-sub{ color:var(--muted); margin:0 0 24px; }
-    .nft-grid{
-      max-width:1220px; margin:0 auto;
-      display:grid; gap:18px;
-      grid-template-columns:repeat(4, minmax(0,1fr));
-    }
-    @media (max-width:1100px){ .nft-grid{ grid-template-columns:repeat(3,1fr); } }
-    @media (max-width:800px){ .nft-grid{ grid-template-columns:repeat(2,1fr); } }
-    @media (max-width:520px){ .nft-grid{ grid-template-columns:1fr; } }
-    .nft-card{
-      background:rgba(14,22,31,.72);
-      border:1px solid var(--line);
-      border-radius:14px; overflow:hidden;
-      box-shadow:var(--shadow);
-      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    }
-    .nft-card:hover{ transform:translateY(-4px); border-color:rgba(0,240,255,.35); box-shadow:0 0 26px rgba(0,240,255,.4), inset 0 0 0 1px rgba(255,255,255,.05); }
-    .nft-img-wrap{ position:relative; aspect-ratio:1/1; background:#061019; cursor: zoom-in; }
-    .nft-img-wrap img{ width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.03) contrast(1.02); }
-    .nft-meta{ padding:12px 14px; display:flex; align-items:center; justify-content:space-between; gap:10px; }
-    .nft-title{ font-weight:800; color:#cfe9ec; letter-spacing:.2px; }
-    .nft-badge{ border:1px solid #6cf; color:#6cf; font-size:12px; font-weight:800; padding:4px 8px; border-radius:999px; box-shadow:0 0 14px rgba(108,204,255,.25); }
+   <!-- ===== NFTs EXCLUSIVOS (ATUALIZADO) ===== -->
+<section id="nfts" class="sec">
+  <div class="panel">
+    <h2 class="nfts-head">NFTs Exclusivos</h2>
+    <p class="nfts-sub">Coleção oficial do PandAI no estilo cyberpunk — peças únicas para a comunidade.</p>
 
-    /* Lightbox para NFTs */
-    .lightbox {
-      display:none; position:fixed; z-index:999; inset:0;
-      background:rgba(0,0,0,.9);
-      justify-content:center; align-items:center;
-    }
-    .lightbox img {
-      max-width:90%; max-height:90%;
-      border-radius:10px; border:2px solid #00ffcc;
-    }
+    <div class="nft-grid">
+      <!-- EXISTENTES -->
+      <article class="nft-card">
+        <div class="nft-img-wrap">
+          <img onclick="openLightbox(this.src)" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/411e3114-10ad-453a-a37e-651b8046817e.png" alt="PandAI #001" loading="lazy">
+        </div>
+        <div class="nft-meta"><span class="nft-title">PandAI #001</span><span class="nft-badge">1/1</span></div>
+      </article>
 
+      <article class="nft-card">
+        <div class="nft-img-wrap">
+          <img onclick="openLightbox(this.src)" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/8e677e2d-e533-4c76-b9cc-34e2e366ff06.png" alt="PandAI #002" loading="lazy">
+        </div>
+        <div class="nft-meta"><span class="nft-title">PandAI #002</span><span class="nft-badge">1/1</span></div>
+      </article>
+
+      <article class="nft-card">
+        <div class="nft-img-wrap">
+          <img onclick="openLightbox(this.src)" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ac2b3c1f-c686-4cc7-9dc3-9da743b115e9.png" alt="PandAI #003" loading="lazy">
+        </div>
+        <div class="nft-meta"><span class="nft-title">PandAI #003</span><span class="nft-badge">1/1</span></div>
+      </article>
+
+      <article class="nft-card">
+        <div class="nft-img-wrap">
+          <img onclick="openLightbox(this.src)" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/e2b195d7-5dd2-4238-86e4-c2c5a616263d.png" alt="PandAI #004" loading="lazy">
+        </div>
+        <div class="nft-meta"><span class="nft-title">PandAI #004</span><span class="nft-badge">1/1</span></div>
+      </article>
+
+      <!-- NOVOS -->
+      <article class="nft-card">
+        <div class="nft-img-wrap">
+          <img onclick="openLightbox(this.src)" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ChatGPT%20Image%2015%20de%20ago.%20de%202025%2C%2021_05_49.png" alt="PandAI #005" loading="lazy">
+        </div>
+        <div class="nft-meta"><span class="nft-title">PandAI #005</span><span class="nft-badge">1/1</span></div>
+      </article>
+
+      <article class="nft-card">
+        <div class="nft-img-wrap">
+          <img onclick="openLightbox(this.src)" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ChatGPT%20Image%2015%20de%20ago.%20de%202025%2C%2020_42_20.png" alt="PandAI #006" loading="lazy">
+        </div>
+        <div class="nft-meta"><span class="nft-title">PandAI #006</span><span class="nft-badge">1/1</span></div>
+      </article>
+
+      <article class="nft-card">
+        <div class="nft-img-wrap">
+          <img onclick="openLightbox(this.src)" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ChatGPT%20Image%2015%20de%20ago.%20de%202025%2C%2020_59_52.png" alt="PandAI #007" loading="lazy">
+        </div>
+        <div class="nft-meta"><span class="nft-title">PandAI #007</span><span class="nft-badge">1/1</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox (zoom ao clicar) -->
+<style>
+  .lightbox{position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.85); z-index:9999}
+  .lightbox.show{display:flex}
+  .lightbox img{max-width:92vw; max-height:92vh; border-radius:14px; box-shadow:0 10px 40px rgba(0,0,0,.6)}
+  .lightbox .close{position:absolute; top:18px; right:22px; font:700 18px/1 system-ui; color:#fff; opacity:.9; cursor:pointer}
+</style>
+<div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+  <span class="close">✕</span>
+  <img id="lightbox-img" src="" alt="NFT ampliado">
+</div>
+<script>
+  function openLightbox(src){
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    img.src = src;
+    lb.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(e){
+    // fecha se clicar fora da imagem ou no X
+    if(e.target.id === 'lightbox' || e.target.classList.contains('close')){
+      document.getElementById('lightbox').classList.remove('show');
+      document.getElementById('lightbox-img').src = '';
+      document.body.style.overflow = '';
+    }
+  }
     /* ===== WHITEPAPER ===== */
     #whitepaper .wp-head{
       font-size: 2rem; color: var(--cyan); margin:0 0 10px;
