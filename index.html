@@ -36,38 +36,6 @@
       display:inline-flex; align-items:center; gap:8px; text-decoration:none;
     }
     .btn:hover{background:var(--cyan-strong);color:#001317;box-shadow:0 0 24px rgba(0,240,255,.32)}
-<section id="links" style="text-align:center; margin: 40px 0;">
-  <h2>Links Oficiais</h2>
-  
-  <p>
-    <strong>Contrato:</strong>  
-    <code>0x0f3e294b699e88848EA1CcdDeBcF977E95cB49b8</code>
-  </p>
-
-  <p>
-    <a href="https://dexscreener.com/bsc/0xe25ce8507425222ad01f0406def0faea34a118b5" target="_blank">
-      DexScreener
-    </a>
-  </p>
-
-  <p>
-    <a href="https://poocoin.app/tokens/0x0f3e294b699e88848ea1ccddebcf977e95cb49b8" target="_blank">
-      PooCoin
-    </a>
-  </p>
-
-  <p>
-    <a href="https://bscscan.com/address/0x0f3e294b699e88848EA1CcdDeBcF977E95cB49b8" target="_blank">
-      BscScan
-    </a>
-  </p>
-
-  <p>
-    <a href="https://pancakeswap.finance/swap" target="_blank">
-      Comprar na PancakeSwap
-    </a>
-  </p>
-</section>
 
     /* ===== HERO ===== */
     .hero{ position:relative; min-height:94vh; padding-top:78px; overflow:hidden; border-bottom:1px solid var(--line); }
@@ -88,8 +56,6 @@
     .cta{ display:flex; gap:12px; flex-wrap:wrap }
     .cta .s{ border-color:var(--cyan-soft); color:var(--cyan-soft) }
 
-    
-
     /* ===== SEÇÕES ===== */
     section.sec{ max-width:1220px; margin:52px auto 68px; padding:0 32px }
     .panel{ background:var(--panel); border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--shadow); padding:26px }
@@ -100,8 +66,19 @@
     .card{ background:rgba(14,22,31,.72); border:1px solid var(--line); border-radius:14px; padding:18px }
 
     .card.media{padding:0; overflow:hidden; border-radius:14px}
-    .card-video{width:100%; height:100%; display:block; object-fit:cover; background:#000; aspect-ratio:16/9}
-    @media (min-width:900px){.card-video{height:420px; aspect-ratio:auto}}
+
+    /* >>> VIDEOS DAS CARDS: ver inteiro, sem cortes <<< */
+    .card-video{
+      width:100%;
+      height:auto;          /* não força altura */
+      display:block;
+      object-fit:contain;   /* mostra 100% do quadro */
+      background:#000;      /* barras pretas quando sobrar espaço */
+      aspect-ratio:auto;    /* definido via JS com o ratio real */
+    }
+    @media (min-width:900px){
+      .card-video{ height:auto !important; }
+    }
 
     /* ===== TOKENOMICS (neon) ===== */
     #tokenomics { padding:60px 20px; background: linear-gradient(180deg, rgba(10,20,30,.9) 0%, rgba(5,10,20,.9) 100%); color:#00f9ff; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
@@ -154,11 +131,6 @@
     .rm-icon svg { display:block; width:100%; height:100%; }
     .rm-icon .stroke { stroke:#00f9ff; stroke-width:2.2; fill:none; }
     .rm-icon .glow  { stroke:rgba(0,249,255,.45); stroke-width:6; filter:blur(4px); }
-    @keyframes floatY { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-4px) } }
-    .rm-phase[data-ico="rocket"]  .rm-icon { animation-duration:3.2s; }
-    .rm-phase[data-ico="chip"]    .rm-icon { animation-duration:3.8s; }
-    .rm-phase[data-ico="diamond"] .rm-icon { animation-duration:3.0s; }
-    .rm-phase[data-ico="planet"]  .rm-icon { animation-duration:4.0s; }
 
     /* ===== NFTs EXCLUSIVOS ===== */
     #nfts { padding:60px 20px; border-top:1px solid var(--line); }
@@ -198,7 +170,6 @@
     .wp-phase p{ margin:0 0 8px; color:#d9edf0; line-height:1.6 }
     .wp-phase ul{ margin:8px 0 0 18px; color:#cfe9ec }
 
-    /* ===== FOOTER ===== */
     .footer{ margin:60px 0 30px; text-align:center; color:var(--muted) }
     .footer a{ color:var(--cyan); text-decoration:none }
   </style>
@@ -229,10 +200,7 @@
     </video>
 
     <div class="hero-inner">
-      <div class="tagline">
-        <span class="big">PAND-AI</span>
-      </div>
-
+      <div class="tagline"><span class="big">PAND-AI</span></div>
       <div class="hero-box">
         <h1 class="hero-title">O FUTURO DAS<br>MEMECOINS<br>INTELIGENTES</h1>
         <p class="hero-sub">Tecnologia, comunidade e propósito em um só token.</p>
@@ -252,22 +220,23 @@
         <div class="card">
           <p>Unidade, segurança e comunidade se encontram no Pand-AI, uma memecoin reimaginada para o futuro.</p>
         </div>
-        <div class="card media" aria-label="Vídeo destaque">
-        <video
-  class="card-video"
-  data-fit="contain"
-  autoplay
-  muted
-  loop
-  playsinline
-  preload="metadata"
-  poster="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/98c793ff-d969-4890-9a1e-129545fcf66f.png">
-  <source src="document_4974250128010380851.mp4" type="video/mp4" />
-  Seu navegador não suporta vídeos HTML5.
-</video>
 
+        <div class="card media" aria-label="Vídeo destaque">
+          <video
+            class="card-video"
+            data-fit="contain"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/98c793ff-d969-4890-9a1e-129545fcf66f.png">
+            <source src="document_4974250128010380851.mp4" type="video/mp4" />
+            Seu navegador não suporta vídeos HTML5.
+          </video>
         </div>
       </div>
+
       <div class="card" style="margin-top:18px">
         <p>Transparência, liquidez bloqueada e uma comunidade ativa orientam cada passo do ecossistema.</p>
       </div>
@@ -280,7 +249,6 @@
     <p class="token-sub">Economia do token $PANDAI projetada para sustentabilidade e crescimento</p>
 
     <div class="token-grid">
-      <!-- Utilidades + Queima -->
       <div class="token-card">
         <h3>Utilidades do Token</h3>
         <ul>
@@ -304,7 +272,6 @@
         </div>
       </div>
 
-      <!-- Infos gerais + links DEX -->
       <div class="token-card">
         <h3>Informações Gerais</h3>
         <div class="token-meta">
@@ -347,6 +314,7 @@
       <p class="roadmap-sub">Nosso plano estratégico para dominar o universo dos memes</p>
 
       <div class="roadmap-grid">
+        <!-- fases ... (mantidas iguais) -->
         <div class="rm-phase" data-ico="rocket">
           <div class="rm-top">
             <div class="rm-left">
@@ -443,7 +411,7 @@
       <p class="nfts-sub">Coleção oficial do PandAI no estilo cyberpunk — peças únicas para a comunidade.</p>
 
       <div class="nft-grid">
-        <!-- EXISTENTES -->
+        <!-- ... seus cards de NFT (mantidos) ... -->
         <article class="nft-card">
           <div class="nft-img-wrap"><img src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/411e3114-10ad-453a-a37e-651b8046817e.png" alt="PandAI #001" loading="lazy"></div>
           <div class="nft-meta"><span class="nft-title">PandAI #001</span><span class="nft-badge">1/1</span></div>
@@ -460,8 +428,6 @@
           <div class="nft-img-wrap"><img src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/e2b195d7-5dd2-4238-86e4-c2c5a616263d.png" alt="PandAI #004" loading="lazy"></div>
           <div class="nft-meta"><span class="nft-title">PandAI #004</span><span class="nft-badge">1/1</span></div>
         </article>
-
-        <!-- NOVOS -->
         <article class="nft-card">
           <div class="nft-img-wrap"><img src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ChatGPT%20Image%2015%20de%20ago.%20de%202025%2C%2021_05_49.png" alt="PandAI #005" loading="lazy"></div>
           <div class="nft-meta"><span class="nft-title">PandAI #005</span><span class="nft-badge">1/1</span></div>
@@ -482,7 +448,7 @@
     </div>
   </section>
 
-  <!-- ===== LIGHTBOX (zoom) ===== -->
+  <!-- ===== LIGHTBOX ===== -->
   <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
     <span class="close">✕</span>
     <img id="lightbox-img" src="" alt="NFT ampliado">
@@ -492,7 +458,7 @@
   <section id="whitepaper" class="sec">
     <div class="panel">
       <h2 class="wp-head">Plano de Desenvolvimento Pandai: Rumo ao Sucesso</h2>
-    <p class="wp-lead">O plano de desenvolvimento do token Pandai foi cuidadosamente estruturado para maximizar o crescimento e a sustentabilidade a longo prazo. Nossa estratégia se divide em fases claras, com metas e ações bem definidas.</p>
+      <p class="wp-lead">O plano de desenvolvimento do token Pandai foi cuidadosamente estruturado para maximizar o crescimento e a sustentabilidade a longo prazo. Nossa estratégia se divide em fases claras, com metas e ações bem definidas.</p>
 
       <div class="wp-phase">
         <h3>Fase 1: Lançamento e Consolidação (Dia 4, primeiras 24 horas)</h3>
@@ -607,11 +573,10 @@
       }catch(e){ console.error(e); }
     }
 
-    // Lightbox: abrir ao clicar na imagem
+    // Lightbox NFTs
     document.querySelectorAll('.nft-img-wrap img').forEach(img => {
       img.addEventListener('click', () => openLightbox(img.src));
     });
-
     function openLightbox(src){
       const lb  = document.getElementById('lightbox');
       const img = document.getElementById('lightbox-img');
@@ -619,7 +584,6 @@
       lb.classList.add('show');
       document.body.style.overflow = 'hidden';
     }
-
     function closeLightbox(e){
       if (!e || e.target.id === 'lightbox' || (e.target && e.target.classList.contains('close'))){
         document.getElementById('lightbox').classList.remove('show');
@@ -627,6 +591,17 @@
         document.body.style.overflow = '';
       }
     }
+
+    // >>> Ajusta a proporção real dos vídeos com data-fit="contain"
+    document.querySelectorAll('video[data-fit="contain"]').forEach(v => {
+      const setRatio = () => {
+        if (v.videoWidth && v.videoHeight) {
+          v.style.aspectRatio = `${v.videoWidth} / ${v.videoHeight}`;
+        }
+      };
+      if (v.readyState >= 1) setRatio();
+      v.addEventListener('loadedmetadata', setRatio);
+    });
   </script>
 </body>
 </html>
