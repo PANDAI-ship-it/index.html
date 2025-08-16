@@ -18,6 +18,8 @@
     html,body{height:100%}
     body{margin:0;background:var(--bg);color:var(--text);font-family:'Orbitron',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
 
+  <head>
+  <style>
     /* ===== HEADER ===== */
     .header{
       position:fixed; inset:0 0 auto 0; height:78px; z-index:50;
@@ -36,38 +38,53 @@
       display:inline-flex; align-items:center; gap:8px; text-decoration:none;
     }
     .btn:hover{background:var(--cyan-strong);color:#001317;box-shadow:0 0 24px rgba(0,240,255,.32)}
-<section id="links" style="text-align:center; margin: 40px 0;">
-  <h2>Links Oficiais</h2>
-  
-  <p>
-    <strong>Contrato:</strong>  
-    <code>0x0f3e294b699e88848EA1CcdDeBcF977E95cB49b8</code>
-  </p>
 
-  <p>
-    <a href="https://dexscreener.com/bsc/0xe25ce8507425222ad01f0406def0faea34a118b5" target="_blank">
-      DexScreener
-    </a>
-  </p>
+    /* ===== AQUI COLOCA O ESTILO DO VÍDEO ===== */
+    .card-video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* mostra o vídeo inteiro sem cortar */
+      border-radius: 12px; /* opcional */
+      background-color: #000; /* fundo preto nas bordas */
+    }
+  </style>
+</head>
 
-  <p>
-    <a href="https://poocoin.app/tokens/0x0f3e294b699e88848ea1ccddebcf977e95cb49b8" target="_blank">
-      PooCoin
-    </a>
-  </p>
+<body>
+  <section id="links" style="text-align:center; margin: 40px 0;">
+    <h2>Links Oficiais</h2>
 
-  <p>
-    <a href="https://bscscan.com/address/0x0f3e294b699e88848EA1CcdDeBcF977E95cB49b8" target="_blank">
-      BscScan
-    </a>
-  </p>
+    <p>
+      <strong>Contrato:</strong>  
+      <code>0x0f3e294b699e88848EA1CcdDeBcF977E95cB49b8</code>
+    </p>
 
-  <p>
-    <a href="https://pancakeswap.finance/swap" target="_blank">
-      Comprar na PancakeSwap
-    </a>
-  </p>
-</section>
+    <p>
+      <a href="https://dexscreener.com/bsc/0xe25ce8507425222ad01f0406def0faea34a118b5" target="_blank">
+        DexScreener
+      </a>
+    </p>
+
+    <p>
+      <a href="https://poocoin.app/tokens/0x0f3e294b699e88848ea1ccddebcf977e95cb49b8" target="_blank">
+        PooCoin
+      </a>
+    </p>
+
+    <p>
+      <a href="https://bscscan.com/address/0x0f3e294b699e88848EA1CcdDeBcF977E95cB49b8" target="_blank">
+        BscScan
+      </a>
+    </p>
+
+    <p>
+      <a href="https://pancakeswap.finance/swap" target="_blank">
+        Comprar na PancakeSwap
+      </a>
+    </p>
+  </section>
+</body>
+
 
     /* ===== HERO ===== */
     .hero{ position:relative; min-height:94vh; padding-top:78px; overflow:hidden; border-bottom:1px solid var(--line); }
@@ -243,36 +260,28 @@
       </div>
     </div>
   </section>
-
-  <!-- ===== SOBRE ===== -->
-  <section id="sobre" class="sec">
-    <div class="panel">
-      <h2>SOBRE O PAND-AI</h2>
-      <div class="cards">
-        <div class="card">
-          <p>Unidade, segurança e comunidade se encontram no Pand-AI, uma memecoin reimaginada para o futuro.</p>
-        </div>
-        <div class="card media" aria-label="Vídeo destaque">
-        <video
-  class="card-video"
-  data-fit="contain"
-  autoplay
-  muted
-  loop
-  playsinline
-  preload="metadata"
-  poster="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/98c793ff-d969-4890-9a1e-129545fcf66f.png">
-  <source src="document_4974250128010380851.mp4" type="video/mp4" />
-  Seu navegador não suporta vídeos HTML5.
-</video>
-
-        </div>
+<!-- ===== SOBRE ===== -->
+<section id="sobre" class="sec">
+  <div class="panel">
+    <h2>SOBRE O PAND-AI</h2>
+    <div class="cards">
+      <div class="card">
+        <p>Unidade, segurança e comunidade se encontram no Pand-AI, uma memecoin reimaginada para o futuro.</p>
       </div>
-      <div class="card" style="margin-top:18px">
-        <p>Transparência, liquidez bloqueada e uma comunidade ativa orientam cada passo do ecossistema.</p>
+      <div class="card media" aria-label="Vídeo destaque">
+        <video class="card-video" autoplay muted loop playsinline preload="metadata" 
+          poster="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/98c793ff-d969-4890-9a1e-129545fcf66f.png">
+          <source src="document_4974250128010380856.mp4" type="video/mp4" />
+          Seu navegador não suporta vídeos HTML5.
+        </video>
       </div>
     </div>
-  </section>
+    <div class="card" style="margin-top:18px">
+      <p>Transparência, liquidez bloqueada e uma comunidade ativa orientam cada passo do ecossistema.</p>
+    </div>
+  </div>
+</section>
+
 
   <!-- ===== TOKENOMICS ===== -->
   <section id="tokenomics" class="sec">
