@@ -36,6 +36,38 @@
       display:inline-flex; align-items:center; gap:8px; text-decoration:none;
     }
     .btn:hover{background:var(--cyan-strong);color:#001317;box-shadow:0 0 24px rgba(0,240,255,.32)}
+<section id="links" style="text-align:center; margin: 40px 0;">
+  <h2>Links Oficiais</h2>
+  
+  <p>
+    <strong>Contrato:</strong>  
+    <code>0x0f3e294b699e88848EA1CcdDeBcF977E95cB49b8</code>
+  </p>
+
+  <p>
+    <a href="https://dexscreener.com/bsc/0xe25ce8507425222ad01f0406def0faea34a118b5" target="_blank">
+      DexScreener
+    </a>
+  </p>
+
+  <p>
+    <a href="https://poocoin.app/tokens/0x0f3e294b699e88848ea1ccddebcf977e95cb49b8" target="_blank">
+      PooCoin
+    </a>
+  </p>
+
+  <p>
+    <a href="https://bscscan.com/address/0x0f3e294b699e88848EA1CcdDeBcF977E95cB49b8" target="_blank">
+      BscScan
+    </a>
+  </p>
+
+  <p>
+    <a href="https://pancakeswap.finance/swap" target="_blank">
+      Comprar na PancakeSwap
+    </a>
+  </p>
+</section>
 
     /* ===== HERO ===== */
     .hero{ position:relative; min-height:94vh; padding-top:78px; overflow:hidden; border-bottom:1px solid var(--line); }
@@ -55,6 +87,8 @@
     .hero-sub{ margin:6px 0 18px; color:var(--muted) }
     .cta{ display:flex; gap:12px; flex-wrap:wrap }
     .cta .s{ border-color:var(--cyan-soft); color:var(--cyan-soft) }
+
+    
 
     /* ===== SEÇÕES ===== */
     section.sec{ max-width:1220px; margin:52px auto 68px; padding:0 32px }
@@ -188,16 +222,6 @@
     <a id="buyTop" class="btn" href="#" target="_blank" rel="noopener">💱 Comprar</a>
   </header>
 
-  <!-- ===== LINKS OFICIAIS (movido para fora do <style>) ===== -->
-  <section id="links" class="sec" style="text-align:center; margin: 108px 0 20px;">
-    <h2>Links Oficiais</h2>
-    <p><strong>Contrato:</strong> <code>0x0f3e294b699e88848EA1CcdDeBcF977E95cB49b8</code></p>
-    <p><a href="https://dexscreener.com/bsc/0xe25ce8507425222ad01f0406def0faea34a118b5" target="_blank" rel="noopener">DexScreener</a></p>
-    <p><a href="https://poocoin.app/tokens/0x0f3e294b699e88848ea1ccddebcf977e95cb49b8" target="_blank" rel="noopener">PooCoin</a></p>
-    <p><a href="https://bscscan.com/address/0x0f3e294b699e88848EA1CcdDeBcF977E95cB49b8" target="_blank" rel="noopener">BscScan</a></p>
-    <p><a href="https://pancakeswap.finance/swap?outputCurrency=0x0f3e294b699e88848EA1CcdDeBcF977E95cB49b8" target="_blank" rel="noopener">Comprar na PancakeSwap</a></p>
-  </section>
-
   <!-- ===== HERO ===== -->
   <section id="home" class="hero">
     <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/98c793ff-d969-4890-9a1e-129545fcf66f.png">
@@ -229,18 +253,19 @@
           <p>Unidade, segurança e comunidade se encontram no Pand-AI, uma memecoin reimaginada para o futuro.</p>
         </div>
         <div class="card media" aria-label="Vídeo destaque">
-          <video
-            class="card-video"
-            data-fit="contain"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/98c793ff-d969-4890-9a1e-129545fcf66f.png">
-            <source src="document_4974250128010380851.mp4" type="video/mp4" />
-            Seu navegador não suporta vídeos HTML5.
-          </video>
+        <video
+  class="card-video"
+  data-fit="contain"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="metadata"
+  poster="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/98c793ff-d969-4890-9a1e-129545fcf66f.png">
+  <source src="document_4974250128010380851.mp4" type="video/mp4" />
+  Seu navegador não suporta vídeos HTML5.
+</video>
+
         </div>
       </div>
       <div class="card" style="margin-top:18px">
@@ -255,6 +280,7 @@
     <p class="token-sub">Economia do token $PANDAI projetada para sustentabilidade e crescimento</p>
 
     <div class="token-grid">
+      <!-- Utilidades + Queima -->
       <div class="token-card">
         <h3>Utilidades do Token</h3>
         <ul>
@@ -278,6 +304,7 @@
         </div>
       </div>
 
+      <!-- Infos gerais + links DEX -->
       <div class="token-card">
         <h3>Informações Gerais</h3>
         <div class="token-meta">
@@ -320,8 +347,6 @@
       <p class="roadmap-sub">Nosso plano estratégico para dominar o universo dos memes</p>
 
       <div class="roadmap-grid">
-        <!-- (mesmo conteúdo das fases) -->
-        <!-- ... mantido igual ao seu original ... -->
         <div class="rm-phase" data-ico="rocket">
           <div class="rm-top">
             <div class="rm-left">
@@ -418,7 +443,7 @@
       <p class="nfts-sub">Coleção oficial do PandAI no estilo cyberpunk — peças únicas para a comunidade.</p>
 
       <div class="nft-grid">
-        <!-- seus cards existentes (mantidos) -->
+        <!-- EXISTENTES -->
         <article class="nft-card">
           <div class="nft-img-wrap"><img src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/411e3114-10ad-453a-a37e-651b8046817e.png" alt="PandAI #001" loading="lazy"></div>
           <div class="nft-meta"><span class="nft-title">PandAI #001</span><span class="nft-badge">1/1</span></div>
@@ -436,7 +461,7 @@
           <div class="nft-meta"><span class="nft-title">PandAI #004</span><span class="nft-badge">1/1</span></div>
         </article>
 
-        <!-- novos -->
+        <!-- NOVOS -->
         <article class="nft-card">
           <div class="nft-img-wrap"><img src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ChatGPT%20Image%2015%20de%20ago.%20de%202025%2C%2021_05_49.png" alt="PandAI #005" loading="lazy"></div>
           <div class="nft-meta"><span class="nft-title">PandAI #005</span><span class="nft-badge">1/1</span></div>
@@ -457,7 +482,7 @@
     </div>
   </section>
 
-  <!-- ===== LIGHTBOX ===== -->
+  <!-- ===== LIGHTBOX (zoom) ===== -->
   <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
     <span class="close">✕</span>
     <img id="lightbox-img" src="" alt="NFT ampliado">
@@ -467,7 +492,7 @@
   <section id="whitepaper" class="sec">
     <div class="panel">
       <h2 class="wp-head">Plano de Desenvolvimento Pandai: Rumo ao Sucesso</h2>
-      <p class="wp-lead">O plano de desenvolvimento do token Pandai foi cuidadosamente estruturado para maximizar o crescimento e a sustentabilidade a longo prazo. Nossa estratégia se divide em fases claras, com metas e ações bem definidas.</p>
+    <p class="wp-lead">O plano de desenvolvimento do token Pandai foi cuidadosamente estruturado para maximizar o crescimento e a sustentabilidade a longo prazo. Nossa estratégia se divide em fases claras, com metas e ações bem definidas.</p>
 
       <div class="wp-phase">
         <h3>Fase 1: Lançamento e Consolidação (Dia 4, primeiras 24 horas)</h3>
