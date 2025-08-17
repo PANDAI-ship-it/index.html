@@ -18,7 +18,7 @@
     html,body{height:100%}
     body{margin:0;background:var(--bg);color:var(--text);font-family:'Orbitron',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
 
- /* ===== HEADER ===== */
+    /* ===== HEADER ===== */
     .header{
       position:fixed; inset:0 0 auto 0; height:78px; z-index:50;
       display:flex; align-items:center; justify-content:space-between;
@@ -36,9 +36,7 @@
       display:inline-flex; align-items:center; gap:8px; text-decoration:none;
     }
     .btn:hover{background:var(--cyan-strong);color:#001317;box-shadow:0 0 24px rgba(0,240,255,.32)}
-<section id="links" style="text-align:center; margin: 40px 0;">
-  <h2>Links Oficiais</h2>
-  
+
     /* ===== HERO ===== */
     .hero{ position:relative; min-height:94vh; padding-top:78px; overflow:hidden; border-bottom:1px solid var(--line); }
     .hero-video{
@@ -57,7 +55,6 @@
     .hero-sub{ margin:6px 0 18px; color:var(--muted) }
     .cta{ display:flex; gap:12px; flex-wrap:wrap }
     .cta .s{ border-color:var(--cyan-soft); color:var(--cyan-soft) }
-    
 
     /* ===== SEÇÕES ===== */
     section.sec{ max-width:1220px; margin:52px auto 68px; padding:0 32px }
@@ -69,38 +66,28 @@
     .card{ background:rgba(14,22,31,.72); border:1px solid var(--line); border-radius:14px; padding:18px }
 
     .card.media{padding:0; overflow:hidden; border-radius:14px}
-    /* padrão (antigo): cover, bom para vídeos panorâmicos */
+    /* padrão (para vídeos horizontais 16:9) */
     .card-video{width:100%; height:100%; display:block; object-fit:cover; background:#000; aspect-ratio:16/9}
     @media (min-width:900px){.card-video{height:420px; aspect-ratio:auto}}
 
-    /* >>> ajuste SÓ para o vídeo da seção SOBRE: mostra inteiro sem cortar */
-    #sobre .card-video{
-      object-fit:contain;
+    /* ===== AJUSTE ESPECÍFICO PARA O VÍDEO VERTICAL DO "SOBRE" ===== */
+    #sobre .media.v-9x16{
+      aspect-ratio: 9/16;          /* caixa vertical */
       background:#000;
+      display:flex; align-items:center; justify-content:center;
+      border-radius:14px; overflow:hidden;
+      max-height:560px; margin-left:auto; margin-right:auto;
     }
-/* ===== AJUSTE ESPECÍFICO PARA O VÍDEO VERTICAL DO "SOBRE" ===== */
-#sobre .media.v-9x16{
-  aspect-ratio: 9/16;
-  background:#000;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:14px;
-  overflow:hidden;
-  max-height:560px;
-  margin-left:auto;
-  margin-right:auto;
-}
-#sobre .media.v-9x16 .card-video{
-  width:100%;
-  height:100%;
-  object-fit: contain;
-  border-radius:12px;
-}
-@media (min-width:900px){
-  #sobre .media.v-9x16{ max-height:640px; }
-}
-  /* ===== TOKENOMICS (neon) ===== */
+    #sobre .media.v-9x16 .card-video{
+      width:100%; height:100%;
+      object-fit:contain;          /* mostra o vídeo inteiro, sem cortar */
+      border-radius:12px;
+    }
+    @media (min-width:900px){
+      #sobre .media.v-9x16{ max-height:640px; }
+    }
+
+    /* ===== TOKENOMICS (neon) ===== */
     #tokenomics { padding:60px 20px; background: linear-gradient(180deg, rgba(10,20,30,.9) 0%, rgba(5,10,20,.9) 100%); color:#00f9ff; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
     .token-head { font-size:2.2rem; text-align:center; color:var(--cyan); text-shadow: 0 0 10px rgba(0,240,255,.25); margin:0 0 6px; }
     .token-sub  { text-align:center; margin-bottom:28px; font-size:1.05rem; color:var(--muted); }
@@ -151,7 +138,6 @@
     .rm-icon svg { display:block; width:100%; height:100%; }
     .rm-icon .stroke { stroke:#00f9ff; stroke-width:2.2; fill:none; }
     .rm-icon .glow  { stroke:rgba(0,249,255,.45); stroke-width:6; filter:blur(4px); }
-
     @keyframes floatY { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-4px) } }
     .rm-phase[data-ico="rocket"]  .rm-icon { animation-duration:3.2s; }
     .rm-phase[data-ico="chip"]    .rm-icon { animation-duration:3.8s; }
@@ -197,7 +183,7 @@
     .wp-phase ul{ margin:8px 0 0 18px; color:#cfe9ec }
 
     /* ===== FOOTER ===== */
-    .footer{ margin:60px 0 30px; text-align:center; color:var(--muted) }
+    .footer{ margin:60px 0 30px; text-align:center; color:#9fb2b9 }
     .footer a{ color:var(--cyan); text-decoration:none }
   </style>
 </head>
@@ -250,7 +236,9 @@
         <div class="card">
           <p>Unidade, segurança e comunidade se encontram no Pand-AI, uma memecoin reimaginada para o futuro.</p>
         </div>
-        <div class="card media" aria-label="Vídeo destaque">
+
+        <!-- VÍDEO VERTICAL MOSTRANDO INTEIRO -->
+        <div class="card media v-9x16" aria-label="Vídeo destaque">
           <video class="card-video" autoplay muted loop playsinline preload="metadata"
             poster="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/98c793ff-d969-4890-9a1e-129545fcf66f.png">
             <source src="document_4974250128010380851.mp4" type="video/mp4" />
@@ -258,6 +246,7 @@
           </video>
         </div>
       </div>
+
       <div class="card" style="margin-top:18px">
         <p>Transparência, liquidez bloqueada e uma comunidade ativa orientam cada passo do ecossistema.</p>
       </div>
