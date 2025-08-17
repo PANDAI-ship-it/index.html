@@ -28,7 +28,8 @@
     .brand{display:flex;align-items:center;gap:12px}
     .brand .logo{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#0c141e;box-shadow:var(--shadow)}
     .brand b{letter-spacing:.6px}
-    .nav a{color:var(--cyan);text-decoration:none;margin:0 14px;opacity:.9;transition:.2s}
+    .nav{display:flex;align-items:center;gap:8px}
+    .nav a{color:var(--cyan);text-decoration:none;margin:0 10px;opacity:.9;transition:.2s;white-space:nowrap}
     .nav a:hover{opacity:1;color:#bffcff}
     .btn{
       border:1.6px solid var(--cyan-strong); background:transparent; color:var(--cyan-strong);
@@ -65,27 +66,13 @@
     @media (max-width:900px){ .cards{ grid-template-columns:1fr } }
     .card{ background:rgba(14,22,31,.72); border:1px solid var(--line); border-radius:14px; padding:18px }
 
-    .card.media{padding:0; overflow:hidden; border-radius:14px}
-    /* padrão (para vídeos horizontais 16:9) */
+    /* ===== VÍDEO: padrão "cover" para cartões (boa estética geral) ===== */
+    .card.media{padding:0; overflow:hidden; border-radius:14px; display:flex; align-items:center; justify-content:center}
     .card-video{width:100%; height:100%; display:block; object-fit:cover; background:#000; aspect-ratio:16/9}
     @media (min-width:900px){.card-video{height:420px; aspect-ratio:auto}}
 
-    /* ===== AJUSTE ESPECÍFICO PARA O VÍDEO VERTICAL DO "SOBRE" ===== */
-    #sobre .media.v-9x16{
-      aspect-ratio: 9/16;          /* caixa vertical */
-      background:#000;
-      display:flex; align-items:center; justify-content:center;
-      border-radius:14px; overflow:hidden;
-      max-height:560px; margin-left:auto; margin-right:auto;
-    }
-    #sobre .media.v-9x16 .card-video{
-      width:100%; height:100%;
-      object-fit:contain;          /* mostra o vídeo inteiro, sem cortar */
-      border-radius:12px;
-    }
-    @media (min-width:900px){
-      #sobre .media.v-9x16{ max-height:640px; }
-    }
+    /* >>> AJUSTE ESPECÍFICO: vídeo do SOBRE deve aparecer INTEIRO (sem cortes) */
+    #sobre .card-video{ object-fit:contain; background:#000; }
 
     /* ===== TOKENOMICS (neon) ===== */
     #tokenomics { padding:60px 20px; background: linear-gradient(180deg, rgba(10,20,30,.9) 0%, rgba(5,10,20,.9) 100%); color:#00f9ff; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
@@ -99,7 +86,7 @@
     .token-card ul { padding-left:18px; margin:0; color:#cfe9ec; }
     .token-card ul li { margin:6px 0; }
     .token-meta { display:grid; gap:8px; color:#cfe9ec; }
-    .token-meta code { background:rgba(0,0,0,.35); border:1px solid rgba(0,249,255,.25); padding:6px 8px; border-radius:8px; color:#bffcff; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace; }
+    .token-meta code { background:rgba(0,0,0,.35); border:1px solid rgba(0,249,255,.25); padding:6px 8px; border-radius:8px; color:#bffcff; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; }
 
     /* chips / links dex */
     .dex-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
@@ -138,6 +125,7 @@
     .rm-icon svg { display:block; width:100%; height:100%; }
     .rm-icon .stroke { stroke:#00f9ff; stroke-width:2.2; fill:none; }
     .rm-icon .glow  { stroke:rgba(0,249,255,.45); stroke-width:6; filter:blur(4px); }
+
     @keyframes floatY { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-4px) } }
     .rm-phase[data-ico="rocket"]  .rm-icon { animation-duration:3.2s; }
     .rm-phase[data-ico="chip"]    .rm-icon { animation-duration:3.8s; }
@@ -183,8 +171,33 @@
     .wp-phase ul{ margin:8px 0 0 18px; color:#cfe9ec }
 
     /* ===== FOOTER ===== */
-    .footer{ margin:60px 0 30px; text-align:center; color:#9fb2b9 }
+    .footer{ margin:60px 0 30px; text-align:center; color:var(--muted) }
     .footer a{ color:var(--cyan); text-decoration:none }
+
+    /* ===== LINKS OFICIAIS (seção simples no topo do body) ===== */
+    #links { text-align:center; margin: 100px 0 20px; }
+    #links code{ background:rgba(0,0,0,.35); border:1px solid rgba(0,249,255,.25); padding:6px 8px; border-radius:8px; color:#bffcff; }
+    #links a{ color:var(--cyan); text-decoration:none; margin:0 8px; }
+
+    /* ===== AJUSTES MOBILE ===== */
+    @media (max-width:900px){
+      .header{ padding:0 14px; height:70px; }
+      .brand .logo{ width:34px; height:34px; }
+      .brand b{ font-size:14px; letter-spacing:.4px; }
+      .nav{ max-width:55vw; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+      .nav a{ font-size:14px; }
+    }
+    @media (max-width:980px){
+      .hero{ min-height:88vh; }
+      .hero-inner{ grid-template-columns:1fr; padding:18px; gap:18px; }
+      .hero-box{ justify-self:stretch; }
+    }
+    @media (max-width:640px){
+      .hero-video{ object-position:50% 35%; }
+      h2{ font-size:22px; }
+      .panel{ padding:18px; }
+      .card{ padding:14px; }
+    }
   </style>
 </head>
 <body>
@@ -206,8 +219,20 @@
     <a id="buyTop" class="btn" href="#" target="_blank" rel="noopener">💱 Comprar</a>
   </header>
 
+  <!-- ===== LINKS OFICIAIS ===== -->
+  <section id="links" class="sec" aria-label="Links Oficiais">
+    <h2>Links Oficiais</h2>
+    <p><strong>Contrato:</strong> <code>0x0f3e294b699e88848EA1CcdDeBcF977E95cB49b8</code></p>
+    <p>
+      <a href="https://dexscreener.com/bsc/0xe25ce8507425222ad01f0406def0faea34a118b5" target="_blank" rel="noopener">DexScreener</a> •
+      <a href="https://poocoin.app/tokens/0x0f3e294b699e88848ea1ccddebcf977e95cb49b8" target="_blank" rel="noopener">PooCoin</a> •
+      <a href="https://bscscan.com/address/0x0f3e294b699e88848EA1CcdDeBcF977E95cB49b8" target="_blank" rel="noopener">BscScan</a> •
+      <a href="https://pancakeswap.finance/swap" target="_blank" rel="noopener">PancakeSwap</a>
+    </p>
+  </section>
+
   <!-- ===== HERO ===== -->
-  <section id="home" class="hero">
+  <section id="home" class="hero" aria-label="Hero">
     <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/98c793ff-d969-4890-9a1e-129545fcf66f.png">
       <source src="document_4974250128010380856.mp4" type="video/mp4" />
     </video>
@@ -236,9 +261,8 @@
         <div class="card">
           <p>Unidade, segurança e comunidade se encontram no Pand-AI, uma memecoin reimaginada para o futuro.</p>
         </div>
-
-        <!-- VÍDEO VERTICAL MOSTRANDO INTEIRO -->
-        <div class="card media v-9x16" aria-label="Vídeo destaque">
+        <div class="card media" aria-label="Vídeo destaque">
+          <!-- ESTE É O VÍDEO QUE DEVE APARECER INTEIRO -->
           <video class="card-video" autoplay muted loop playsinline preload="metadata"
             poster="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/98c793ff-d969-4890-9a1e-129545fcf66f.png">
             <source src="document_4974250128010380851.mp4" type="video/mp4" />
@@ -246,7 +270,6 @@
           </video>
         </div>
       </div>
-
       <div class="card" style="margin-top:18px">
         <p>Transparência, liquidez bloqueada e uma comunidade ativa orientam cada passo do ecossistema.</p>
       </div>
@@ -551,13 +574,14 @@
     };
 
     // preencher links nos botões + CTAs
-    document.getElementById("dexscreener").href = LINKS.dexscreener;
-    document.getElementById("poocoin").href     = LINKS.poocoin;
-    document.getElementById("bscscan").href     = LINKS.bscscan;
-    document.getElementById("pancake").href     = LINKS.pancake;
-    document.getElementById("buyTop").href      = LINKS.pancake;
-    document.getElementById("buyHero").href     = LINKS.pancake;
-    document.getElementById("footerCA").href    = LINKS.bscscan;
+    const setHref = (id, url) => { const el = document.getElementById(id); if(el) el.href = url; };
+    setHref("dexscreener", LINKS.dexscreener);
+    setHref("poocoin",     LINKS.poocoin);
+    setHref("bscscan",     LINKS.bscscan);
+    setHref("pancake",     LINKS.pancake);
+    setHref("buyTop",      LINKS.pancake);
+    setHref("buyHero",     LINKS.pancake);
+    setHref("footerCA",    LINKS.bscscan);
 
     // Copiar contrato
     function copyCA(){
