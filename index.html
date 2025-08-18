@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
   <title>PAND-AI — O Futuro das Memecoins Inteligentes</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
   <style>
@@ -18,6 +18,49 @@
     html,body{height:100%}
     body{margin:0;background:var(--bg);color:var(--text);font-family:'Orbitron',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
 
+    /* ————— Consistência entre navegadores mobile ————— */
+html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+*{ -webkit-tap-highlight-color: transparent; }
+
+/* respeita “notch”/ilhas dinâmicas */
+.header{ padding-left:calc(16px + env(safe-area-inset-left));
+         padding-right:calc(16px + env(safe-area-inset-right)); }
+body{ padding-left:env(safe-area-inset-left); padding-right:env(safe-area-inset-right); }
+
+/* nav não quebra e vira scroll horizontal se faltar espaço */
+.nav{ display:flex; gap:14px; overflow:auto hidden; max-width:56vw; }
+.nav::-webkit-scrollbar{ display:none; }
+
+/* Hero: evita cortar em telas muito baixas */
+@media (max-height: 680px){
+  .hero{ min-height:88vh; }
+  .hero-video{ object-position:center 30%; }
+  .hero-box{ padding:20px; }
+}
+
+/* Vídeo do “SOBRE”: garante que caiba sem “apertar” em telas pequenas */
+#sobre .card-video{
+  aspect-ratio: 16/9;
+  max-height: 48vh;
+  object-fit: contain;
+}
+
+/* ———— GRID DE NFTs mais estável ————
+   4 col (desktop), 3 col (tablets e celulares comuns),
+   e cai para 2 col só em celulares MUITO estreitos (<360px). */
+.nft-grid{ grid-template-columns:repeat(4, minmax(0,1fr)); }
+@media (max-width:1100px){ .nft-grid{ grid-template-columns:repeat(3,1fr); } }
+@media (max-width:800px){  .nft-grid{ grid-template-columns:repeat(3,1fr); } }
+/* Xiaomi pequenos/samsung compact: mantém 3; só abaixo de 360px vai para 2 */
+@media (max-width:360px){  .nft-grid{ grid-template-columns:repeat(2,1fr); } }
+
+/* fontes e espaçamentos um pouco menores em telas estreitas */
+@media (max-width:400px){
+  .hero-title{ font-size: clamp(22px, 8vw, 36px); }
+  .btn{ padding:8px 14px; }
+  h2{ font-size:24px; }
+  .nft-meta{ padding:4px 6px; }
+}
     /* ===== HEADER ===== */
     .header{
       position:fixed; inset:0 0 auto 0; height:78px; z-index:50;
