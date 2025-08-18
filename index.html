@@ -22,14 +22,15 @@
     .header{
       position:fixed; inset:0 0 auto 0; height:78px; z-index:50;
       display:flex; align-items:center; justify-content:space-between;
-      padding:0 28px; background:linear-gradient(180deg,rgba(0,0,0,.75),rgba(0,0,0,.25));
+      padding:0 16px; background:linear-gradient(180deg,rgba(0,0,0,.75),rgba(0,0,0,.25));
       border-bottom:1px solid var(--line); backdrop-filter:blur(6px);
     }
     .brand{display:flex;align-items:center;gap:12px}
     .brand .logo{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#0c141e;box-shadow:var(--shadow)}
     .brand b{letter-spacing:.6px}
-    .nav{display:flex;align-items:center;gap:8px}
-    .nav a{color:var(--cyan);text-decoration:none;margin:0 10px;opacity:.9;transition:.2s;white-space:nowrap}
+    .nav{display:flex;gap:14px;overflow:auto hidden;max-width:52vw;padding:6px 2px}
+    .nav::-webkit-scrollbar{display:none}
+    .nav a{color:var(--cyan);text-decoration:none;opacity:.9;transition:.2s;white-space:nowrap}
     .nav a:hover{opacity:1;color:#bffcff}
     .btn{
       border:1.6px solid var(--cyan-strong); background:transparent; color:var(--cyan-strong);
@@ -58,7 +59,7 @@
     .cta .s{ border-color:var(--cyan-soft); color:var(--cyan-soft) }
 
     /* ===== SEÇÕES ===== */
-    section.sec{ max-width:1220px; margin:52px auto 68px; padding:0 32px }
+    section.sec{ max-width:1220px; margin:52px auto 68px; padding:0 16px }
     .panel{ background:var(--panel); border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--shadow); padding:26px }
     h2{ margin:0 0 14px; font-size:28px; color:var(--cyan) }
 
@@ -66,12 +67,11 @@
     @media (max-width:900px){ .cards{ grid-template-columns:1fr } }
     .card{ background:rgba(14,22,31,.72); border:1px solid var(--line); border-radius:14px; padding:18px }
 
-    /* ===== VÍDEO: padrão "cover" para cartões (boa estética geral) ===== */
-    .card.media{padding:0; overflow:hidden; border-radius:14px; display:flex; align-items:center; justify-content:center}
+    .card.media{padding:0; overflow:hidden; border-radius:14px}
+    /* padrão para cards — vídeos panorâmicos */
     .card-video{width:100%; height:100%; display:block; object-fit:cover; background:#000; aspect-ratio:16/9}
     @media (min-width:900px){.card-video{height:420px; aspect-ratio:auto}}
-
-    /* >>> AJUSTE ESPECÍFICO: vídeo do SOBRE deve aparecer INTEIRO (sem cortes) */
+    /* >>> AJUSTE SÓ NO “SOBRE”: mostra o vídeo inteiro (sem cortes) */
     #sobre .card-video{ object-fit:contain; background:#000; }
 
     /* ===== TOKENOMICS (neon) ===== */
@@ -125,7 +125,6 @@
     .rm-icon svg { display:block; width:100%; height:100%; }
     .rm-icon .stroke { stroke:#00f9ff; stroke-width:2.2; fill:none; }
     .rm-icon .glow  { stroke:rgba(0,249,255,.45); stroke-width:6; filter:blur(4px); }
-
     @keyframes floatY { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-4px) } }
     .rm-phase[data-ico="rocket"]  .rm-icon { animation-duration:3.2s; }
     .rm-phase[data-ico="chip"]    .rm-icon { animation-duration:3.8s; }
@@ -136,17 +135,30 @@
     #nfts { padding:60px 20px; border-top:1px solid var(--line); }
     #nfts .nfts-head{ margin:0 0 6px; font-size:28px; color:var(--cyan); text-shadow:0 0 14px rgba(0,240,255,.28); }
     #nfts .nfts-sub{ color:var(--muted); margin:0 0 24px; }
-    .nft-grid{ max-width:1220px; margin:0 auto; display:grid; gap:18px; grid-template-columns:repeat(4,minmax(0,1fr)); }
-    @media (max-width:1100px){ .nft-grid{ grid-template-columns:repeat(3,1fr); } }
-    @media (max-width:800px){ .nft-grid{ grid-template-columns:repeat(2,1fr); } }
-    @media (max-width:520px){ .nft-grid{ grid-template-columns:1fr; } }
-    .nft-card{ background:rgba(14,22,31,.72); border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:var(--shadow); transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
-    .nft-card:hover{ transform:translateY(-4px); border-color:rgba(0,240,255,.35); box-shadow:0 0 26px rgba(0,240,255,.4), inset 0 0 0 1px rgba(255,255,255,.05); }
+
+    /* GRID — 4 no desktop, 3 no tablet e também no mobile */
+    .nft-grid{
+      max-width:1220px; margin:0 auto;
+      display:grid; gap:16px;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+    }
+    @media (max-width:1100px){
+      .nft-grid{ grid-template-columns:repeat(3, minmax(0,1fr)); }
+    }
+    @media (max-width:800px){
+      .nft-grid{ grid-template-columns:repeat(3, minmax(0,1fr)); }
+    }
+    @media (max-width:520px){
+      .nft-grid{ grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px; }
+    }
+
+    .nft-card{ background:rgba(14,22,31,.72); border:1px solid var(--line); border-radius:12px; overflow:hidden; box-shadow:var(--shadow); transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+    .nft-card:hover{ transform:translateY(-2px); border-color:rgba(0,240,255,.35); box-shadow:0 0 20px rgba(0,240,255,.35), inset 0 0 0 1px rgba(255,255,255,.05); }
     .nft-img-wrap{ position:relative; aspect-ratio:1/1; background:#061019; cursor:pointer; }
     .nft-img-wrap img{ width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.03) contrast(1.02); }
-    .nft-meta{ padding:12px 14px; display:flex; align-items:center; justify-content:space-between; gap:10px; }
-    .nft-title{ font-weight:800; color:#cfe9ec; letter-spacing:.2px; }
-    .nft-badge{ border:1px solid #6cf; color:#6cf; font-size:12px; font-weight:800; padding:4px 8px; border-radius:999px; box-shadow:0 0 14px rgba(108,204,255,.25); }
+    .nft-meta{ padding:6px 8px; display:flex; align-items:center; justify-content:space-between; gap:8px; }
+    .nft-title{ font-weight:800; color:#cfe9ec; letter-spacing:.2px; font-size:12px; }
+    .nft-badge{ border:1px solid #6cf; color:#6cf; font-size:10px; font-weight:800; padding:2px 6px; border-radius:999px; box-shadow:0 0 10px rgba(108,204,255,.2); }
 
     /* ===== LIGHTBOX ===== */
     .lightbox { position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.85); z-index:9999; }
@@ -168,36 +180,10 @@
     .wp-phase{ background:rgba(14,22,31,.72); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); padding:18px; margin:14px 0; }
     .wp-phase h3{ margin:0 0 8px; color:var(--cyan) }
     .wp-phase p{ margin:0 0 8px; color:#d9edf0; line-height:1.6 }
-    .wp-phase ul{ margin:8px 0 0 18px; color:#cfe9ec }
 
     /* ===== FOOTER ===== */
     .footer{ margin:60px 0 30px; text-align:center; color:var(--muted) }
     .footer a{ color:var(--cyan); text-decoration:none }
-
-    /* ===== LINKS OFICIAIS (seção simples no topo do body) ===== */
-    #links { text-align:center; margin: 100px 0 20px; }
-    #links code{ background:rgba(0,0,0,.35); border:1px solid rgba(0,249,255,.25); padding:6px 8px; border-radius:8px; color:#bffcff; }
-    #links a{ color:var(--cyan); text-decoration:none; margin:0 8px; }
-
-    /* ===== AJUSTES MOBILE ===== */
-    @media (max-width:900px){
-      .header{ padding:0 14px; height:70px; }
-      .brand .logo{ width:34px; height:34px; }
-      .brand b{ font-size:14px; letter-spacing:.4px; }
-      .nav{ max-width:55vw; overflow-x:auto; -webkit-overflow-scrolling:touch; }
-      .nav a{ font-size:14px; }
-    }
-    @media (max-width:980px){
-      .hero{ min-height:88vh; }
-      .hero-inner{ grid-template-columns:1fr; padding:18px; gap:18px; }
-      .hero-box{ justify-self:stretch; }
-    }
-    @media (max-width:640px){
-      .hero-video{ object-position:50% 35%; }
-      h2{ font-size:22px; }
-      .panel{ padding:18px; }
-      .card{ padding:14px; }
-    }
   </style>
 </head>
 <body>
@@ -219,29 +205,14 @@
     <a id="buyTop" class="btn" href="#" target="_blank" rel="noopener">💱 Comprar</a>
   </header>
 
-  <!-- ===== LINKS OFICIAIS ===== -->
-  <section id="links" class="sec" aria-label="Links Oficiais">
-    <h2>Links Oficiais</h2>
-    <p><strong>Contrato:</strong> <code>0x0f3e294b699e88848EA1CcdDeBcF977E95cB49b8</code></p>
-    <p>
-      <a href="https://dexscreener.com/bsc/0xe25ce8507425222ad01f0406def0faea34a118b5" target="_blank" rel="noopener">DexScreener</a> •
-      <a href="https://poocoin.app/tokens/0x0f3e294b699e88848ea1ccddebcf977e95cb49b8" target="_blank" rel="noopener">PooCoin</a> •
-      <a href="https://bscscan.com/address/0x0f3e294b699e88848EA1CcdDeBcF977E95cB49b8" target="_blank" rel="noopener">BscScan</a> •
-      <a href="https://pancakeswap.finance/swap" target="_blank" rel="noopener">PancakeSwap</a>
-    </p>
-  </section>
-
   <!-- ===== HERO ===== -->
-  <section id="home" class="hero" aria-label="Hero">
+  <section id="home" class="hero">
     <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/98c793ff-d969-4890-9a1e-129545fcf66f.png">
       <source src="document_4974250128010380856.mp4" type="video/mp4" />
     </video>
 
     <div class="hero-inner">
-      <div class="tagline">
-        <span class="big">PAND-AI</span>
-      </div>
-
+      <div class="tagline"><span class="big">PAND-AI</span></div>
       <div class="hero-box">
         <h1 class="hero-title">O FUTURO DAS<br>MEMECOINS<br>INTELIGENTES</h1>
         <p class="hero-sub">Tecnologia, comunidade e propósito em um só token.</p>
@@ -262,7 +233,6 @@
           <p>Unidade, segurança e comunidade se encontram no Pand-AI, uma memecoin reimaginada para o futuro.</p>
         </div>
         <div class="card media" aria-label="Vídeo destaque">
-          <!-- ESTE É O VÍDEO QUE DEVE APARECER INTEIRO -->
           <video class="card-video" autoplay muted loop playsinline preload="metadata"
             poster="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/98c793ff-d969-4890-9a1e-129545fcf66f.png">
             <source src="document_4974250128010380851.mp4" type="video/mp4" />
@@ -282,7 +252,6 @@
     <p class="token-sub">Economia do token $PANDAI projetada para sustentabilidade e crescimento</p>
 
     <div class="token-grid">
-      <!-- Utilidades + Queima -->
       <div class="token-card">
         <h3>Utilidades do Token</h3>
         <ul>
@@ -306,7 +275,6 @@
         </div>
       </div>
 
-      <!-- Infos gerais + links DEX -->
       <div class="token-card">
         <h3>Informações Gerais</h3>
         <div class="token-meta">
@@ -445,7 +413,7 @@
       <p class="nfts-sub">Coleção oficial do PandAI no estilo cyberpunk — peças únicas para a comunidade.</p>
 
       <div class="nft-grid">
-        <!-- EXISTENTES -->
+        <!-- Suas imagens aqui -->
         <article class="nft-card">
           <div class="nft-img-wrap"><img src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/411e3114-10ad-453a-a37e-651b8046817e.png" alt="PandAI #001" loading="lazy"></div>
           <div class="nft-meta"><span class="nft-title">PandAI #001</span><span class="nft-badge">1/1</span></div>
@@ -533,23 +501,17 @@
 
       <div class="socials-row">
         <a class="icon-btn tg" href="https://t.me/pandai_token" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path class="fill" d="M22 2L2.9 9.2c-.9.34-.87 1.64.03 1.94l5.1 1.77 2 6.33c.27.86 1.38 1.1 1.95.41l2.8-3.39 4.9 3.65c.69.52 1.68.14 1.86-.7L23.98 3.2C24.2 2.24 23.07 1.63 22 2zM8.7 12.1l9.7-6.04-7.55 7.6-.3 3.46-1.85-5.02z"/>
-          </svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path class="fill" d="M22 2L2.9 9.2c-.9.34-.87 1.64.03 1.94l5.1 1.77 2 6.33c.27.86 1.38 1.1 1.95.41l2.8-3.39 4.9 3.65c.69.52 1.68.14 1.86-.7L23.98 3.2C24.2 2.24 23.07 1.63 22 2zM8.7 12.1l9.7-6.04-7.55 7.6-.3 3.46-1.85-5.02z"/></svg>
           <span>Telegram</span>
         </a>
 
         <a class="icon-btn x" href="https://x.com/Coin_PandAI" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path class="stroke" d="M3 3l18 18M21 3 3 21"/>
-          </svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path class="stroke" d="M3 3l18 18M21 3 3 21"/></svg>
           <span>Twitter / X</span>
         </a>
 
         <a class="icon-btn tt" href="https://www.tiktok.com/@coin_pandai?_t=ZM-8yuZ7XvEt3l&_r=1" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path class="fill" d="M14.5 3v6.2c-1-.6-2.1-.9-3.2-.9-3.1 0-5.6 2.4-5.6 5.4S8.2 19 11.3 19c2.5 0 4.6-1.6 5.2-3.9.1-.4.2-.8.2-1.3V9.6c.9.8 2.1 1.3 3.3 1.4V8.2c-1.7-.2-3.1-1.2-3.8-2.7-.3-.6-.6-1.5-.7-2.5h-1.9zM9 13.7c0-1.3 1.1-2.3 2.4-2.3.6 0 1.2.2 1.7.6v1.7c0 1.6-1.3 2.9-3 2.9-1.2 0-2.1-1-2.1-2.3z"/>
-          </svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path class="fill" d="M14.5 3v6.2c-1-.6-2.1-.9-3.2-.9-3.1 0-5.6 2.4-5.6 5.4S8.2 19 11.3 19c2.5 0 4.6-1.6 5.2-3.9.1-.4.2-.8.2-1.3V9.6c.9.8 2.1 1.3 3.3 1.4V8.2c-1.7-.2-3.1-1.2-3.8-2.7-.3-.6-.6-1.5-.7-2.5h-1.9zM9 13.7c0-1.3 1.1-2.3 2.4-2.3.6 0 1.2.2 1.7.6v1.7c0 1.6-1.3 2.9-3 2.9-1.2 0-2.1-1-2.1-2.3z"/></svg>
           <span>TikTok</span>
         </a>
       </div>
@@ -574,20 +536,25 @@
     };
 
     // preencher links nos botões + CTAs
-    const setHref = (id, url) => { const el = document.getElementById(id); if(el) el.href = url; };
-    setHref("dexscreener", LINKS.dexscreener);
-    setHref("poocoin",     LINKS.poocoin);
-    setHref("bscscan",     LINKS.bscscan);
-    setHref("pancake",     LINKS.pancake);
-    setHref("buyTop",      LINKS.pancake);
-    setHref("buyHero",     LINKS.pancake);
-    setHref("footerCA",    LINKS.bscscan);
+    document.getElementById("buyTop").href   = LINKS.pancake;
+    document.getElementById("buyHero").href  = LINKS.pancake;
+    document.getElementById("footerCA").href = LINKS.bscscan;
+
+    // Se os botões da tokenomics existirem, preenche
+    const byId = id => document.getElementById(id);
+    if (byId("dexscreener")) byId("dexscreener").href = LINKS.dexscreener;
+    if (byId("poocoin"))     byId("poocoin").href     = LINKS.poocoin;
+    if (byId("bscscan"))     byId("bscscan").href     = LINKS.bscscan;
+    if (byId("pancake"))     byId("pancake").href     = LINKS.pancake;
 
     // Copiar contrato
     function copyCA(){
       navigator.clipboard.writeText(CA).then(()=>{
-        const btns = document.querySelectorAll('.copy-btn');
-        btns.forEach(b => { if(b.textContent.includes('Copiar')){ b.textContent='Copiado!'; setTimeout(()=>b.textContent='Copiar',1500);} });
+        document.querySelectorAll('.copy-btn').forEach(b=>{
+          if(b.textContent.includes('Copiar')){
+            b.textContent='Copiado!'; setTimeout(()=>b.textContent='Copiar',1500);
+          }
+        });
       });
     }
 
@@ -610,11 +577,10 @@
       }catch(e){ console.error(e); }
     }
 
-    // Lightbox: abrir ao clicar na imagem
+    // Lightbox
     document.querySelectorAll('.nft-img-wrap img').forEach(img => {
       img.addEventListener('click', () => openLightbox(img.src));
     });
-
     function openLightbox(src){
       const lb  = document.getElementById('lightbox');
       const img = document.getElementById('lightbox-img');
@@ -622,7 +588,6 @@
       lb.classList.add('show');
       document.body.style.overflow = 'hidden';
     }
-
     function closeLightbox(e){
       if (!e || e.target.id === 'lightbox' || (e.target && e.target.classList.contains('close'))){
         document.getElementById('lightbox').classList.remove('show');
