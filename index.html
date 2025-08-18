@@ -188,6 +188,16 @@
       h2{ font-size:24px; }
       .nft-meta{ padding:4px 6px; }
     }
+
+    /* seletor de idioma */
+    #langSwitcher{
+      appearance:none; background:transparent; color:var(--cyan-strong);
+      border:1.6px solid var(--cyan-strong);
+      border-radius:999px; padding:10px 14px;
+      font-weight:800; letter-spacing:.2px; cursor:pointer;
+      margin-right:12px;
+    }
+    #langSwitcher option{background:#0b1016;color:#fff}
   </style>
 </head>
 <body>
@@ -206,7 +216,14 @@
       <a href="#whitepaper">Whitepaper</a>
       <a href="#comunidade">Comunidade</a>
     </nav>
-    <a id="buyTop" class="btn" href="#" target="_blank" rel="noopener">💱 Comprar</a>
+    <div style="display:flex;align-items:center;gap:10px">
+      <select id="langSwitcher" aria-label="Language">
+        <option value="pt">🇧🇷 PT</option>
+        <option value="en">🇺🇸 EN</option>
+        <option value="es">🇪🇸 ES</option>
+      </select>
+      <a id="buyTop" class="btn" href="#" target="_blank" rel="noopener">💱 Comprar</a>
+    </div>
   </header>
 
   <!-- ===== HERO ===== -->
@@ -341,7 +358,7 @@
             <li>Lançamento da plataforma básica</li>
             <li>Comunidade em <b>Telegram</b>, <b>Twitter</b> e <b>Discord</b></li>
             <li>Campanhas virais e crescimento em mídias sociais</li>
-            <li class="rm-highlight">Meta: 10.000 holders + queima especial</li>
+            <span class="rm-highlight">Meta: 10.000 holders + queima especial</span>
           </ul>
         </div>
 
@@ -418,7 +435,6 @@
       <p class="nfts-sub">Coleção oficial do PandAI no estilo cyberpunk — peças únicas para a comunidade.</p>
 
       <div class="nft-grid">
-        <!-- Suas imagens -->
         <article class="nft-card">
           <div class="nft-img-wrap"><img decoding="async" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/411e3114-10ad-453a-a37e-651b8046817e.png" alt="PandAI #001"></div>
           <div class="nft-meta"><span class="nft-title">PandAI #001</span><span class="nft-badge">1/1</span></div>
@@ -501,7 +517,7 @@
     <div style="margin-top:6px">© 2025 Pand-AI. Todos os direitos reservados.</div>
   </footer>
 
-  <!-- ===== JS ===== -->
+  <!-- ===== JS (LINKS + I18N + FUNÇÕES) ===== -->
   <script>
     // ====== CONFIG ======
     const CA = "0x0f3e294b699e88848EA1CcdDeBcF977E95cB49b8";
@@ -512,32 +528,278 @@
       pancake:     "https://pancakeswap.finance/swap?outputCurrency=" + CA
     };
 
-    // preencher CTAs
+    // ====== I18N ======
+    const I18N = {
+      pt: {
+        langName: "Português",
+        // Header / Nav
+        nav_home: "Home",
+        nav_tokenomics: "Tokenomics",
+        nav_roadmap: "Roadmap",
+        nav_nfts: "NFTs",
+        nav_whitepaper: "Whitepaper",
+        nav_comunidade: "Comunidade",
+        buy: "💱 Comprar",
+        // Hero
+        hero_title: "O FUTURO DAS<br>MEMECOINS<br>INTELIGENTES",
+        hero_sub: "Tecnologia, comunidade e propósito em um só token.",
+        hero_buy: "🚀 COMPRAR AGORA",
+        hero_wp: "📄 WHITEPAPER",
+        // Sobre
+        sobre_h: "SOBRE O PAND-AI",
+        sobre_p1: "Unidade, segurança e comunidade se encontram no Pand-AI, uma memecoin reimaginada para o futuro.",
+        sobre_p2: "Transparência, liquidez bloqueada e uma comunidade ativa orientam cada passo do ecossistema.",
+        // Tokenomics
+        tok_head: "Tokenomics",
+        tok_sub: "Economia do token $PANDAI projetada para sustentabilidade e crescimento",
+        tok_utils: "Utilidades do Token",
+        tok_u1: "Acesso premium aos recursos de IA",
+        tok_u2: "Votação em decisões da plataforma",
+        tok_u3: "Descontos em serviços premium",
+        tok_u4: "Compra de NFTs de memes exclusivos",
+        tok_u5: "Staking para ganhar recompensas",
+        tok_burn_head: "Mecanismo de Queima",
+        tok_burn_txt: "A cada meta alcançada, uma quantidade substancial de tokens será queimada, reduzindo o supply e criando escassez progressiva.",
+        tok_b1: "Meta 1: 250 Holders = Queima de <b>25 milhões</b> de Tokens",
+        tok_b2: "Meta 2: 500 Holders = Queima de <b>50 milhões</b> de Tokens",
+        tok_b3: "Meta 3: 1000 Holders = Queima de <b>200 milhões</b> de Tokens",
+        tok_b4: "Meta 4: 5000 Holders = Queima de <b>100 milhões</b> de Tokens",
+        tok_b5: "Meta 5: 10000 Holders = Queima de <b>100 milhões</b> de Tokens",
+        tok_info: "Informações Gerais",
+        tok_burned: "Tokens queimados:",
+        tok_name: "Nome do Token:",
+        tok_supply: "Supply Total:",
+        tok_chain: "Blockchain:",
+        tok_contract: "Contrato:",
+        tok_copy: "Copiar",
+        tok_copied: "Copiado!",
+        tok_add_wallet: "Adicionar à MetaMask",
+        // Roadmap
+        rm_head: "Roadmap",
+        rm_sub: "Nosso plano estratégico para dominar o universo dos memes",
+        rm_p1: "Fase 1 — Lançamento e Base",
+        rm_p1_l1: "Desenvolvimento do site e documentação",
+        rm_p1_l2: "Criação do sistema de geração de memes",
+        rm_p1_l3: "Lançamento da plataforma básica",
+        rm_p1_l4: "Comunidade em <b>Telegram</b>, <b>Twitter</b> e <b>Discord</b>",
+        rm_p1_l5: "Campanhas virais e crescimento em mídias sociais",
+        rm_p1_goal: "Meta: 10.000 holders + queima especial",
+        rm_p2: "Fase 2 — Expansão e IA",
+        rm_p2_l1: "Lançamento do editor avançado com IA",
+        rm_p2_l2: "Listagem em exchanges",
+        rm_p2_l3: "Programa de parcerias com criadores",
+        rm_p3: "Fase 3 — NFT e Monetização",
+        rm_p3_l1: "Geração de vídeos via templates",
+        rm_p3_l2: "Marketplace de NFTs de memes",
+        rm_p3_l3: "Sistema de staking",
+        rm_p3_l4: "Integração multi-chain",
+        rm_p4: "Fase 4 — Ecossistema Completo",
+        rm_p4_l1: "Aplicativo móvel nativo",
+        rm_p4_l2: "Parcerias com grandes marcas",
+        rm_p4_l3: "Expansão para realidade aumentada",
+        // NFTs
+        nfts_head: "NFTs Exclusivos",
+        nfts_sub: "Coleção oficial do PandAI no estilo cyberpunk — peças únicas para a comunidade.",
+        // Whitepaper
+        wp_head: "Plano de Desenvolvimento Pandai: Rumo ao Sucesso",
+        wp_lead: "O plano de desenvolvimento do token Pandai foi cuidadosamente estruturado para maximizar o crescimento e a sustentabilidade a longo prazo.",
+        // Comunidade
+        comm_head: "COMUNIDADE",
+        comm_sub: "Entre nos canais oficiais e faça parte da tropa do Pand-AI.",
+        tg: "Telegram",
+        x: "Twitter / X",
+        tiktok: "TikTok",
+        // Footer
+        footer_line: "Home • Comprar • Tokenomics • Roadmap • NFTs • Whitepaper — Smart contract:",
+        footer_copy: "© 2025 Pand-AI. Todos os direitos reservados.",
+        // Alerts
+        alert_copied: "Contrato copiado: ",
+        alert_mm_missing: "MetaMask não detectada."
+      },
+      en: {
+        langName: "English",
+        nav_home: "Home",
+        nav_tokenomics: "Tokenomics",
+        nav_roadmap: "Roadmap",
+        nav_nfts: "NFTs",
+        nav_whitepaper: "Whitepaper",
+        nav_comunidade: "Community",
+        buy: "💱 Buy",
+        hero_title: "THE FUTURE OF<br>SMART<br>MEMECOINS",
+        hero_sub: "Technology, community and purpose in a single token.",
+        hero_buy: "🚀 BUY NOW",
+        hero_wp: "📄 WHITEPAPER",
+        sobre_h: "ABOUT PAND-AI",
+        sobre_p1: "Unity, security and community meet in Pand-AI, a memecoin reimagined for the future.",
+        sobre_p2: "Transparency, locked liquidity and an active community guide every step of the ecosystem.",
+        tok_head: "Tokenomics",
+        tok_sub: "The $PANDAI token economy designed for sustainability and growth",
+        tok_utils: "Token Utilities",
+        tok_u1: "Premium access to AI features",
+        tok_u2: "Voting on platform decisions",
+        tok_u3: "Discounts on premium services",
+        tok_u4: "Purchase exclusive meme NFTs",
+        tok_u5: "Staking to earn rewards",
+        tok_burn_head: "Burn Mechanism",
+        tok_burn_txt: "At each milestone, a substantial amount of tokens will be burned, reducing supply and creating progressive scarcity.",
+        tok_b1: "Milestone 1: 250 Holders = Burn <b>25 million</b> Tokens",
+        tok_b2: "Milestone 2: 500 Holders = Burn <b>50 million</b> Tokens",
+        tok_b3: "Milestone 3: 1000 Holders = Burn <b>200 million</b> Tokens",
+        tok_b4: "Milestone 4: 5000 Holders = Burn <b>100 million</b> Tokens",
+        tok_b5: "Milestone 5: 10000 Holders = Burn <b>100 million</b> Tokens",
+        tok_info: "General Information",
+        tok_burned: "Tokens burned:",
+        tok_name: "Token Name:",
+        tok_supply: "Total Supply:",
+        tok_chain: "Blockchain:",
+        tok_contract: "Contract:",
+        tok_copy: "Copy",
+        tok_copied: "Copied!",
+        tok_add_wallet: "Add to MetaMask",
+        rm_head: "Roadmap",
+        rm_sub: "Our strategic plan to conquer the meme universe",
+        rm_p1: "Phase 1 — Launch & Foundation",
+        rm_p1_l1: "Website and documentation development",
+        rm_p1_l2: "Meme generation system",
+        rm_p1_l3: "Basic platform launch",
+        rm_p1_l4: "Community on <b>Telegram</b>, <b>Twitter</b> and <b>Discord</b>",
+        rm_p1_l5: "Viral campaigns and social growth",
+        rm_p1_goal: "Goal: 10,000 holders + special burn",
+        rm_p2: "Phase 2 — Expansion & AI",
+        rm_p2_l1: "Advanced AI editor launch",
+        rm_p2_l2: "Listings on exchanges",
+        rm_p2_l3: "Creators partnership program",
+        rm_p3: "Phase 3 — NFT & Monetization",
+        rm_p3_l1: "Template-based video generation",
+        rm_p3_l2: "Meme NFT marketplace",
+        rm_p3_l3: "Staking system",
+        rm_p3_l4: "Multi-chain integration",
+        rm_p4: "Phase 4 — Complete Ecosystem",
+        rm_p4_l1: "Native mobile app",
+        rm_p4_l2: "Partnerships with major brands",
+        rm_p4_l3: "Augmented reality expansion",
+        nfts_head: "Exclusive NFTs",
+        nfts_sub: "Official PandAI cyberpunk collection — unique pieces for the community.",
+        wp_head: "Pandai Development Plan: On the Road to Success",
+        wp_lead: "The development plan for the Pandai token was carefully structured to maximize long-term growth and sustainability.",
+        comm_head: "COMMUNITY",
+        comm_sub: "Join the official channels and be part of the Pand-AI troop.",
+        tg: "Telegram",
+        x: "Twitter / X",
+        tiktok: "TikTok",
+        footer_line: "Home • Buy • Tokenomics • Roadmap • NFTs • Whitepaper — Smart contract:",
+        footer_copy: "© 2025 Pand-AI. All rights reserved.",
+        alert_copied: "Contract copied: ",
+        alert_mm_missing: "MetaMask not detected."
+      },
+      es: {
+        langName: "Español",
+        nav_home: "Inicio",
+        nav_tokenomics: "Tokenomics",
+        nav_roadmap: "Hoja de ruta",
+        nav_nfts: "NFTs",
+        nav_whitepaper: "Whitepaper",
+        nav_comunidade: "Comunidad",
+        buy: "💱 Comprar",
+        hero_title: "EL FUTURO DE<br>LAS MEMECOINS<br>INTELIGENTES",
+        hero_sub: "Tecnología, comunidad y propósito en un solo token.",
+        hero_buy: "🚀 COMPRAR AHORA",
+        hero_wp: "📄 WHITEPAPER",
+        sobre_h: "SOBRE PAND-AI",
+        sobre_p1: "Unidad, seguridad y comunidad se unen en Pand-AI, una memecoin reinventada para el futuro.",
+        sobre_p2: "Transparencia, liquidez bloqueada y una comunidad activa guían cada paso del ecosistema.",
+        tok_head: "Tokenomics",
+        tok_sub: "Economía del token $PANDAI diseñada para la sostenibilidad y el crecimiento",
+        tok_utils: "Utilidades del Token",
+        tok_u1: "Acceso premium a funciones de IA",
+        tok_u2: "Votación en decisiones de la plataforma",
+        tok_u3: "Descuentos en servicios premium",
+        tok_u4: "Compra de NFTs de memes exclusivos",
+        tok_u5: "Staking para ganar recompensas",
+        tok_burn_head: "Mecanismo de Quema",
+        tok_burn_txt: "En cada hito se quemará una cantidad sustancial de tokens, reduciendo la oferta y creando escasez progresiva.",
+        tok_b1: "Hito 1: 250 Holders = Quema de <b>25 millones</b> de Tokens",
+        tok_b2: "Hito 2: 500 Holders = Quema de <b>50 millones</b> de Tokens",
+        tok_b3: "Hito 3: 1000 Holders = Quema de <b>200 millones</b> de Tokens",
+        tok_b4: "Hito 4: 5000 Holders = Quema de <b>100 millones</b> de Tokens",
+        tok_b5: "Hito 5: 10000 Holders = Quema de <b>100 millones</b> de Tokens",
+        tok_info: "Información General",
+        tok_burned: "Tokens quemados:",
+        tok_name: "Nombre del Token:",
+        tok_supply: "Suministro Total:",
+        tok_chain: "Blockchain:",
+        tok_contract: "Contrato:",
+        tok_copy: "Copiar",
+        tok_copied: "¡Copiado!",
+        tok_add_wallet: "Añadir a MetaMask",
+        rm_head: "Hoja de ruta",
+        rm_sub: "Nuestro plan estratégico para dominar el universo de los memes",
+        rm_p1: "Fase 1 — Lanzamiento y Base",
+        rm_p1_l1: "Desarrollo del sitio y documentación",
+        rm_p1_l2: "Sistema de generación de memes",
+        rm_p1_l3: "Lanzamiento de la plataforma básica",
+        rm_p1_l4: "Comunidad en <b>Telegram</b>, <b>Twitter</b> y <b>Discord</b>",
+        rm_p1_l5: "Campañas virales y crecimiento en redes",
+        rm_p1_goal: "Meta: 10.000 holders + quema especial",
+        rm_p2: "Fase 2 — Expansión e IA",
+        rm_p2_l1: "Lanzamiento del editor avanzado con IA",
+        rm_p2_l2: "Listado en exchanges",
+        rm_p2_l3: "Programa de alianzas con creadores",
+        rm_p3: "Fase 3 — NFT y Monetización",
+        rm_p3_l1: "Generación de videos por plantillas",
+        rm_p3_l2: "Marketplace de NFTs de memes",
+        rm_p3_l3: "Sistema de staking",
+        rm_p3_l4: "Integración multichain",
+        rm_p4: "Fase 4 — Ecosistema Completo",
+        rm_p4_l1: "Aplicación móvil nativa",
+        rm_p4_l2: "Alianzas con grandes marcas",
+        rm_p4_l3: "Expansión a realidad aumentada",
+        nfts_head: "NFTs Exclusivos",
+        nfts_sub: "Colección oficial de PandAI en estilo cyberpunk — piezas únicas para la comunidad.",
+        wp_head: "Plan de Desarrollo de Pandai: Rumbo al Éxito",
+        wp_lead: "El plan de desarrollo del token Pandai se diseñó cuidadosamente para maximizar el crecimiento y la sostenibilidad a largo plazo.",
+        comm_head: "COMUNIDAD",
+        comm_sub: "Entra a los canales oficiales y sé parte de la tropa de Pand-AI.",
+        tg: "Telegram",
+        x: "Twitter / X",
+        tiktok: "TikTok",
+        footer_line: "Inicio • Comprar • Tokenomics • Hoja de ruta • NFTs • Whitepaper — Smart contract:",
+        footer_copy: "© 2025 Pand-AI. Todos los derechos reservados.",
+        alert_copied: "Contrato copiado: ",
+        alert_mm_missing: "MetaMask no detectada."
+      }
+    };
+
+    // ====== Estado de idioma ======
+    let CURRENT_LANG = (localStorage.getItem('lang') ||
+                        (navigator.language || '').slice(0,2) ||
+                        'pt');
+    if (!['pt','en','es'].includes(CURRENT_LANG)) CURRENT_LANG = 'pt';
+    document.getElementById('langSwitcher').value = CURRENT_LANG;
+
+    const t = (key) => (I18N[CURRENT_LANG] && I18N[CURRENT_LANG][key]) || I18N.pt[key] || key;
+
+    // ====== Preencher CTAs / links ======
     document.getElementById("buyTop").href   = LINKS.pancake;
     document.getElementById("buyHero").href  = LINKS.pancake;
     document.getElementById("footerCA").href = LINKS.bscscan;
 
-    // botões da tokenomics (se existirem)
-    const byId = id => document.getElementById(id);
     ["dexscreener","poocoin","bscscan","pancake"].forEach(id=>{
-      const el = byId(id); if(el) el.href = LINKS[id];
+      const el = document.getElementById(id); if(el) el.href = LINKS[id];
     });
 
-    // Copiar contrato
+    // ====== Copiar contrato (i18n) ======
     function copyCA(){
       navigator.clipboard.writeText(CA).then(()=>{
-        document.querySelectorAll('.copy-btn').forEach(b=>{
-          if(b.textContent.includes('Copiar')){
-            b.textContent='Copiado!'; setTimeout(()=>b.textContent='Copiar',1500);
-          }
-        });
-        alert("Contrato copiado: " + CA);
+        document.querySelectorAll('.copy-btn').forEach(b=>b.textContent = t('tok_copied'));
+        setTimeout(()=>document.querySelectorAll('.copy-btn').forEach(b=>b.textContent = t('tok_copy')),1500);
+        alert(t('alert_copied') + CA);
       });
     }
 
-    // Adicionar token à MetaMask
+    // ====== Adicionar token à MetaMask (i18n) ======
     async function addToWallet(){
-      if(!window.ethereum){ alert("MetaMask não detectada."); return; }
+      if(!window.ethereum){ alert(t('alert_mm_missing')); return; }
       try{
         await window.ethereum.request({
           method: 'wallet_watchAsset',
@@ -554,7 +816,7 @@
       }catch(e){ console.error(e); }
     }
 
-    // Lightbox NFT
+    // ====== Lightbox NFT ======
     document.querySelectorAll('.nft-img-wrap img').forEach(img => {
       img.addEventListener('click', () => openLightbox(img.src));
     });
@@ -572,6 +834,178 @@
         document.body.style.overflow = '';
       }
     }
+
+    // ====== Helpers de texto ======
+    function setText(sel, key, {html=false} = {}){
+      const el = document.querySelector(sel);
+      if(!el) return;
+      if(html) el.innerHTML = t(key);
+      else el.textContent = t(key);
+    }
+
+    function applyTexts(){
+      document.documentElement.lang = CURRENT_LANG;
+
+      // Nav
+      setText('.nav a[href="#home"]',        'nav_home');
+      setText('.nav a[href="#tokenomics"]',  'nav_tokenomics');
+      setText('.nav a[href="#roadmap"]',     'nav_roadmap');
+      setText('.nav a[href="#nfts"]',        'nav_nfts');
+      setText('.nav a[href="#whitepaper"]',  'nav_whitepaper');
+      setText('.nav a[href="#comunidade"]',  'nav_comunidade');
+
+      // Botões topo/hero
+      setText('#buyTop', 'buy');
+      setText('#buyHero', 'hero_buy');
+      setText('.cta .s', 'hero_wp');
+
+      // Hero
+      setText('.hero-title', 'hero_title', {html:true});
+      setText('.hero-sub', 'hero_sub');
+
+      // Sobre
+      setText('#sobre h2', 'sobre_h');
+      const sobreCards = document.querySelectorAll('#sobre .cards .card p');
+      if(sobreCards[0]) sobreCards[0].textContent = t('sobre_p1');
+      setText('#sobre .card:last-of-type p', 'sobre_p2');
+
+      // Tokenomics
+      setText('#tokenomics .token-head', 'tok_head');
+      setText('#tokenomics .token-sub',  'tok_sub');
+      // primeira coluna
+      const leftCard = document.querySelector('#tokenomics .token-card');
+      if(leftCard){
+        const leftH3 = leftCard.querySelector('h3');
+        if(leftH3) leftH3.textContent = t('tok_utils');
+        const utilLis = leftCard.querySelectorAll('ul li');
+        if(utilLis[0]) utilLis[0].textContent = t('tok_u1');
+        if(utilLis[1]) utilLis[1].textContent = t('tok_u2');
+        if(utilLis[2]) utilLis[2].textContent = t('tok_u3');
+        if(utilLis[3]) utilLis[3].textContent = t('tok_u4');
+        if(utilLis[4]) utilLis[4].textContent = t('tok_u5');
+
+        const burn = leftCard.querySelector('.token-burn');
+        if(burn){
+          const burnH3 = burn.querySelector('h3');
+          const burnP  = burn.querySelector('p');
+          if(burnH3) burnH3.textContent = t('tok_burn_head');
+          if(burnP)  burnP.textContent  = t('tok_burn_txt');
+          const lis = burn.querySelectorAll('ul li');
+          if(lis[0]) lis[0].innerHTML = t('tok_b1');
+          if(lis[1]) lis[1].innerHTML = t('tok_b2');
+          if(lis[2]) lis[2].innerHTML = t('tok_b3');
+          if(lis[3]) lis[3].innerHTML = t('tok_b4');
+          if(lis[4]) lis[4].innerHTML = t('tok_b5');
+        }
+      }
+
+      // segunda coluna (Informações Gerais)
+      const rightCard = document.querySelectorAll('#tokenomics .token-card')[1];
+      if(rightCard){
+        const h3 = rightCard.querySelector('h3');
+        if(h3) h3.textContent = t('tok_info');
+
+        const meta = rightCard.querySelector('.token-meta');
+        if(meta){
+          const rows = meta.querySelectorAll('div');
+          if(rows[0]) rows[0].innerHTML = `<b>${t('tok_burned')}</b> 0 $PANDAI`;
+          if(rows[1]) rows[1].innerHTML = `<b>${t('tok_name')}</b> PandAI ($PandAI)`;
+          if(rows[2]) rows[2].innerHTML = `<b>${t('tok_supply')}</b> 1,000,000,000`;
+          if(rows[3]) rows[3].innerHTML = `<b>${t('tok_chain')}</b> Binance Smart Chain`;
+
+          const contractWrap = rightCard.querySelector('.copy-wrap');
+          if(contractWrap){
+            const label = contractWrap.querySelector('div');
+            const btns  = contractWrap.querySelectorAll('.copy-btn');
+            if(label) label.innerHTML = `<b>${t('tok_contract')}</b>`;
+            if(btns[0]) btns[0].textContent = t('tok_copy');
+            if(btns[1]) btns[1].textContent = t('tok_add_wallet');
+          }
+        }
+      }
+
+      // Roadmap
+      setText('#roadmap .roadmap-head','rm_head');
+      setText('#roadmap .roadmap-sub','rm_sub');
+
+      const phases = document.querySelectorAll('#roadmap .rm-phase');
+      if(phases[0]){
+        phases[0].querySelector('.rm-title').textContent = t('rm_p1');
+        const lis = phases[0].querySelectorAll('.rm-list li');
+        if(lis[0]) lis[0].textContent = t('rm_p1_l1');
+        if(lis[1]) lis[1].textContent = t('rm_p1_l2');
+        if(lis[2]) lis[2].textContent = t('rm_p1_l3');
+        if(lis[3]) lis[3].innerHTML   = t('rm_p1_l4');
+        if(lis[4]) lis[4].textContent = t('rm_p1_l5');
+        const highlight = phases[0].querySelector('.rm-highlight');
+        if(highlight) highlight.textContent = t('rm_p1_goal');
+      }
+      if(phases[1]){
+        phases[1].querySelector('.rm-title').textContent = t('rm_p2');
+        const lis = phases[1].querySelectorAll('.rm-list li');
+        if(lis[0]) lis[0].textContent = t('rm_p2_l1');
+        if(lis[1]) lis[1].textContent = t('rm_p2_l2');
+        if(lis[2]) lis[2].textContent = t('rm_p2_l3');
+      }
+      if(phases[2]){
+        phases[2].querySelector('.rm-title').textContent = t('rm_p3');
+        const lis = phases[2].querySelectorAll('.rm-list li');
+        if(lis[0]) lis[0].textContent = t('rm_p3_l1');
+        if(lis[1]) lis[1].textContent = t('rm_p3_l2');
+        if(lis[2]) lis[2].textContent = t('rm_p3_l3');
+        if(lis[3]) lis[3].textContent = t('rm_p3_l4');
+      }
+      if(phases[3]){
+        phases[3].querySelector('.rm-title').textContent = t('rm_p4');
+        const lis = phases[3].querySelectorAll('.rm-list li');
+        if(lis[0]) lis[0].textContent = t('rm_p4_l1');
+        if(lis[1]) lis[1].textContent = t('rm_p4_l2');
+        if(lis[2]) lis[2].textContent = t('rm_p4_l3');
+      }
+
+      // NFTs
+      setText('#nfts .nfts-head','nfts_head');
+      setText('#nfts .nfts-sub','nfts_sub');
+
+      // Whitepaper
+      setText('#whitepaper .wp-head','wp_head');
+      setText('#whitepaper .wp-lead','wp_lead');
+
+      // Comunidade
+      setText('#comunidade h2','comm_head');
+      setText('#comunidade .sub','comm_sub');
+      setText('#comunidade .icon-btn.tg span','tg');
+      setText('#comunidade .icon-btn.x span','x');
+      setText('#comunidade .icon-btn.tt span','tiktok');
+
+      // Footer
+      const foot = document.querySelector('.footer div:first-child');
+      if(foot){
+        const ca = document.getElementById('footerCA').outerHTML;
+        foot.innerHTML = `${t('footer_line')} ${ca}`;
+      }
+      const foot2 = document.querySelector('.footer div:last-child');
+      if(foot2) foot2.textContent = t('footer_copy');
+    }
+
+    // ====== Inicialização ======
+    // preencher links iniciais do topo/rodapé e chips
+    document.getElementById("buyTop").href   = LINKS.pancake;
+    document.getElementById("buyHero").href  = LINKS.pancake;
+    document.getElementById("footerCA").href = LINKS.bscscan;
+    ["dexscreener","poocoin","bscscan","pancake"].forEach(id=>{
+      const el = document.getElementById(id); if(el) el.href = LINKS[id];
+    });
+
+    // aplicar textos de acordo com o idioma atual
+    applyTexts();
+
+    // listener do seletor
+    document.getElementById('langSwitcher').addEventListener('change', (e)=>{
+      CURRENT_LANG = e.target.value;
+      localStorage.setItem('lang', CURRENT_LANG);
+      applyTexts();
+    });
   </script>
 </body>
 </html>
