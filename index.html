@@ -86,10 +86,9 @@
       object-fit:cover; background:#000; aspect-ratio:16/9;
     }
     @media (min-width:900px){.card-video{height:420px; aspect-ratio:auto}}
-    /* mostra o vídeo do SOBRE INTEIRO, sem cortes */
     #sobre .card-video{ object-fit:contain; background:#000; max-height:48vh }
 
-    /* ===== TOKENOMICS (neon) ===== */
+    /* ===== TOKENOMICS ===== */
     #tokenomics { padding:60px 20px; background: linear-gradient(180deg, rgba(10,20,30,.9) 0%, rgba(5,10,20,.9) 100%); color:#00f9ff; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
     .token-head { font-size:2.2rem; text-align:center; color:var(--cyan); text-shadow: 0 0 10px rgba(0,240,255,.25); margin:0 0 6px; }
     .token-sub  { text-align:center; margin-bottom:28px; font-size:1.05rem; color:var(--muted); }
@@ -150,8 +149,8 @@
       grid-template-columns:repeat(4, minmax(0,1fr));
     }
     @media (max-width:1100px){ .nft-grid{ grid-template-columns:repeat(3,1fr); } }
-    @media (max-width:800px){  .nft-grid{ grid-template-columns:repeat(3,1fr); } } /* 3 no mobile/tablet */
-    @media (max-width:360px){  .nft-grid{ grid-template-columns:repeat(2,1fr); gap:12px; } } /* telas muito estreitas */
+    @media (max-width:800px){  .nft-grid{ grid-template-columns:repeat(3,1fr); } }
+    @media (max-width:360px){  .nft-grid{ grid-template-columns:repeat(2,1fr); gap:12px; } }
 
     .nft-card{ background:rgba(14,22,31,.72); border:1px solid var(--line); border-radius:12px; overflow:hidden; box-shadow:var(--shadow); transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
     .nft-card:hover{ transform:translateY(-2px); border-color:rgba(0,240,255,.35); box-shadow:0 0 20px rgba(0,240,255,.35), inset 0 0 0 1px rgba(255,255,255,.05); }
@@ -167,6 +166,49 @@
     .lightbox img { max-width:92vw; max-height:92vh; border-radius:14px; box-shadow:0 10px 40px rgba(0,0,0,.6); }
     .lightbox .close { position:absolute; top:18px; right:22px; font:700 18px/1 system-ui; color:#fff; opacity:.9; cursor:pointer; }
 
+    /* ===== WHITEPAPER ===== */
+    #whitepaper .wp-head{ font-size:2rem; color:var(--cyan); margin:0 0 10px; text-shadow:0 0 10px rgba(0,240,255,.25); }
+    #whitepaper .wp-lead{ color:#cfe9ec; margin:0 0 18px; line-height:1.55 }
+    #whitepaper .wp-body{ color:#cfe9ec; line-height:1.6 }
+    #whitepaper .wp-body h3{ color:#9ffcff; margin:16px 0 6px; font-size:1.1rem }
+    #whitepaper .wp-body p{ margin:10px 0 }
+    #whitepaper .wp-body ul{ margin:8px 0 0 18px }
+
+    /* Accordion (details/summary) */
+    .wp-accordion details{
+      background:rgba(0,10,20,.6);
+      border:1px solid rgba(0,249,255,.25);
+      border-radius:12px;
+      box-shadow:var(--shadow);
+      margin:10px 0;
+      padding:10px 12px;
+    }
+    .wp-accordion summary{
+      cursor:pointer;
+      list-style:none;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      color:#9ffcff; font-weight:800;
+    }
+    .wp-accordion summary::-webkit-details-marker{display:none}
+    .wp-accordion .caret{
+      transition:transform .25s ease;
+      font-weight:900; opacity:.9;
+    }
+    .wp-accordion details[open] .caret{ transform:rotate(90deg) }
+    .wp-accordion .wp-pane{ padding:8px 2px 4px }
+    .wp-toc{
+      display:flex; flex-wrap:wrap; gap:10px; margin:10px 0 18px;
+    }
+    .wp-toc a{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px; border-radius:999px;
+      border:1px solid rgba(0,249,255,.35);
+      color:#bffcff; text-decoration:none; font-weight:800;
+      background:rgba(0,249,255,.06);
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.04);
+    }
+    .wp-toc a:hover{ background:rgba(0,249,255,.12) }
+
     /* ===== SOCIAL BUTTONS ===== */
     .socials-row{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; align-items:center; }
     .icon-btn{ display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:14px; background:rgba(0,20,30,.55); border:1.5px solid rgba(0,249,255,.35); box-shadow:0 0 14px rgba(0,249,255,.25), inset 0 0 0 1px rgba(255,255,255,.04); text-decoration:none; color:#cfe9ec; font-weight:800; letter-spacing:.2px; transition: transform .25s ease, box-shadow .25s ease, background .25s ease; }
@@ -174,10 +216,6 @@
     .icon-btn svg{ width:26px; height:26px; display:block; }
     .icon-btn .fill { fill:#00f9ff; filter: drop-shadow(0 0 6px rgba(0,249,255,.6)); }
     .icon-btn .stroke{ stroke:#00f9ff; stroke-width:2.2; fill:none; filter: drop-shadow(0 0 6px rgba(0,249,255,.6)); }
-
-    /* ===== WHITEPAPER ===== */
-    #whitepaper .wp-head{ font-size:2rem; color:var(--cyan); margin:0 0 10px; text-shadow:0 0 10px rgba(0,240,255,.25); }
-    #whitepaper .wp-lead{ color:#cfe9ec; margin:0 0 18px; line-height:1.55 }
 
     /* ===== FOOTER ===== */
     .footer{ margin:60px 0 30px; text-align:center; color:var(--muted) }
@@ -428,50 +466,6 @@
     </div>
   </section>
 
-  <!-- ===== NFTs EXCLUSIVOS ===== -->
-  <section id="nfts" class="sec">
-    <div class="panel">
-      <h2 class="nfts-head">NFTs Exclusivos</h2>
-      <p class="nfts-sub">Coleção oficial do PandAI no estilo cyberpunk — peças únicas para a comunidade.</p>
-
-      <div class="nft-grid">
-        <article class="nft-card">
-          <div class="nft-img-wrap"><img decoding="async" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/411e3114-10ad-453a-a37e-651b8046817e.png" alt="PandAI #001"></div>
-          <div class="nft-meta"><span class="nft-title">PandAI #001</span><span class="nft-badge">1/1</span></div>
-        </article>
-        <article class="nft-card">
-          <div class="nft-img-wrap"><img decoding="async" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/8e677e2d-e533-4c76-b9cc-34e2e366ff06.png" alt="PandAI #002"></div>
-          <div class="nft-meta"><span class="nft-title">PandAI #002</span><span class="nft-badge">1/1</span></div>
-        </article>
-        <article class="nft-card">
-          <div class="nft-img-wrap"><img decoding="async" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ac2b3c1f-c686-4cc7-9dc3-9da743b115e9.png" alt="PandAI #003"></div>
-          <div class="nft-meta"><span class="nft-title">PandAI #003</span><span class="nft-badge">1/1</span></div>
-        </article>
-        <article class="nft-card">
-          <div class="nft-img-wrap"><img decoding="async" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/e2b195d7-5dd2-4238-86e4-c2c5a616263d.png" alt="PandAI #004"></div>
-          <div class="nft-meta"><span class="nft-title">PandAI #004</span><span class="nft-badge">1/1</span></div>
-        </article>
-
-        <article class="nft-card">
-          <div class="nft-img-wrap"><img decoding="async" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ChatGPT%20Image%2015%20de%20ago.%20de%202025%2C%2021_05_49.png" alt="PandAI #005"></div>
-          <div class="nft-meta"><span class="nft-title">PandAI #005</span><span class="nft-badge">1/1</span></div>
-        </article>
-        <article class="nft-card">
-          <div class="nft-img-wrap"><img decoding="async" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ChatGPT%20Image%2015%20de%20ago.%20de%202025%2C%2020_42_20.png" alt="PandAI #006"></div>
-          <div class="nft-meta"><span class="nft-title">PandAI #006</span><span class="nft-badge">1/1</span></div>
-        </article>
-        <article class="nft-card">
-          <div class="nft-img-wrap"><img decoding="async" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ChatGPT%20Image%2015%20de%20ago.%20de%202025%2C%2020_59_52.png" alt="PandAI #007"></div>
-          <div class="nft-meta"><span class="nft-title">PandAI #007</span><span class="nft-badge">1/1</span></div>
-        </article>
-        <article class="nft-card">
-          <div class="nft-img-wrap"><img decoding="async" src="https://raw.githubusercontent.com/PANDAI-ship-it/index.html/refs/heads/main/ChatGPT%20Image%2015%20de%20ago.%20de%202025%2C%2021_04_46.png" alt="PandAI #008"></div>
-          <div class="nft-meta"><span class="nft-title">PandAI #008</span><span class="nft-badge">1/1</span></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <!-- ===== LIGHTBOX ===== -->
   <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
     <span class="close">✕</span>
@@ -482,37 +476,10 @@
   <section id="whitepaper" class="sec">
     <div class="panel">
       <h2 class="wp-head">Plano de Desenvolvimento Pandai: Rumo ao Sucesso</h2>
-      <p class="wp-lead">O plano de desenvolvimento do token Pandai foi cuidadosamente estruturado para maximizar o crescimento e a sustentabilidade a longo prazo. Nossa estratégia se divide em fases claras, com metas e ações bem definidas.</p>
-
-      <div class="wp-phase">
-        <h3>Fase 1: Lançamento e Consolidação (Dia 4, primeiras 24 horas)</h3>
-        <p>Momento crítico para garantir um lançamento sólido e bem-sucedido, com posicionamento robusto, base de confiança e liquidez.</p>
-      </div>
-
-      <div class="wp-phase">
-        <h3>Fase 2: Expansão e Engajamento da Comunidade (Pós 24 horas)</h3>
-        <ul>
-          <li><b>Marketing de Influência Estratégico:</b> campanhas com influenciadores e youtubers do cenário cripto.</li>
-          <li><b>Queima em duas etapas:</b> 25M de tokens aos 250 holders + 25M aos 500 holders.</li>
-          <li><b>Listagens (dados):</b> avançar para CoinMarketCap e CoinGecko com meta de 1.000 holders como próximo marco.</li>
-        </ul>
-      </div>
-
-      <div class="wp-phase">
-        <h3>Fase 3: Credibilidade e Alcance Global</h3>
-        <ul>
-          <li><b>CoinMarketCap (CMC):</b> prioridade para aprovação conforme requisitos e volume forem atendidos.</li>
-          <li><b>CoinGecko:</b> presença paralela para ampliar visibilidade e marketing mundial.</li>
-        </ul>
-      </div>
-
-      <div class="wp-phase">
-        <h3>Fase 4: O Futuro Contínuo</h3>
-        <p>Estratégia de marketing global contínua, evolução do produto e recompensas à comunidade fundadora, focando em crescimento sustentável e criação de valor.</p>
-      </div>
+      <p class="wp-lead">O plano de desenvolvimento do token Pandai foi cuidadosamente estruturado para maximizar o crescimento e a sustentabilidade a longo prazo.</p>
+      <div class="wp-body"><!-- preenchido via i18n (accordion + TOC) --></div>
     </div>
   </section>
-
 
   <!-- ===== COMUNIDADE ===== -->
   <section id="comunidade" class="sec">
@@ -557,6 +524,7 @@
     };
 
     // ====== I18N ======
+    // wp_body agora já vem com: TOC (índice) + acordeões (<details>) + ids para âncoras.
     const I18N = {
       pt: {
         langName: "Português",
@@ -631,6 +599,59 @@
         // Whitepaper
         wp_head: "Plano de Desenvolvimento Pandai: Rumo ao Sucesso",
         wp_lead: "O plano de desenvolvimento do token Pandai foi cuidadosamente estruturado para maximizar o crescimento e a sustentabilidade a longo prazo.",
+        wp_body: `
+          <div class="wp-accordion">
+            <h3>Visão Geral</h3>
+            <p>O plano de desenvolvimento do token Pandai foi cuidadosamente estruturado para maximizar o crescimento e a sustentabilidade a longo prazo. Nossa estratégia se divide em fases claras, com metas e ações bem definidas.</p>
+
+            <nav class="wp-toc">
+              <a href="#fase-1">🚀 Fase 1</a>
+              <a href="#fase-2">📈 Fase 2</a>
+              <a href="#fase-3">🌐 Fase 3</a>
+              <a href="#fase-4">🔭 Fase 4</a>
+            </nav>
+
+            <details id="fase-1" open>
+              <summary>🚀 Fase 1: Lançamento e Consolidação <span class="caret">▶</span></summary>
+              <div class="wp-pane">
+                <p><b>(Dia 4, primeiras 24 horas)</b> — Momento crítico do projeto. Objetivo: garantir um lançamento sólido e bem-sucedido, posicionando o token no mercado com base de confiança e liquidez.</p>
+              </div>
+            </details>
+
+            <details id="fase-2">
+              <summary>📈 Fase 2: Expansão e Engajamento da Comunidade <span class="caret">▶</span></summary>
+              <div class="wp-pane">
+                <ul>
+                  <li><b>Marketing de Influência Estratégico:</b> campanhas com influenciadores e youtubers do cenário cripto para impulsionar reconhecimento e adoção.</li>
+                  <li><b>Queima Estratégica em Duas Etapas:</b>
+                    <ul>
+                      <li><b>Meta 1 (250 Holders):</b> Queima de <b>25.000.000</b> tokens do market cap.</li>
+                      <li><b>Meta 2 (500 Holders):</b> Queima de <b>25.000.000</b> tokens (conclui a meta de queima).</li>
+                    </ul>
+                  </li>
+                  <li><b>Listagem em plataformas de dados:</b> foco em <b>CoinMarketCap</b> e <b>CoinGecko</b> quando houver volume e base robusta; <b>1.000 holders</b> é o próximo grande marco.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details id="fase-3">
+              <summary>🌐 Fase 3: Credibilidade e Alcance Global <span class="caret">▶</span></summary>
+              <div class="wp-pane">
+                <ul>
+                  <li><b>CoinMarketCap (CMC):</b> prioridade absoluta; cumprir requisitos e buscar aprovação ao aproximar-se de <b>1.000 holders</b> com volume saudável.</li>
+                  <li><b>CoinGecko:</b> listagem paralela para alcance mundial e fortalecimento do marketing.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details id="fase-4">
+              <summary>🔭 Fase 4: O Futuro Contínuo <span class="caret">▶</span></summary>
+              <div class="wp-pane">
+                <p>Lançamento e listagens são apenas o começo. Seguiremos com marketing global ativo, foco em crescimento sustentável e criação de valor — recompensando a confiança dos membros fundadores.</p>
+              </div>
+            </details>
+          </div>
+        `,
         // Comunidade
         comm_head: "COMUNIDADE",
         comm_sub: "Entre nos canais oficiais e faça parte da tropa do Pand-AI.",
@@ -710,6 +731,59 @@
         nfts_sub: "Official PandAI cyberpunk collection — unique pieces for the community.",
         wp_head: "Pandai Development Plan: On the Road to Success",
         wp_lead: "The development plan for the Pandai token was carefully structured to maximize long-term growth and sustainability.",
+        wp_body: `
+          <div class="wp-accordion">
+            <h3>Overview</h3>
+            <p>The development plan for the Pandai token was carefully structured to maximize long-term growth and sustainability. Our strategy is divided into clear phases with well-defined goals and actions.</p>
+
+            <nav class="wp-toc">
+              <a href="#phase-1">🚀 Phase 1</a>
+              <a href="#phase-2">📈 Phase 2</a>
+              <a href="#phase-3">🌐 Phase 3</a>
+              <a href="#phase-4">🔭 Phase 4</a>
+            </nav>
+
+            <details id="phase-1" open>
+              <summary>🚀 Phase 1: Launch & Consolidation <span class="caret">▶</span></summary>
+              <div class="wp-pane">
+                <p><b>(Day 4, first 24 hours)</b> — A critical moment. Aim for a strong, successful launch to position the token in the market, building trust and liquidity.</p>
+              </div>
+            </details>
+
+            <details id="phase-2">
+              <summary>📈 Phase 2: Expansion & Community Engagement <span class="caret">▶</span></summary>
+              <div class="wp-pane">
+                <ul>
+                  <li><b>Strategic Influencer Marketing:</b> campaigns with crypto influencers and YouTubers to boost awareness and adoption.</li>
+                  <li><b>Two-Step Strategic Burn:</b>
+                    <ul>
+                      <li><b>Goal 1 (250 holders):</b> Burn <b>25,000,000</b> tokens from market cap.</li>
+                      <li><b>Goal 2 (500 holders):</b> Burn <b>25,000,000</b> tokens (completes the burn target).</li>
+                    </ul>
+                  </li>
+                  <li><b>Listings on data platforms:</b> focus on <b>CoinMarketCap</b> and <b>CoinGecko</b> once volume and holder base are robust; <b>1,000 holders</b> is the next major milestone.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details id="phase-3">
+              <summary>🌐 Phase 3: Credibility & Global Reach <span class="caret">▶</span></summary>
+              <div class="wp-pane">
+                <ul>
+                  <li><b>CoinMarketCap (CMC):</b> top priority; meet requirements and pursue approval as we approach <b>1,000 holders</b> with healthy trading volume.</li>
+                  <li><b>CoinGecko:</b> parallel listing to expand global reach and strengthen marketing.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details id="phase-4">
+              <summary>🔭 Phase 4: The Ongoing Future <span class="caret">▶</span></summary>
+              <div class="wp-pane">
+                <p>Launch and listings are just the beginning. We will continue with active global marketing, focusing on sustainable growth and value creation — rewarding the trust of founding members.</p>
+              </div>
+            </details>
+          </div>
+        `,
         comm_head: "COMMUNITY",
         comm_sub: "Join the official channels and be part of the Pand-AI troop.",
         tg: "Telegram",
@@ -786,6 +860,59 @@
         nfts_sub: "Colección oficial de PandAI en estilo cyberpunk — piezas únicas para la comunidad.",
         wp_head: "Plan de Desarrollo de Pandai: Rumbo al Éxito",
         wp_lead: "El plan de desarrollo del token Pandai se diseñó cuidadosamente para maximizar el crecimiento y la sostenibilidad a largo plazo.",
+        wp_body: `
+          <div class="wp-accordion">
+            <h3>Visión general</h3>
+            <p>El plan de desarrollo del token Pandai fue diseñado para maximizar el crecimiento y la sostenibilidad a largo plazo. Nuestra estrategia se divide en fases claras con metas y acciones bien definidas.</p>
+
+            <nav class="wp-toc">
+              <a href="#fase-1-es">🚀 Fase 1</a>
+              <a href="#fase-2-es">📈 Fase 2</a>
+              <a href="#fase-3-es">🌐 Fase 3</a>
+              <a href="#fase-4-es">🔭 Fase 4</a>
+            </nav>
+
+            <details id="fase-1-es" open>
+              <summary>🚀 Fase 1: Lanzamiento y Consolidación <span class="caret">▶</span></summary>
+              <div class="wp-pane">
+                <p><b>(Día 4, primeras 24 horas)</b> — Momento crítico. Objetivo: lanzamiento sólido para posicionar el token con confianza y liquidez.</p>
+              </div>
+            </details>
+
+            <details id="fase-2-es">
+              <summary>📈 Fase 2: Expansión y Participación de la Comunidad <span class="caret">▶</span></summary>
+              <div class="wp-pane">
+                <ul>
+                  <li><b>Marketing de influencia estratégico:</b> campañas con influencers y youtubers cripto para impulsar reconocimiento y adopción.</li>
+                  <li><b>Quema estratégica en dos etapas:</b>
+                    <ul>
+                      <li><b>Meta 1 (250 holders):</b> Quema de <b>25.000.000</b> tokens.</li>
+                      <li><b>Meta 2 (500 holders):</b> Quema de <b>25.000.000</b> tokens (completa la meta de quema).</li>
+                    </ul>
+                  </li>
+                  <li><b>Listados en plataformas de datos:</b> enfoque en <b>CoinMarketCap</b> y <b>CoinGecko</b> con volumen y base robusta; <b>1.000 holders</b> es el siguiente gran hito.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details id="fase-3-es">
+              <summary>🌐 Fase 3: Credibilidad y Alcance Global <span class="caret">▶</span></summary>
+              <div class="wp-pane">
+                <ul>
+                  <li><b>CoinMarketCap (CMC):</b> prioridad; cumplir requisitos y buscar aprobación cerca de <b>1.000 holders</b> con volumen saludable.</li>
+                  <li><b>CoinGecko:</b> listado paralelo para alcance mundial y marketing reforzado.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details id="fase-4-es">
+              <summary>🔭 Fase 4: Futuro Continuo <span class="caret">▶</span></summary>
+              <div class="wp-pane">
+                <p>El lanzamiento y los listados son solo el comienzo. Seguiremos con marketing global activo, crecimiento sostenible y creación de valor — recompensando la confianza de los miembros fundadores.</p>
+              </div>
+            </details>
+          </div>
+        `,
         comm_head: "COMUNIDAD",
         comm_sub: "Entra a los canales oficiales y sé parte de la tropa de Pand-AI.",
         tg: "Telegram",
@@ -995,9 +1122,10 @@
       setText('#nfts .nfts-head','nfts_head');
       setText('#nfts .nfts-sub','nfts_sub');
 
-      // Whitepaper
+      // Whitepaper (acordeão + TOC)
       setText('#whitepaper .wp-head','wp_head');
       setText('#whitepaper .wp-lead','wp_lead');
+      setText('#whitepaper .wp-body','wp_body', {html:true});
 
       // Comunidade
       setText('#comunidade h2','comm_head');
@@ -1017,7 +1145,6 @@
     }
 
     // ====== Inicialização ======
-    // preencher links iniciais do topo/rodapé e chips
     document.getElementById("buyTop").href   = LINKS.pancake;
     document.getElementById("buyHero").href  = LINKS.pancake;
     document.getElementById("footerCA").href = LINKS.bscscan;
@@ -1025,14 +1152,15 @@
       const el = document.getElementById(id); if(el) el.href = LINKS[id];
     });
 
-    // aplicar textos de acordo com o idioma atual
     applyTexts();
 
-    // listener do seletor
     document.getElementById('langSwitcher').addEventListener('change', (e)=>{
       CURRENT_LANG = e.target.value;
       localStorage.setItem('lang', CURRENT_LANG);
       applyTexts();
+      // rolar para o topo do whitepaper quando trocar de idioma
+      const wp = document.getElementById('whitepaper');
+      if(wp) wp.scrollIntoView({behavior:'smooth', block:'start'});
     });
   </script>
 </body>
