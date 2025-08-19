@@ -263,25 +263,27 @@ img, video, svg {
 }
 #langSwitcher option{background:#0b1016;color:#fff}
 
-/* ==== FUNDO COM RISCOS NEON ==== */
+/* ==== FUNDO COM RISCOS NEON DIAGONAIS ==== */
 .lines{
   position:fixed;
   inset:0;
-  z-index:-5;            /* fica atrás de tudo (seu hero já usa -1/-2/-3) */
+  z-index:-5;
   pointer-events:none;
   background: repeating-linear-gradient(
-    to bottom,
-    rgba(0,240,255,.06) 0px,
-    rgba(0,240,255,.06) 1px,
+    135deg, /* ângulo: 135° deixa diagonal */
+    rgba(0,240,255,.08) 0px,
+    rgba(0,240,255,.08) 1px,
     transparent 2px,
     transparent 60px
   );
-  animation: linesMove 6s linear infinite;
+  animation: linesMove 8s linear infinite;
 }
+
 @keyframes linesMove{
-  from{ background-position-y:0; }
-  to  { background-position-y:60px; }
+  from{ background-position:0 0; }
+  to  { background-position:200px 200px; }
 }
+
 </style>
 </head>
 
