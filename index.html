@@ -263,27 +263,79 @@ img, video, svg {
 }
 #langSwitcher option{background:#0b1016;color:#fff}
 
-/* ==== FUNDO CIRCUITOS NEON ==== */
-.lines{
-  position:fixed;
-  inset:0;
-  z-index:-5;
-  pointer-events:none;
-  background-color:#0b1016;
-  background-image:
-    linear-gradient(90deg, rgba(0,240,255,.06) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(0,240,255,.06) 1px, transparent 1px),
-    radial-gradient(circle at 20% 30%, rgba(0,240,255,.12) 1px, transparent 2px),
-    radial-gradient(circle at 70% 60%, rgba(0,240,255,.12) 1px, transparent 2px);
-  background-size:60px 60px, 60px 60px, 120px 120px, 200px 200px;
-  animation: circuitsMove 15s linear infinite;
-}
+<body>
+    
+  <!-- CIRCUITOS SVG NO FUNDO -->
+  <svg class="circuit-bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <!-- traço principal (ciano) -->
+      <linearGradient id="glow" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%"  stop-color="#00f0ff" stop-opacity="0.9"/>
+        <stop offset="100%" stop-color="#00f0ff" stop-opacity="0.2"/>
+      </linearGradient>
+      <filter id="soft-glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="2" result="b"/>
+        <feMerge>
+          <feMergeNode in="b"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
 
-@keyframes circuitsMove{
-  from{ background-position:0 0, 0 0, 0 0, 0 0; }
-  to  { background-position:200px 200px, 200px 200px, 400px 400px, 600px 600px; }
-}
+      <!-- linha “corrente” animada (dashed) -->
+      <style>
+        .trace{ fill:none; stroke:url(#glow); stroke-width:2; filter:url(#soft-glow); }
+        .pulse{ stroke-dasharray:12 14; animation: flow 4s linear infinite; }
+        .node{ fill:#00f0ff; opacity:.8; }
+        .node-glow{ fill:#00f0ff; opacity:.15; }
+        @keyframes flow { to { stroke-dashoffset:-260; } }
+      </style>
+    </defs>
 
+    <!-- Trilhas horizontais/verticais -->
+    <g opacity=".85">
+      <!-- horizontais -->
+      <path class="trace pulse" d="M80,160 H1360 M80,300 H1360 M80,460 H1360 M80,640 H1360" />
+      <!-- verticais -->
+      <path class="trace pulse" d="M200,80 V820 M420,80 V820 M660,80 V820 M920,80 V820 M1180,80 V820" />
+    </g>
+
+    <!-- Conexões anguladas (cotovelos) -->
+    <g opacity=".9">
+      <path class="trace pulse" d="M200,300 H420 V160 H660" />
+      <path class="trace pulse" d="M920,460 H660 V300 H420" />
+      <path class="trace pulse" d="M1180,640 H920 V460 H660" />
+      <path class="trace pulse" d="M200,640 H420 V460 H660" />
+    </g>
+
+    <!-- Nós (pads) -->
+    <g>
+      <!-- ciano -->
+      <circle cx="200" cy="300" r="3.5" class="node"/>
+      <circle cx="420" cy="160" r="3.5" class="node"/>
+      <circle cx="660" cy="160" r="3.5" class="node"/>
+      <circle cx="660" cy="460" r="3.5" class="node"/>
+      <circle cx="920" cy="460" r="3.5" class="node"/>
+      <circle cx="1180" cy="640" r="3.5" class="node"/>
+      <circle cx="420" cy="460" r="3.5" class="node"/>
+      <circle cx="200" cy="640" r="3.5" class="node"/>
+
+      <!-- “aura” dos nós -->
+      <circle cx="200" cy="300" r="18" class="node-glow"/>
+      <circle cx="420" cy="160" r="18" class="node-glow"/>
+      <circle cx="660" cy="160" r="18" class="node-glow"/>
+      <circle cx="660" cy="460" r="18" class="node-glow"/>
+      <circle cx="920" cy="460" r="18" class="node-glow"/>
+      <circle cx="1180" cy="640" r="18" class="node-glow"/>
+      <circle cx="420" cy="460" r="18" class="node-glow"/>
+      <circle cx="200" cy="640" r="18" class="node-glow"/>
+    </g>
+
+    <!-- detalhe em laranja (acento PandAI) -->
+    <g opacity=".65">
+      <path class="trace pulse" stroke="#ff9900" d="M80,740 H360 V560 H520" />
+      <circle cx="520" cy="560" r="3.5" fill="#ff9900"/>
+    </g>
+  </svg>
 
 </style>
 </head>
