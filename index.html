@@ -283,7 +283,7 @@ img, video, svg {
 
 <body>
   <!-- CIRCUITOS SVG NO FUNDO -->
-  <svg class="circuit-bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+   <svg class="circuit-bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
     <defs>
       <linearGradient id="glow" x1="0" y1="0" x2="1" y2="0">
         <stop offset="0%"  stop-color="#00f0ff" stop-opacity="0.9"/>
@@ -294,7 +294,7 @@ img, video, svg {
         <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
       </filter>
       <style>
-        .trace{ fill:none; stroke:url(#glow); stroke-width:2; filter:url(#soft-glow); }
+        .trace{ fill:none; stroke:url(#glow); stroke-width:2; filter:url(#soft-glow); vector-effect: non-scaling-stroke; }
         .pulse{ stroke-dasharray:12 14; animation: flow 4s linear infinite; }
         .node{ fill:#00f0ff; opacity:.8; }
         .node-glow{ fill:#00f0ff; opacity:.15; }
