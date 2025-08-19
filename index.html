@@ -243,28 +243,51 @@ img, video, svg {
     .icon-btn .fill { fill:#00f9ff; filter: drop-shadow(0 0 6px rgba(0,249,255,.6)); }
     .icon-btn .stroke{ stroke:#00f9ff; stroke-width:2.2; fill:none; filter: drop-shadow(0 0 6px rgba(0,249,255,.6)); }
 
-    /* ===== FOOTER ===== */
-    .footer{ margin:60px 0 30px; text-align:center; color:var(--muted) }
-    .footer a{ color:var(--cyan); text-decoration:none }
-    @media (max-width:400px){
-      .hero-title{ font-size: clamp(22px, 8vw, 36px); }
-      .btn{ padding:8px 14px; }
-      h2{ font-size:24px; }
-      .nft-meta{ padding:4px 6px; }
-    }
+ /* ===== FOOTER ===== */
+.footer{ margin:60px 0 30px; text-align:center; color:var(--muted) }
+.footer a{ color:var(--cyan); text-decoration:none }
+@media (max-width:400px){
+  .hero-title{ font-size: clamp(22px, 8vw, 36px); }
+  .btn{ padding:8px 14px; }
+  h2{ font-size:24px; }
+  .nft-meta{ padding:4px 6px; }
+}
 
-    /* seletor de idioma */
-    #langSwitcher{
-      appearance:none; background:transparent; color:var(--cyan-strong);
-      border:1.6px solid var(--cyan-strong);
-      border-radius:999px; padding:10px 14px;
-      font-weight:800; letter-spacing:.2px; cursor:pointer;
-      margin-right:12px;
-    }
-    #langSwitcher option{background:#0b1016;color:#fff}
-  </style>
+/* seletor de idioma */
+#langSwitcher{
+  appearance:none; background:transparent; color:var(--cyan-strong);
+  border:1.6px solid var(--cyan-strong);
+  border-radius:999px; padding:10px 14px;
+  font-weight:800; letter-spacing:.2px; cursor:pointer;
+  margin-right:12px;
+}
+#langSwitcher option{background:#0b1016;color:#fff}
+
+/* ==== FUNDO COM RISCOS NEON ==== */
+.lines{
+  position:fixed;
+  inset:0;
+  z-index:-5;            /* fica atrás de tudo (seu hero já usa -1/-2/-3) */
+  pointer-events:none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0,240,255,.06) 0px,
+    rgba(0,240,255,.06) 1px,
+    transparent 2px,
+    transparent 60px
+  );
+  animation: linesMove 6s linear infinite;
+}
+@keyframes linesMove{
+  from{ background-position-y:0; }
+  to  { background-position-y:60px; }
+}
+</style>
 </head>
+
 <body>
+  <!-- Fundo com riscos neon -->
+  <div class="lines"></div>
 
   <!-- ===== HEADER ===== -->
   <header class="header">
